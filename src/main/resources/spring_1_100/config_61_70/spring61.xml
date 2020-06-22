@@ -10,6 +10,7 @@
                 <value>spring_1_100/config_61_70/messages</value>
             </list>
         </property>
+        <property name="defaultEncoding"  value="utf-8"></property>
     </bean>
 
 </beans>
