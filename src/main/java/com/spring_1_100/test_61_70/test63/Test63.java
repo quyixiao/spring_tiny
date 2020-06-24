@@ -8,6 +8,10 @@ public class Test63 {
         //  ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring63.xml");
 
         DefaultConversionService conversionService = new DefaultConversionService();
+
+
+
+
         String phoneNumber = "010-12349832xxxxx98";
 
         PhomeNumerModel model = conversionService.convert(phoneNumber, PhomeNumerModel.class);
@@ -15,4 +19,12 @@ public class Test63 {
 
         System.out.println("++++++++++" + model.getAreaCode());
     }
+
+
+
+
+
+
+
+
 }
