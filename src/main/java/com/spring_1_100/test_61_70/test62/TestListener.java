@@ -12,7 +12,6 @@ public class TestListener implements ApplicationListener {
         if(event instanceof PayloadApplicationEvent){
             TestEvent testEvent = (TestEvent)((PayloadApplicationEvent) event).getPayload();
             testEvent.print();
-
         }
 
     }
