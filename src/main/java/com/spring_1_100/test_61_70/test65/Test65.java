@@ -12,6 +12,6 @@ public class Test65 {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring65.xml");
 
         Aservice service =(Aservice) ac.getBean("aservice");
-        service.a();
+        service.b();
     }
 }
