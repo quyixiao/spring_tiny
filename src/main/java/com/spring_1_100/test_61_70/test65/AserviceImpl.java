@@ -13,7 +13,10 @@ public class AserviceImpl implements Aservice {
 */
 
     @Override
-    public void b() {
-        System.out.println("print b ");
+    public void b(String x,String y ) {
+
+        System.out.println("print x=" + x + ",y="+y);
+
+
     }
 }
