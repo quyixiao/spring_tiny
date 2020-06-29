@@ -9,4 +9,7 @@ public interface UserService {
 
     List<User> getUsers();
 
+
+
+    List<User> getUsersByName(String username);
 }

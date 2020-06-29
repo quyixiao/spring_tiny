@@ -24,4 +24,10 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsers() {
         return jdbcTemplate.query("select * from lz_user ", new UserRowMapper());
     }
+
+    @Override
+    public List<User> getUsersByName(String username) {
+        return  jdbcTemplate.query("select * from lz_user where username = ? ",
+                new Object[]{username},new UserRowMapper());
+    }
 }
