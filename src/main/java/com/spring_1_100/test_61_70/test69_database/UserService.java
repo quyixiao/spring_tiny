@@ -12,4 +12,6 @@ public interface UserService {
 
 
     List<User> getUsersByName(String username);
+
+     List<User> queryObjectUsersByName(String username);
 }

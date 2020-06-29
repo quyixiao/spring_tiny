@@ -1,5 +1,6 @@
 package com.spring_1_100.test_61_70.test69_database;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -29,5 +30,16 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsersByName(String username) {
         return  jdbcTemplate.query("select * from lz_user where username = ? ",
                 new Object[]{username},new UserRowMapper());
+    }
+
+
+    @Override
+    public List<User> queryObjectUsersByName(String username) {
+        List<String> list =  jdbcTemplate.queryForList("select password from lz_user where username = '" + username + "'",
+             String.class);
+
+        System.out.println(JSON.toJSONString(list));
+
+        return null;
     }
 }

@@ -13,7 +13,7 @@ public class Test69 {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring69.xml");
 
         UserService userService =(UserService) ac.getBean("userService");
-        List<User> users = userService.getUsersByName("19884189046") ;
+        List<User> users = userService.queryObjectUsersByName("19884189046") ;
         System.out.println(JSON.toJSONString(users));
 
     }
