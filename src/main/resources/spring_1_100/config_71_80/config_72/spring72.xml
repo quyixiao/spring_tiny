@@ -38,6 +38,15 @@
     -->
 
 
+<!--    <bean id="mesHandler" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>spring_1_100/config_71_80/config_72/test72.properties</value>
+            </list>
+        </property>
+    </bean>-->
+
+
     <bean id="mesHandler" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
@@ -45,6 +54,7 @@
             </list>
         </property>
     </bean>
+
 
     <bean id="message" class="com.spring_1_100.test_71_80.test72_mybatis_scan.HelloMessage">
         <property name="msg">
