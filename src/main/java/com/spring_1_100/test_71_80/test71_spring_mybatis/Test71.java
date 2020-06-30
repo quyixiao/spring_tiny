@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test71 {
     public static void main(String[] args) {
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/config_71_mybatis_origin/spring71.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring71_mybatis_origin/spring71.xml");
 
 
         UserMapper userMapper = (UserMapper) ac.getBean("userMapper");

@@ -18,7 +18,7 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation"
-                  value="classpath:spring_1_100/config_71_80/config_72/spring-mybatis-config.xml"></property>
+                  value="classpath:spring_1_100/config_71_80/spring72/spring-mybatis-config.xml"></property>
         <property name="dataSource" ref="dataSource"></property>
         <property name="typeAliasesPackage" value="aaaaa"></property>
     </bean>
@@ -50,7 +50,7 @@
     <bean id="mesHandler" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>spring_1_100/config_71_80/config_72/test72.properties</value>
+                <value>spring_1_100/config_71_80/spring72/test72.properties</value>
             </list>
         </property>
     </bean>

@@ -16,6 +16,6 @@
 
 
     <mappers>
-		<mapper resource="spring_1_100/config_71_80/config_72/UserMapper.xml"></mapper>
+		<mapper resource="spring_1_100/config_71_80/spring72/UserMapper.xml"></mapper>
     </mappers>
 </configuration>
