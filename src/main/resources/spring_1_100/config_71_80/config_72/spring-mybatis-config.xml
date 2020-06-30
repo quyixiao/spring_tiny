@@ -11,11 +11,11 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="com.spring_1_100.test_71_80.test70_spring_mybatis.User" alias="User"></typeAlias>
+        <typeAlias type="com.spring_1_100.test_71_80.test72_mybatis_scan.User" alias="User"></typeAlias>
     </typeAliases>
 
 
     <mappers>
-		<mapper resource="spring_1_100/config_71_80/UserMapper.xml"></mapper>
+		<mapper resource="spring_1_100/config_71_80/config_72/UserMapper.xml"></mapper>
     </mappers>
 </configuration>

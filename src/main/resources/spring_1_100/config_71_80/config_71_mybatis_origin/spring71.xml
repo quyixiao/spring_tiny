@@ -17,14 +17,14 @@
 
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="configLocation" value="classpath:spring_1_100/config_71_80/spring-mybatis-config.xml"></property>
+        <property name="configLocation" value="classpath:spring_1_100/config_71_80/config_71_mybatis_origin/spring-mybatis-config.xml"></property>
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
 
 
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.spring_1_100.test_71_80.test70_spring_mybatis.UserMapper"></property>
+        <property name="mapperInterface" value="com.spring_1_100.test_71_80.test71_spring_mybatis.UserMapper"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
 

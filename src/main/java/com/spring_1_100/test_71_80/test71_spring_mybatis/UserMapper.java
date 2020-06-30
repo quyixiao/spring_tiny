@@ -1,4 +1,4 @@
-package com.spring_1_100.test_71_80.test70_spring_mybatis;
+package com.spring_1_100.test_71_80.test71_spring_mybatis;
 
 
 public interface UserMapper {
