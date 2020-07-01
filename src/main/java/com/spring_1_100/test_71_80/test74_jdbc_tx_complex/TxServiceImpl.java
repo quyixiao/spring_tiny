@@ -41,7 +41,7 @@ public class TxServiceImpl implements TxService {
 
 
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void updateUserRequiresNewTest2(){
         User user1 = userService.selectById(456l);
         user1.setUsername("123");
@@ -53,6 +53,179 @@ public class TxServiceImpl implements TxService {
     }
 
 
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequiresTest1(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserRequires1();
+    }
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequiresTest2(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserRequires2();
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void updateUserRequiresNewTest22() {
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserRequiresNew2();
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void updateUserRequiresNewTest222() {
+        User user1 = userService.selectById(458l);
+        user1.setUsername("789");
+        userService.updateById(user1);
+
+        userService.updateUserRequiresNew33();
+        userService.updateUserRequiresNew1();
+
+    }
+
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void updateUserRequiresNewTest3(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserRequires();
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequiresNewTest4(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserRequiresNew1();
+    }
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequiresNewTest5(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserSupports();
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
+
+
+
+    public void updateUserRequiresNewTest6(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserSupports();
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
+
+
+    public void updateUserRequiresNewTest7(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserSupportsException();
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequiresNewTest8(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserSupportsException();
+    }
+
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void updateUserRequiresNewTest9(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserSupportsException();
+    }
+
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequiresNewTest10(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserSupportsException();
+    }
+
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void updateUserRequiresNewTest11(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserMandatory();
+    }
+
+
+    public void updateUserRequiresNewTest12(){
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserMandatory();
+    }
+
+    public void updateUserRequiresNewTest13(){
+        userService.updateUserRequire123();
+        userService.updateUserMandatory();
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void updateUserRequiresNewTest14() {
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserNotSupportException();
+    }
+
+    @Override
+    public void updateUserRequiresNewTest15() {
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+        userService.updateUserNotSupportException();
+    }
+
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void updateUserRequiresNewTest144() {
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123huikaiming");
+        userService.updateById(user1);
+        userService.updateUserNotSupportException123();
+    }
 
 
     public void setUserService(UserService userService) {

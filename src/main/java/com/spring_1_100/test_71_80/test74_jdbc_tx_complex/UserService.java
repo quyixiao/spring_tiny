@@ -8,9 +8,22 @@ public interface UserService {
     void updateById(User user);
 
     void updateUserRequiresNew1();
+    public void updateUserRequires1();
 
 
     void updateUserRequiresNew2();
+    public void updateUserRequires2();
 
+    void updateUserRequires();
 
+    void updateUserSupports();
+
+    void updateUserSupportsException();
+    void updateUserMandatory();
+    void updateUserRequire123();
+    void updateUserRequiresNew33();
+
+    void updateUserNotSupportException();
+
+    void updateUserNotSupportException123();
 }

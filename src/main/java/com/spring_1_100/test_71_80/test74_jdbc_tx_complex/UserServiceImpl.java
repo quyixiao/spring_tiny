@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
         User user2 = selectById(457l);
         user2.setUsername("456");
         updateById(user2);
-        int i = 0 ;
+       int i = 0 ;
         int j = 0;
         int c = i / j ;
     }
@@ -48,6 +48,104 @@ public class UserServiceImpl implements UserService {
         updateById(user2);
     }
 
+
+
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void updateUserRequiresNew33(){
+        User user2 = selectById(456l);
+        user2.setUsername("123");
+        updateById(user2);
+    }
+
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequires1(){
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
+
+
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequires2(){
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+    }
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequires(){
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+    }
+
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public void updateUserSupports(){
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+    }
+
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public void updateUserSupportsException(){
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
+
+    @Transactional(propagation = Propagation.MANDATORY)
+    public void updateUserMandatory(){
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequire123() {
+        User user1 = selectById(456l);
+        user1.setUsername("123");
+        updateById(user1);
+    }
+
+
+    @Override
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void updateUserNotSupportException() {
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
+
+
+
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    @Override
+    public void updateUserNotSupportException123() {
+        User user1 = selectById(456l);
+        user1.setUsername("123quyixiao1xxxxx");
+        updateById(user1);
+        int i = 0 ;
+        int j = 0;
+        int c = i / j ;
+    }
 
 
 }

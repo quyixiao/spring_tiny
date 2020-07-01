@@ -15,7 +15,35 @@ public interface  TxService {
 
 
     void updateUserRequiresNewTest2();
+    void updateUserRequiresTest1();
+    void updateUserRequiresTest2();
 
 
 
+    void updateUserRequiresNewTest3();
+
+    void updateUserRequiresNewTest4();
+
+    void updateUserRequiresNewTest5();
+
+    void updateUserRequiresNewTest6();
+
+    void updateUserRequiresNewTest7();
+
+    void updateUserRequiresNewTest8();
+    void updateUserRequiresNewTest9();
+    void updateUserRequiresNewTest10();
+    void updateUserRequiresNewTest11();
+    void updateUserRequiresNewTest12();
+    void updateUserRequiresNewTest13();
+
+    void updateUserRequiresNewTest22();
+
+    void updateUserRequiresNewTest222();
+
+    void updateUserRequiresNewTest14();
+
+    void updateUserRequiresNewTest15();
+
+    void updateUserRequiresNewTest144();
 }
