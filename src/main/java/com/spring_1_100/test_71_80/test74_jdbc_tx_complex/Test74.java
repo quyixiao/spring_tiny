@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+// https://blog.csdn.net/yanyan19880509/article/details/53041564/
 public class Test74 {
 
 
@@ -165,7 +166,21 @@ public class Test74 {
         txService.updateUserRequiresNewTest15();
     }
 
+    //========[required[never]]=====result:[exception : Existing transaction found for transaction marked with propagation 'never']=========================================
+    @Test
+    public void updateUserRequiresNewTest16() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
+        TxService txService = (TxService) ac.getBean("txService");
+        txService.updateUserRequiresNewTest16();
+    }
 
+    //========[never[required]]=====result:[commit[commit]]=========================================
+    @Test
+    public void updateUserRequiresNewTest17() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
+        TxService txService = (TxService) ac.getBean("txService");
+        txService.updateUserRequiresNewTest17();
+    }
 
 
 

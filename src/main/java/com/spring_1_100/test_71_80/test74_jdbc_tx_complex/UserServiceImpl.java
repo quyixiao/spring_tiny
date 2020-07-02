@@ -148,4 +148,17 @@ public class UserServiceImpl implements UserService {
     }
 
 
+
+    @Transactional(propagation = Propagation.NEVER)
+    @Override
+    public void updateUserNever() {
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+
+
+
+    }
+
+
 }
