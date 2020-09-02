@@ -6,8 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test43 {
 
     public static void main(String[] args) {
-        ApplicationContext bf = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_41_50/spring43.xml");
-
+        ApplicationContext bf = new ClassPathXmlApplicationContext("classpath*:spring_1_100/config_41_50/spring43.xml");
         GetBeanTest test = (GetBeanTest) bf.getBean("getBeanTest");
         test.showMe();
     }
