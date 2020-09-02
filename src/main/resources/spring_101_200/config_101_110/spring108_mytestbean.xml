@@ -4,7 +4,9 @@
        xmlns:mvc="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <bean id="myTestBean" class="com.spring_101_200.test_101_110.test108_mytestbean.MyTestBean"></bean>
+    <bean id="myTestBean" class="com.spring_101_200.test_101_110.test108_mytestbean.MyTestBean">
+        <meta key="testStr" value="aaaaaaaaaaa"/>
+    </bean>
 
 
 </beans>

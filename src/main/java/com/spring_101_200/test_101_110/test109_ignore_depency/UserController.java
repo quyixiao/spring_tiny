@@ -11,6 +11,7 @@ public class UserController {
 
 
     public void test() {
+        System.out.println(springContextUtils.getApplicationContext());
         UserService userService = springContextUtils.getApplicationContext().getBean(UserService.class);
         userService.get();
     }

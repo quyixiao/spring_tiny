@@ -5,7 +5,7 @@
 
 
     <bean id="getBeanTest" class="com.spring_1_100.test_41_50.test43.GetBeanTest">
-        <lookup-method name="getBean" ></lookup-method>
+        <lookup-method name="getBean" bean="student" ></lookup-method>
     </bean>
 
 

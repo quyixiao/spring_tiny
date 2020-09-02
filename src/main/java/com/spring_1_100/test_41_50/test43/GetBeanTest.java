@@ -4,6 +4,6 @@ public abstract class GetBeanTest {
     public void showMe() {
         this.getBean().showMe();
     }
-    public abstract Teacher getBean();
+    public abstract User getBean();
 }
 
