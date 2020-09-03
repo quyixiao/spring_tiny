@@ -21,5 +21,4 @@ public class CglibMeipo implements MethodInterceptor {
         return obj;
     }
 
-
 }
