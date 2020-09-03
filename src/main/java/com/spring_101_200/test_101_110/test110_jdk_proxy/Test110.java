@@ -9,12 +9,6 @@ import java.io.FileOutputStream;
 public class Test110 {
 
 
-    @Test
-    public void test1() throws Exception {
-        Person obj = (Person) new JDKMeipo().getInstance(new Customer());
-        obj.findLove();
-    }
-
 
     @Test
     public void test2() throws Exception {

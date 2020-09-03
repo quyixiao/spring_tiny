@@ -22,5 +22,4 @@ public class JDKMeipo implements InvocationHandler {
         return null;
     }
 
-
 }
