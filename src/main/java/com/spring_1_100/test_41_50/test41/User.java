@@ -10,21 +10,16 @@ public class User {
 
     public User() {
     }
-
-
-
-    public User(Integer age, Integer sex) {
-        this.age = age;
-        this.sex = sex;
-    }
-
     public User(String userName, Integer age) {
         this.userName = userName;
         this.age = age;
     }
 
 
-
+    public User(Integer age, Integer sex) {
+        this.age = age;
+        this.sex = sex;
+    }
 
     public User(String userName, Integer age, Integer sex) {
         this.userName = userName;
