@@ -19,13 +19,13 @@ public class SpringTest1 {
      * 一：ClassPathXmlApplicationContext
      *
      * 4.可以同时加载多个文件
-     *   String[] xmlCfg = new String[] { "classpath:base.spring_test1.xml","app.spring_test1.xml"};
+     *   String[] xmlCfg = new String[] { "classpath:base.spring_test3.xml","app.spring_test3.xml"};
      *   ApplicationContext appCt = new ClassPathXmlApplicationContext(xmlCfg);
      *
      */
     /**
      * 1.没有前缀：默认为项目的classpath下相对路径
-     *    ApplicationContext appCt = new ClassPathXmlApplicationContext("app.spring_test1.xml");
+     *    ApplicationContext appCt = new ClassPathXmlApplicationContext("app.spring_test3.xml");
      * 对于这种情况，我们不做源码解读
      */
     @Test
@@ -37,7 +37,7 @@ public class SpringTest1 {
 
     /**
      * 2.前缀classpath：表示的是项目的classpath下相对路径
-     *    ApplicationContext appCt = new ClassPathXmlApplicationContext("classpath:app.spring_test1.xml");
+     *    ApplicationContext appCt = new ClassPathXmlApplicationContext("classpath:app.spring_test3.xml");
      */
     @Test
     public void test1() {
@@ -46,19 +46,50 @@ public class SpringTest1 {
         userService.query();
     }
 
+
+    /**
+     * 2.前缀classpath：表示的是项目的classpath下相对路径
+     *    ApplicationContext appCt = new ClassPathXmlApplicationContext("classpath:app.spring_test3.xml");
+     */
+    @Test
+    public void test2() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:spring_1_100/config_1_10/spring.xml");
+        UserService userService = (UserService) ctx.getBean("userService");
+        userService.query();
+    }
+
+    /**
+     * 2.前缀classpath：表示的是项目的classpath下相对路径
+     *    ApplicationContext appCt = new ClassPathXmlApplicationContext("classpath:app.spring_test3.xml");
+     */
+    @Test
+    public void test2_2() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:spring_1_100/config_1_10/spring_test1/*.xml");
+        UserService userService = (UserService) ctx.getBean("userService");
+        userService.query();
+    }
+
+
+    @Test
+    public void test2_3() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring_1_100/config_1_10/spring_test1/a/b/c/../../spring_test3.xml");
+        UserService userService = (UserService) ctx.getBean("userService");
+        userService.query();
+    }
+
     /**
      * 3.使用前缀file 表示的是文件的绝对路径
-     *    ApplicationContext appCt = new ClassPathXmlApplicationContext("file:D:/app.spring_test1.xml");
+     *    ApplicationContext appCt = new ClassPathXmlApplicationContext("file:D:/app.spring_test3.xml");
      */
     @Test
     public void test3() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/spring_test3.xml");
         UserService userService = (UserService) ctx.getBean("userService");
         userService.query();
     }
 
     /**4.使用通配符加载所有符合要求的文件
-     *   ApplicationContext appCt = new ClassPathXmlApplicationContext("*.spring_test1.xml");
+     *   ApplicationContext appCt = new ClassPathXmlApplicationContext("*.spring_test3.xml");
      */
     @Test
     public void test4() {
@@ -67,26 +98,44 @@ public class SpringTest1 {
         userService.query();
     }
 
+    @Test
+    public void test5(){
+        String Str = new String("菜鸟教程:www.runoob.com");
+        String SubStr1 = new String("runoob");
+        String SubStr2 = new String("com");
+
+        System.out.print("查找字符 o 最后出现的位置 :" );
+        System.out.println(Str.lastIndexOf( 'o' ));
+        System.out.print("从第14个位置查找字符 o 最后出现的位置 :" );
+        System.out.println(Str.lastIndexOf( 'o', 17));
+        System.out.print("子字符串 SubStr1 最后出现的位置:" );
+        System.out.println( Str.lastIndexOf( SubStr1 ));
+        System.out.print("从第十五个位置开始搜索子字符串 SubStr1最后出现的位置 :" );
+        System.out.println( Str.lastIndexOf( SubStr1, 15 ));
+        System.out.print("子字符串 SubStr2 最后出现的位置 :" );
+        System.out.println(Str.lastIndexOf( SubStr2 ));
+    }
+
 
     /*
      *
      * 二：FileSystemXmlApplicationContext
      * 1.默认为项目工作路径 即项目的根目录
-     * ApplicationContext appCt2 = new FileSystemXmlApplicationContext("src/main/resources/app.spring_test1.xml");
+     * ApplicationContext appCt2 = new FileSystemXmlApplicationContext("src/main/resources/app.spring_test3.xml");
      *
      * 2.前缀classpath：表示的是项目的classpath下相对路径
-     *    ApplicationContext appCt2 = new FileSystemXmlApplicationContext("classpath:app.spring_test1.xml");
+     *    ApplicationContext appCt2 = new FileSystemXmlApplicationContext("classpath:app.spring_test3.xml");
      *
      * 3.使用前缀file 表示的是文件的绝对路径
-     *    ApplicationContext appCt2 = new FileSystemXmlApplicationContext("file:D:/app.spring_test1.xml");
-     *    ApplicationContext appCt2 = new FileSystemXmlApplicationContext("D:/app.spring_test1.xml");
+     *    ApplicationContext appCt2 = new FileSystemXmlApplicationContext("file:D:/app.spring_test3.xml");
+     *    ApplicationContext appCt2 = new FileSystemXmlApplicationContext("D:/app.spring_test3.xml");
      *
      * 4.可以同时加载多个文件
-     *   String[] xmlCfg = new String[] { "src/main/resources/base.spring_test1.xml","classpath:app.spring_test1.xml"};
+     *   String[] xmlCfg = new String[] { "src/main/resources/base.spring_test3.xml","classpath:app.spring_test3.xml"};
      *   ApplicationContext appCt2 = new FileSystemXmlApplicationContext(xmlCfg);
      *
      * 5.使用通配符加载所有符合要求的文件
-     *   ApplicationContext appCt2 = new FileSystemXmlApplicationContext("classpath:*.spring_test1.xml");
+     *   ApplicationContext appCt2 = new FileSystemXmlApplicationContext("classpath:*.spring_test3.xml");
      */
 
 }
