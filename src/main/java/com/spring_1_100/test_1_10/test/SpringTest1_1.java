@@ -38,9 +38,9 @@ public class SpringTest1_1 {
 
 
     public static void main(String[] args) {
-        String pattern = "/xxx/abc";
-        String path = "/xxx/abc";
-        boolean a = doMatch(pattern, path, false, null);
+        String pattern = "/**/a/**/b";
+        String path = "/a/a/b";
+        boolean a = doMatch(pattern, path, true, null);
         System.out.println(a);
     }
 
@@ -82,34 +82,37 @@ public class SpringTest1_1 {
         }
         // pathIdxStart > pathIdEnd, 表示文件路径(path), 已经逐一的匹配到了
         if (pathIdxStart > pathIdxEnd) {
-            // Path is exhausted, only match if rest of pattern is * or **'s
+            // 数组中第一个值是pattern，第二个值是path ，后面所有注释都是如此 [/xxx/abc,/xxx/abc]  , [ /xxx/*,/xxx/abc]
             if (pattIdxStart > pattIdxEnd) {
                 return (pattern.endsWith(pathSeparator) ? path.endsWith(pathSeparator) :
                         !path.endsWith(pathSeparator));
             }
+            // [/xxx/abc/*,/xxx/abc] , [/xxx/abc/ddd,/xxx/abc] && fullMatch = false
             if (!fullMatch) {
                 return true;
             }
+            // [/*/*/,/abc/] , [/abc/*,/abc/]    &&   fullMatch == true
             if (pattIdxStart == pattIdxEnd && pattDirs[pattIdxStart].equals("*") && path.endsWith(pathSeparator)) {
                 return true;
             }
             for (int i = pattIdxStart; i <= pattIdxEnd; i++) {
+                // [/*/*/,/abc/] , [/abc/*,/abc ]    &&   fullMatch == true 注意 第二个数组中abc后面没有【/】
                 if (!pattDirs[i].equals("**")) {
                     return false;
                 }
             }
+            // [/abc/**,/abc]  && fullMatch == true
             return true;
         }
+        // [/abc/def , /abc/def/ccc ] , [/abc/* , /abc/def/ccc ]
         else if (pattIdxStart > pattIdxEnd) {
-            // String not exhausted, but pattern is. Failure.
             return false;
         }
+        // [/abc/** , /abc/def/ccc ] && fullMatch == false
         else if (!fullMatch && "**".equals(pattDirs[pattIdxStart])) {
-            // Path start definitely matches due to "**" part in pattern.
             return true;
         }
 
-        // up to last '**'
         // 3. 两个字符串数组都从最后的下标开始匹配, 直到遇到pattDir为'**'时结束
         while (pattIdxStart <= pattIdxEnd && pathIdxStart <= pathIdxEnd) {
             String pattDir = pattDirs[pattIdxEnd];
@@ -117,26 +120,22 @@ public class SpringTest1_1 {
                 break;
             }
             if (!matchStrings(pattDir, pathDirs[pathIdxEnd], uriTemplateVariables)) {
+                // [/xxxx/abcd/**/ddd.class,/xxxx/abcd/xxx.class] && fullMatch == true
                 return false;
             }
             pattIdxEnd--;
             pathIdxEnd--;
         }
         if (pathIdxStart > pathIdxEnd) {
-            // String is exhausted
             for (int i = pattIdxStart; i <= pattIdxEnd; i++) {
                 if (!pattDirs[i].equals("**")) {
+                    // [/**/xxx/bb, /bb]  && fullMatch == true
                     return false;
                 }
             }
             // 这里返回true 一般字符串为
-            // /xxxx/abcd/**/*.class => /xxxx/abcd /xxx.class
+            // [/xxxx/abcd/**/*.class, /xxxx/abcd/xxx.class]  && fullMatch == true
             // 即只有一个**, 而且**没发挥到什么作用
-            // 测试
-            // AntPathMatcher ant = new AntPathMatcher("/");
-            //String pattern = "/abc/**/*.class";
-            //String path = "/abc/ddd.class";
-            //System.out.println(ant.match(pattern, path));
             return true;
         }
         // 4. 第3个while循环, 主要解决有多个'**'字符串.	/**/djdjdjd/**, /a/**/**/b/**/c/**/*.class等
@@ -171,8 +170,7 @@ public class SpringTest1_1 {
             // 			 /a/b => /b/c
             // 			 /a/b => /c/d
             // 当然, 如果存在更复杂的如: /**/a/b/**/a/b/**/a/b/**, 外层的while循环就会做3次判断,
-            //String pattern = "/**/a/b/**/a/b/**/a/b/**";
-            //String path = "/q/q/q/a/b/q/q/q/a/b/q/q/q/a/b/q/q/q/a/b";
+            // [/**/a/b/**/a/b/**/a/b/**,/q/q/q/a/b/q/q/q/a/b/q/q/q/a/b/q/q/q/a/b] &&  fullMatch == true
             for (int i = 0; i <= strLength - patLength; i++) {
                 for (int j = 0; j < patLength; j++) {
                     String subPat = pattDirs[pattIdxStart + j + 1];
@@ -186,6 +184,7 @@ public class SpringTest1_1 {
             }
 
             if (foundIdx == -1) {
+                // [/**/a/b/c/**/c,/q/a/b/c ] &&  fullMatch == true
                 return false;
             }
 
@@ -195,11 +194,11 @@ public class SpringTest1_1 {
 
         for (int i = pattIdxStart; i <= pattIdxEnd; i++) {
             if (!pattDirs[i].equals("**")) {
+                // 实在想不出哪种情况了。以后遇到再来补吧
                 return false;
             }
         }
-        //如果上面的都没有返回值 /** => /sdjdd/djkd/.....就会在此处返回
-        // 当然还有更多的
+        // 如果上面的都没有返回值  ....就会在此处返回 [/**, /sdjdd/djkd/] &&  fullMatch == true
         return true;
     }
 
