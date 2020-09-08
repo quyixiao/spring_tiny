@@ -31,7 +31,7 @@ public class SpringTest1_2 {
 
 
     public static void main(String[] args) {
-        String text = "${${user}}";
+        String text = "${user}";
        String a =  parseStringValue(text, new PropertyPlaceholderHelper.PlaceholderResolver() {
             @Override
             public String resolvePlaceholder(String placeholderName) {
@@ -41,32 +41,43 @@ public class SpringTest1_2 {
                     return "xxx";
                 }else if(placeholderName.equals("zhansan")){
                     return "lisi";
+                }else if(placeholderName.equals("person")){
+                    return "${person1}";
+                }else if (placeholderName.equals("person1")){
+                    return "${person}";
+                }else if(placeholderName.equals("lisi")){
+                    return "wangwu";
                 }
-                return "";
+                return null;
             }
         },new HashSet<String>());
         System.out.println(a);
     }
 
-
+    // ${${user}}
+    // ${user}
     public static String parseStringValue(String strVal, PropertyPlaceholderHelper.PlaceholderResolver placeholderResolver, Set<String> visitedPlaceholders) {
         StringBuilder result = new StringBuilder(strVal);
         int startIndex = strVal.indexOf(placeholderPrefix);
         while (startIndex != -1) {
-            // 查找和当前前缀的相匹配的后缀index
+            // 查找和当前前缀(${)的相匹配的后缀(}) index
             int endIndex = findPlaceholderEndIndex(result, startIndex);
             if (endIndex != -1) {
                 String placeholder = result.substring(startIndex + placeholderPrefix.length(), endIndex);
                 String originalPlaceholder = placeholder;
                 if (!visitedPlaceholders.add(originalPlaceholder)) {
+                    // ${${person}} 避免循环依赖
                     throw new IllegalArgumentException(
                             "Circular placeholder reference '" + originalPlaceholder + "' in property definitions");
                 }
-                // Recursive invocation, parsing placeholders contained in the placeholder key.
+                // 循环获取 ${} 内的内容，比如${${user}} ，第一次执行 parseStringValue 方法变成${user}，再一次执行parseStringValue 方法，得到user
                 placeholder = parseStringValue(placeholder, placeholderResolver, visitedPlaceholders);
-                // Now obtain the value for the fully resolved key...
+                // 由上面得到的值调用resolvePlaceholder方法得到具体的值 zhansan
                 String propVal = placeholderResolver.resolvePlaceholder(placeholder);
                 if (propVal == null && valueSeparator != null) {
+                    // 如果要执行下面的情况，如下配置 ${user1:wangwu} 先解析得到 user1:wangwu ,通过user1:wangwu 找不到对应的值
+                    // 那么通过 : 分隔，得到array[0]=user1 ，array[1] 是wangwu ,再通过user1 去解析，如果解析不到，则使用Array[1]作为
+                    // 默认值
                     int separatorIndex = placeholder.indexOf(valueSeparator);
                     if (separatorIndex != -1) {
                         String actualPlaceholder = placeholder.substring(0, separatorIndex);
@@ -77,6 +88,7 @@ public class SpringTest1_2 {
                         }
                     }
                 }
+                // 对于正常情况都会走到下面来 ${user}
                 if (propVal != null) {
                     propVal = parseStringValue(propVal, placeholderResolver, visitedPlaceholders);
                     result.replace(startIndex, endIndex + placeholderSuffix.length(), propVal);
