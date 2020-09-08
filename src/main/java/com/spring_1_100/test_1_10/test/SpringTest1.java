@@ -1,9 +1,15 @@
 package com.spring_1_100.test_1_10.test;
 
 import com.spring_1_100.test_1_10.test.service.UserService;
+import com.spring_1_100.test_1_10.test.service.impl.Dog;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
+
+import java.io.IOException;
 
 public class SpringTest1 {
 
@@ -70,11 +76,22 @@ public class SpringTest1 {
     }
 
 
+
     @Test
     public void test2_3() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring_1_100/config_1_10/spring_test1/a/b/c/../../spring_test3.xml");
         UserService userService = (UserService) ctx.getBean("userService");
         userService.query();
+    }
+
+    @Test
+    public void test2_4() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring_1_100/**/spring_test4.xml");
+        UserService userService = (UserService) ctx.getBean("userService");
+        userService.query();
+
+       Dog dog = (Dog) ctx.getBean("dog");
+        dog.query();
     }
 
     /**
@@ -83,10 +100,13 @@ public class SpringTest1 {
      */
     @Test
     public void test3() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/a/spring_test3.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/a/*.xml");
         UserService userService = (UserService) ctx.getBean("userService");
         userService.query();
     }
+
+
+
 
     /**4.使用通配符加载所有符合要求的文件
      *   ApplicationContext appCt = new ClassPathXmlApplicationContext("*.spring_test3.xml");
@@ -114,6 +134,20 @@ public class SpringTest1 {
         System.out.println( Str.lastIndexOf( SubStr1, 15 ));
         System.out.print("子字符串 SubStr2 最后出现的位置 :" );
         System.out.println(Str.lastIndexOf( SubStr2 ));
+    }
+    @Test
+    public void test6(){
+        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
+        try {
+            Resource[] metaInfResources = resourcePatternResolver
+                    .getResources("classpath*:spring_1_100/**/spring_test4.xml");
+            System.out.println(metaInfResources.length);
+            for(Resource r : metaInfResources){
+                System.out.println("URL:" + r.getURL());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
