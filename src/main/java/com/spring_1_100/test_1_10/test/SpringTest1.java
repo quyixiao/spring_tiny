@@ -84,13 +84,13 @@ public class SpringTest1 {
         userService.query();
     }
 
-    @Test
+   @Test
     public void test2_4() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring_1_100/**/spring_test4.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:spring_1_100/**/spring_test4.xml");
         UserService userService = (UserService) ctx.getBean("userService");
         userService.query();
 
-       Dog dog = (Dog) ctx.getBean("dog");
+        Dog dog = (Dog) ctx.getBean("dog");
         dog.query();
     }
 

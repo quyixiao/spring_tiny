@@ -7,7 +7,5 @@
     <bean id="dog" class="com.spring_1_100.test_1_10.test.service.impl.Dog"></bean>
 
 
-    <bean id="userService" class="com.spring_1_100.test_1_10.test.service.impl.UserServiceImpl"></bean>
-
 
 </beans>
