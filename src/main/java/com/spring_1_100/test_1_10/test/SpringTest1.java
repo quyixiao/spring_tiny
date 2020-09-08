@@ -83,7 +83,7 @@ public class SpringTest1 {
      */
     @Test
     public void test3() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/spring_test3.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/a/spring_test3.xml");
         UserService userService = (UserService) ctx.getBean("userService");
         userService.query();
     }
