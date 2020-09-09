@@ -88,8 +88,9 @@ public class SpringTest1_2 {
                         }
                     }
                 }
-                // 对于正常情况都会走到下面来 ${user}
+
                 if (propVal != null) {
+                    // 对于正常情况都会走到下面来 ${user}
                     propVal = parseStringValue(propVal, placeholderResolver, visitedPlaceholders);
                     result.replace(startIndex, endIndex + placeholderSuffix.length(), propVal);
                     startIndex = result.indexOf(placeholderPrefix, startIndex + propVal.length());
@@ -138,3 +139,6 @@ public class SpringTest1_2 {
 
 
 }
+
+
+
