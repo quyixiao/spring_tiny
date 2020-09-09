@@ -3,13 +3,36 @@ package com.spring_1_100.test_1_10.test;
 import com.spring_1_100.test_1_10.test.service.UserService;
 import com.spring_1_100.test_1_10.test.service.impl.Dog;
 import org.junit.Test;
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.*;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.util.Assert;
+import org.springframework.util.PropertyPlaceholderHelper;
+import org.springframework.util.ResourceUtils;
+import org.springframework.util.StringUtils;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.JarURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.zip.ZipException;
+
+import static java.lang.String.format;
 
 public class SpringTest1 {
 
@@ -99,12 +122,19 @@ public class SpringTest1 {
      * 3.使用前缀file 表示的是文件的绝对路径
      *    ApplicationContext appCt = new ClassPathXmlApplicationContext("file:D:/app.spring_test3.xml");
      */
-    @Test
-    public void test3() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/a/*.xml");
-        UserService userService = (UserService) ctx.getBean("userService");
-        userService.query();
-    }
+
+@Test
+public void test3() {
+    ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/a/*.xml");
+    UserService userService = (UserService) ctx.getBean("userService");
+    userService.query();
+}
+
+
+
+
+
+
 
 
 
@@ -136,20 +166,24 @@ public class SpringTest1 {
         System.out.print("子字符串 SubStr2 最后出现的位置 :" );
         System.out.println(Str.lastIndexOf( SubStr2 ));
     }
-    @Test
-    public void test6(){
-        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
-        try {
-            Resource[] metaInfResources = resourcePatternResolver
-                    .getResources("classpath*:spring_1_100/**/spring_test4.xml");
-            System.out.println(metaInfResources.length);
-            for(Resource r : metaInfResources){
-                System.out.println("URL:" + r.getURL());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+@Test
+public void test6(){
+    ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
+    try {
+        Resource[] metaInfResources = resourcePatternResolver.getResources("classpath*:spring_1_100/**/spring_test4.xml");
+        //Resource[] metaInfResources = resourcePatternResolver.getResources("classpath:spring_1_100/**/spring_test4.xml");
+        //Resource[] metaInfResources = resourcePatternResolver.getResources("spring_1_100/config_1_10/spring_test1/a/b/c/../../spring_test3.xml");
+        System.out.println(metaInfResources.length);
+        for(Resource r : metaInfResources){
+            System.out.println("URL:" + r.getURL());
         }
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
+
+
+
 
 
     /*
@@ -174,3 +208,6 @@ public class SpringTest1 {
      */
 
 }
+
+
+
