@@ -90,8 +90,9 @@ public class SpringTest1 {
         UserService userService = (UserService) ctx.getBean("userService");
         userService.query();
 
-        Dog dog = (Dog) ctx.getBean("dog");
-        dog.query();
+     /*   Dog dog = (Dog) ctx.getBean("dog");
+        dog.query();*/
+
     }
 
     /**
