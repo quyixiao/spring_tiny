@@ -1,38 +1,14 @@
 package com.spring_1_100.test_1_10.test;
 
 import com.spring_1_100.test_1_10.test.service.UserService;
-import com.spring_1_100.test_1_10.test.service.impl.Dog;
 import org.junit.Test;
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.env.*;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
-import org.springframework.util.Assert;
-import org.springframework.util.PropertyPlaceholderHelper;
-import org.springframework.util.ResourceUtils;
-import org.springframework.util.StringUtils;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.JarURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-import java.util.zip.ZipException;
-
-import static java.lang.String.format;
 
 public class SpringTest1 {
 
@@ -123,24 +99,17 @@ public class SpringTest1 {
      *    ApplicationContext appCt = new ClassPathXmlApplicationContext("file:D:/app.spring_test3.xml");
      */
 
-@Test
-public void test3() {
-    ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/a/*.xml");
-    UserService userService = (UserService) ctx.getBean("userService");
-    userService.query();
-}
+    @Test
+    public void test3() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("file:${user.dir}/src/main/resources/spring_1_100/config_1_10/spring_test1/a/*.xml");
+        UserService userService = (UserService) ctx.getBean("userService");
+        userService.query();
+    }
 
 
-
-
-
-
-
-
-
-
-    /**4.使用通配符加载所有符合要求的文件
-     *   ApplicationContext appCt = new ClassPathXmlApplicationContext("*.spring_test3.xml");
+    /**
+     * 4.使用通配符加载所有符合要求的文件
+     * ApplicationContext appCt = new ClassPathXmlApplicationContext("*.spring_test3.xml");
      */
     @Test
     public void test4() {
@@ -150,30 +119,31 @@ public void test3() {
     }
 
     @Test
-    public void test5(){
+    public void test5() {
         String Str = new String("菜鸟教程:www.runoob.com");
         String SubStr1 = new String("runoob");
         String SubStr2 = new String("com");
 
-        System.out.print("查找字符 o 最后出现的位置 :" );
-        System.out.println(Str.lastIndexOf( 'o' ));
-        System.out.print("从第14个位置查找字符 o 最后出现的位置 :" );
-        System.out.println(Str.lastIndexOf( 'o', 17));
-        System.out.print("子字符串 SubStr1 最后出现的位置:" );
-        System.out.println( Str.lastIndexOf( SubStr1 ));
-        System.out.print("从第十五个位置开始搜索子字符串 SubStr1最后出现的位置 :" );
-        System.out.println( Str.lastIndexOf( SubStr1, 15 ));
-        System.out.print("子字符串 SubStr2 最后出现的位置 :" );
-        System.out.println(Str.lastIndexOf( SubStr2 ));
+        System.out.print("查找字符 o 最后出现的位置 :");
+        System.out.println(Str.lastIndexOf('o'));
+        System.out.print("从第14个位置查找字符 o 最后出现的位置 :");
+        System.out.println(Str.lastIndexOf('o', 17));
+        System.out.print("子字符串 SubStr1 最后出现的位置:");
+        System.out.println(Str.lastIndexOf(SubStr1));
+        System.out.print("从第十五个位置开始搜索子字符串 SubStr1最后出现的位置 :");
+        System.out.println(Str.lastIndexOf(SubStr1, 15));
+        System.out.print("子字符串 SubStr2 最后出现的位置 :");
+        System.out.println(Str.lastIndexOf(SubStr2));
     }
-@Test
-public void test6(){
-    ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
-    try {
-        Resource[] metaInfResources = resourcePatternResolver.getResources("classpath*:spring_1_100/**/spring_test4.xml");
-        //Resource[] metaInfResources = resourcePatternResolver.getResources("classpath:spring_1_100/**/spring_test4.xml");
-        //Resource[] metaInfResources = resourcePatternResolver.getResources("spring_1_100/config_1_10/spring_test1/a/b/c/../../spring_test3.xml");
-        System.out.println(metaInfResources.length);
+
+    @Test
+    public void test6() {
+        ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
+        try {
+            Resource[] metaInfResources = resourcePatternResolver.getResources("classpath*:spring_1_100/**/spring_test4.xml");
+            //Resource[] metaInfResources = resourcePatternResolver.getResources("classpath:spring_1_100/**/spring_test4.xml");
+            //Resource[] metaInfResources = resourcePatternResolver.getResources("spring_1_100/config_1_10/spring_test1/a/b/c/../../spring_test3.xml");
+            System.out.println(metaInfResources.length);
         for(Resource r : metaInfResources){
             System.out.println("URL:" + r.getURL());
         }
