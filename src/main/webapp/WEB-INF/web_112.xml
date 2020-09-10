@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee" 
-         xmlns:web="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
+		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee"
+		 xmlns:web="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+		 version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
 	<display-name>spring_tiny</display-name>
+
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring_1_100/config_71_80/spring75_mvc/spring75.xml</param-value>
+		<param-value>classpath:spring_101_200/config_111_120/spring112_env/spring112.xml</param-value>
 	</context-param>
+
+	<context-param>
+		<param-name>spring.profiles.default</param-name>
+		<param-value>local</param-value>
+	</context-param>
+
 
 
 	<servlet>
@@ -23,15 +30,10 @@
 		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
-
-	<listener>
-		<listener-class>com.spring_1_100.test_71_80.test75_springmvc.MyDataContextListener</listener-class>
-	</listener>
-
 
 
 	<!-- 自己配置描述文件，需要多少个描述文件就配置多少 -->

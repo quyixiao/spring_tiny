@@ -4,6 +4,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+
+
+    <bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/userlist.htm">userController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="userController" class="com.spring_101_200.test_111_120.test_112_env.UserController"></bean>
+
+
+
+
 </beans>
 
 
