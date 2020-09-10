@@ -26,10 +26,10 @@ public class UserController extends AbstractController {
         User user = (User) context.getBean("user");
         System.out.println(JSON.toJSONString(user));
 
+
         System.out.println("===========" + myData);
         int i = 1;
         int j = 0;
-        //int c = i / j ;
 
         return new ModelAndView("userlist", "users", userList);
     }
