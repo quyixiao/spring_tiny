@@ -18,8 +18,6 @@
     </bean>
 
 
-
-
     <beans profile="local">
         <context:property-placeholder
                 ignore-resource-not-found="true" location="classpath:spring_101_200/config_111_120/spring112_env/config.local.properties" />
