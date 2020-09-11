@@ -19,13 +19,11 @@
 
 
     <beans profile="local">
-        <context:property-placeholder
-                ignore-resource-not-found="true" location="classpath:spring_101_200/config_111_120/spring112_env/config.local.properties" />
+        <context:property-placeholder location="classpath:spring_101_200/config_111_120/spring112_env/config.local.properties" />
     </beans>
 
     <beans profile="test">
-        <context:property-placeholder
-                ignore-resource-not-found="true" location="classpath:spring_101_200/config_111_120/spring112_env/config.test.properties" />
+        <context:property-placeholder location="classpath:spring_101_200/config_111_120/spring112_env/config.test.properties" />
     </beans>
 
 

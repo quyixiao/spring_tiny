@@ -19,17 +19,11 @@ public class UserController extends AbstractController {
         User userB = new User("lisi", 28);
         userList.add(userA);
         userList.add(userB);
-        String myData = (String) getServletContext().getAttribute("myData");
 
         ServletContext servletContext = request.getSession().getServletContext();
         WebApplicationContext context = (WebApplicationContext) servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
         User user = (User) context.getBean("user");
         System.out.println(JSON.toJSONString(user));
-
-
-        System.out.println("===========" + myData);
-        int i = 1;
-        int j = 0;
 
         return new ModelAndView("userlist", "users", userList);
     }
