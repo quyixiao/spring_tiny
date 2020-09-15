@@ -1,6 +1,7 @@
 package com.spring_101_200.test_111_120.test_113_conversion.spel;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.node.IntNode;
 import org.junit.Test;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
@@ -34,24 +35,56 @@ public class TestSpel {
         System.out.println(randomPhrase);
     }
 
+
+    @Test
+    public void test11_math_1(){
+        // -- NOT --
+        ExpressionParser parser = new SpelExpressionParser();
+        // Addition
+        int two = parser.parseExpression("(21 + 3) * 4").getValue(Integer.class); // 2
+        //int two = parser.parseExpression("2 + 3 + 4").getValue(Integer.class); // 2
+        System.out.println(two);
+    }
+
+    @Test
+    public void test11_math_2(){
+        // -- NOT --
+        ExpressionParser parser = new SpelExpressionParser();
+        // Addition
+        int two = parser.parseExpression("2 + 3  * 4").getValue(Integer.class); // 2
+        System.out.println(two);
+    }
+
     @Test
     public void test3(){
         ExpressionParser parser = new SpelExpressionParser();
-
         Inventor tesla = new Inventor("Nikola Tesla", "Serbian");
         tesla.setPlaceOfBirth(new PlaceOfBirth("Smiljan"));
-
         StandardEvaluationContext context = new StandardEvaluationContext(tesla);
-
         String city = parser.parseExpression("PlaceOfBirth?.City").getValue(context, String.class);
         System.out.println(city); // Smiljan
-
         tesla.setPlaceOfBirth(null);
-
         city = parser.parseExpression("PlaceOfBirth?.City").getValue(context, String.class);
-
         System.out.println(city); // null - does not throw NullPointerException!!!
     }
+
+
+    @Test
+    public void test19_bean_ref_1(){
+        ExpressionParser parser = new SpelExpressionParser();
+        Tesla tesla = new Tesla();
+        StandardEvaluationContext societyContext = new StandardEvaluationContext(tesla);
+        parser.parseExpression("Name").setValue(societyContext, "IEEE");
+        societyContext.setVariable("queryName", "Nikola Tesla");
+        String expression = "isMember(#queryName)? #queryName + ' is a member of the ' " +
+                "+ Name + ' Society' : #queryName + ' is not a member of the ' + Name + ' Society'";
+        String queryResultString = parser.parseExpression(expression)
+                .getValue(societyContext, String.class);
+        System.out.println(queryResultString);
+    }
+
+
+
 
 
     @Test
@@ -278,13 +311,17 @@ public class TestSpel {
 
     @Test
 
-    public void test11_math_1(){
-        // -- NOT --
-        ExpressionParser parser = new SpelExpressionParser();
-        // Addition
-        int two = parser.parseExpression("2 + 3 + 4").getValue(Integer.class); // 2
-        System.out.println(two);
+    public void test11_math_3(){
+       List<Integer> list = new ArrayList<>();
+       list.add(1);
+       list.add(2);
+       list.add(3);
+       int position = 0;
+        System.out.println(list.get(position ++));
+        System.out.println(list.get(position));
+        System.out.println(position);
     }
+
 
 
     @Test
@@ -425,21 +462,7 @@ public class TestSpel {
                 "false ? 'trueExp' : 'falseExp'").getValue(String.class);
         System.out.println(falseString);
     }
-    @Test
-    public void test19_bean_ref_1(){
-        ExpressionParser parser = new SpelExpressionParser();
-        Tesla tesla = new Tesla();
-        StandardEvaluationContext societyContext = new StandardEvaluationContext(tesla);
-        parser.parseExpression("Name").setValue(societyContext, "IEEE");
-        societyContext.setVariable("queryName", "Nikola Tesla");
 
-       String expression = "isMember(#queryName)? #queryName + ' is a member of the ' " +
-                "+ Name + ' Society' : #queryName + ' is not a member of the ' + Name + ' Society'";
-
-        String queryResultString = parser.parseExpression(expression)
-                .getValue(societyContext, String.class);
-        System.out.println(queryResultString);
-    }
 
     @Test
     public void test20_Elvis(){
