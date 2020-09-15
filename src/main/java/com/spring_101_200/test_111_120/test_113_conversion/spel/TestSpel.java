@@ -26,6 +26,15 @@ public class TestSpel {
         System.out.println(message);
     }
 
+
+    @Test
+    public void test1_1(){
+        ExpressionParser parser = new SpelExpressionParser();
+        Expression exp = parser.parseExpression("toUpload('Hello World')");
+        String message = (String) exp.getValue(new StringTest2());
+        System.out.println(message);
+    }
+
     @Test
     public void test2(){
         ExpressionParser parser = new SpelExpressionParser();
