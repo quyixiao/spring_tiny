@@ -20,9 +20,7 @@ public class TestSpel {
 
     @Test
     public void test11_math_2() {
-        // -- NOT --
         ExpressionParser parser = new SpelExpressionParser();
-        // Addition
         int two = parser.parseExpression("2 + 3  * 4").getValue(Integer.class); // 2
         System.out.println(two);
     }
@@ -30,9 +28,7 @@ public class TestSpel {
 
     @Test
     public void test11_math_1() {
-        // -- NOT --
         ExpressionParser parser = new SpelExpressionParser();
-        // Addition
         int two = parser.parseExpression("(21 + 3) * 4").getValue(Integer.class); // 2
         //int two = parser.parseExpression("2 + 3 + 4").getValue(Integer.class); // 2
         System.out.println(two);
