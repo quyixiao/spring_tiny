@@ -1,7 +1,6 @@
 package com.spring_101_200.test_111_120.test_113_conversion.spel;
 
 import com.alibaba.fastjson.JSON;
-import com.fasterxml.jackson.databind.node.IntNode;
 import org.junit.Test;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
@@ -20,7 +19,7 @@ public class TestSpel {
 
 
     @Test
-    public void test11_math_2(){
+    public void test11_math_2() {
         // -- NOT --
         ExpressionParser parser = new SpelExpressionParser();
         // Addition
@@ -30,7 +29,7 @@ public class TestSpel {
 
 
     @Test
-    public void test11_math_1(){
+    public void test11_math_1() {
         // -- NOT --
         ExpressionParser parser = new SpelExpressionParser();
         // Addition
@@ -40,7 +39,7 @@ public class TestSpel {
     }
 
     @Test
-    public void test1(){
+    public void test1() {
         ExpressionParser parser = new SpelExpressionParser();
         Expression exp = parser.parseExpression("'Hello World'.concat('!')");
         String message = (String) exp.getValue();
@@ -49,7 +48,7 @@ public class TestSpel {
 
 
     @Test
-    public void test1_1(){
+    public void test1_1() {
         ExpressionParser parser = new SpelExpressionParser();
         Expression exp = parser.parseExpression("toUpload('Hello World')");
         String message = (String) exp.getValue(new StringTest2());
@@ -57,7 +56,7 @@ public class TestSpel {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         ExpressionParser parser = new SpelExpressionParser();
         String randomPhrase = parser.parseExpression(
                 "random number is #{T(java.lang.Math).round(30d)}",
@@ -68,7 +67,7 @@ public class TestSpel {
 
 
     @Test
-    public void test3(){
+    public void test3() {
         ExpressionParser parser = new SpelExpressionParser();
         Inventor tesla = new Inventor("Nikola Tesla", "Serbian");
         tesla.setPlaceOfBirth(new PlaceOfBirth("Smiljan"));
@@ -82,7 +81,7 @@ public class TestSpel {
 
 
     @Test
-    public void test19_bean_ref_1(){
+    public void test19_bean_ref_1() {
         ExpressionParser parser = new SpelExpressionParser();
         Tesla tesla = new Tesla();
         StandardEvaluationContext societyContext = new StandardEvaluationContext(tesla);
@@ -96,11 +95,8 @@ public class TestSpel {
     }
 
 
-
-
-
     @Test
-    public void test4(){
+    public void test4() {
         ExpressionParser parser = new SpelExpressionParser();
 
         String name = parser.parseExpression("null?:'Unknown'").getValue(String.class);
@@ -110,7 +106,7 @@ public class TestSpel {
 
 
     @Test
-    public void test5(){
+    public void test5() {
         ExpressionParser parser = new SpelExpressionParser();
 
 // invokes getBytes().length
@@ -120,7 +116,7 @@ public class TestSpel {
     }
 
     @Test
-    public void test6(){
+    public void test6() {
         ExpressionParser parser = new SpelExpressionParser();
         Expression exp = parser.parseExpression("new String('hello world').toUpperCase()");
         String message = exp.getValue(String.class);
@@ -129,7 +125,7 @@ public class TestSpel {
 
 
     @Test
-    public void test7(){
+    public void test7() {
         // Create and set a calendar
         GregorianCalendar c = new GregorianCalendar();
         c.set(1856, 7, 9);
@@ -155,7 +151,7 @@ public class TestSpel {
     }
 
     @Test
-    public void test8(){
+    public void test8() {
         Simple simple = new Simple();
 
         simple.booleanList.add(true);
@@ -172,7 +168,7 @@ public class TestSpel {
     }
 
     class Demo {
-        public  List<String> list = new ArrayList<>();
+        public List<String> list = new ArrayList<>();
 
 
         public List<String> getList() {
@@ -185,10 +181,10 @@ public class TestSpel {
     }
 
     @Test
-    public void test9(){
+    public void test9() {
 // - auto null reference initialization
 // - auto collection growing
-        SpelParserConfiguration config = new SpelParserConfiguration(true,true);
+        SpelParserConfiguration config = new SpelParserConfiguration(true, true);
 
         ExpressionParser parser = new SpelExpressionParser(config);
 
@@ -220,8 +216,8 @@ public class TestSpel {
 
     }
 
-        @Test
-    public void test10(){
+    @Test
+    public void test10() {
         StandardEvaluationContext context = new StandardEvaluationContext();
         ExpressionParser parser = new SpelExpressionParser();
         List numbers = (List) parser.parseExpression("{1,2,3,4}").getValue(context);
@@ -246,7 +242,7 @@ public class TestSpel {
 
 // Multi dimensional array
         int[][] numbers3 = (int[][]) parser.parseExpression("new int[4][5]").getValue(context);
-        for(int i = 0 ;i < numbers3.length; i ++){
+        for (int i = 0; i < numbers3.length; i++) {
             System.out.println(Arrays.toString(numbers3[i]));
         }
 
@@ -270,12 +266,13 @@ public class TestSpel {
         System.out.println(falseValue);
 
 // evaluates to true
-   //     boolean trueValue = parser.parseExpression("'black' < 'block'").getValue(Boolean.class);
+        //     boolean trueValue = parser.parseExpression("'black' < 'block'").getValue(Boolean.class);
 
     }
+
     @Test
 
-    public void test11_and(){
+    public void test11_and() {
         ExpressionParser parser = new SpelExpressionParser();
         // -- AND --
 
@@ -291,7 +288,7 @@ public class TestSpel {
 
     @Test
 
-    public void test11_or(){
+    public void test11_or() {
         ExpressionParser parser = new SpelExpressionParser();
 // -- OR --
 
@@ -307,7 +304,7 @@ public class TestSpel {
 
     @Test
 
-    public void test11_not(){
+    public void test11_not() {
         // -- NOT --
         ExpressionParser parser = new SpelExpressionParser();
         // evaluates to false
@@ -320,25 +317,23 @@ public class TestSpel {
     }
 
 
-
     @Test
 
-    public void test11_math_3(){
-       List<Integer> list = new ArrayList<>();
-       list.add(1);
-       list.add(2);
-       list.add(3);
-       int position = 0;
-        System.out.println(list.get(position ++));
+    public void test11_math_3() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        int position = 0;
+        System.out.println(list.get(position++));
         System.out.println(list.get(position));
         System.out.println(position);
     }
 
 
-
     @Test
 
-    public void test11_math(){
+    public void test11_math() {
         // -- NOT --
         ExpressionParser parser = new SpelExpressionParser();
 
@@ -370,9 +365,8 @@ public class TestSpel {
     }
 
 
-
     @Test
-    public void test12(){
+    public void test12() {
         Inventor inventor = new Inventor();
         StandardEvaluationContext inventorContext = new StandardEvaluationContext(inventor);
         ExpressionParser parser = new SpelExpressionParser();
@@ -387,7 +381,7 @@ public class TestSpel {
 
 
     @Test
-    public void test13_type(){
+    public void test13_type() {
         ExpressionParser parser = new SpelExpressionParser();
         Class dateClass = parser.parseExpression("T(java.util.Date)").getValue(Class.class);
 
@@ -400,7 +394,7 @@ public class TestSpel {
     }
 
     @Test
-    public void test14_constructor(){
+    public void test14_constructor() {
         ExpressionParser p = new SpelExpressionParser();
         Inventor einstein = p.parseExpression(
                 "new com.spring_101_200.test_111_120.test_113_conversion.spel.Inventor('Albert Einstein', 'German')")
@@ -410,7 +404,7 @@ public class TestSpel {
     }
 
     @Test
-    public void test15_variable(){
+    public void test15_variable() {
         ExpressionParser parser = new SpelExpressionParser();
         Inventor tesla = new Inventor("Nikola Tesla", "Serbian");
         StandardEvaluationContext context = new StandardEvaluationContext(tesla);
@@ -423,15 +417,15 @@ public class TestSpel {
     }
 
     @Test
-    public void test16_this_root(){
+    public void test16_this_root() {
         // create an array of integers
         List<Integer> primes = new ArrayList<Integer>();
-        primes.addAll(Arrays.asList(2,3,5,7,11,13,17));
+        primes.addAll(Arrays.asList(2, 3, 5, 7, 11, 13, 17));
 
 // create parser and set variable primes as the array of integers
         ExpressionParser parser = new SpelExpressionParser();
         StandardEvaluationContext context = new StandardEvaluationContext();
-        context.setVariable("primes",primes);
+        context.setVariable("primes", primes);
 
 // all prime numbers > 10 from the list (using selection ?{...})
 // evaluates to [11, 13, 17]
@@ -443,12 +437,12 @@ public class TestSpel {
 
 
     @Test
-    public void test17_method() throws Exception{
+    public void test17_method() throws Exception {
         ExpressionParser parser = new SpelExpressionParser();
         StandardEvaluationContext context = new StandardEvaluationContext();
 
         context.registerFunction("reverseString",
-                StringTest.class.getDeclaredMethod("reverseString", new Class[] { String.class }));
+                StringTest.class.getDeclaredMethod("reverseString", new Class[]{String.class}));
 
         String helloWorldReversed = parser.parseExpression(
                 "#reverseString('hello')").getValue(context, String.class);
@@ -456,7 +450,7 @@ public class TestSpel {
     }
 
     @Test
-    public void test18_bean_ref(){
+    public void test18_bean_ref() {
         ExpressionParser parser = new SpelExpressionParser();
         StandardEvaluationContext context = new StandardEvaluationContext();
         context.setBeanResolver(new MyBeanResolver());
@@ -468,7 +462,7 @@ public class TestSpel {
 
 
     @Test
-    public void test19_bean_ref(){
+    public void test19_bean_ref() {
         ExpressionParser parser = new SpelExpressionParser();
         String falseString = parser.parseExpression(
                 "false ? 'trueExp' : 'falseExp'").getValue(String.class);
@@ -477,7 +471,7 @@ public class TestSpel {
 
 
     @Test
-    public void test20_Elvis(){
+    public void test20_Elvis() {
 
         ExpressionParser parser = new SpelExpressionParser();
 
@@ -488,7 +482,7 @@ public class TestSpel {
     }
 
     @Test
-    public void test20_Elvis_1(){
+    public void test20_Elvis_1() {
         ExpressionParser parser = new SpelExpressionParser();
 
         Inventor tesla = new Inventor("Nikola Tesla", "Serbian");
@@ -507,10 +501,8 @@ public class TestSpel {
     }
 
 
-
-
     @Test
-    public void test21_anquandaohang(){
+    public void test21_anquandaohang() {
         ExpressionParser parser = new SpelExpressionParser();
 
         Inventor tesla = new Inventor("Nikola Tesla", "Serbian");
