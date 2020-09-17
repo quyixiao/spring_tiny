@@ -30,7 +30,6 @@ public class TestSpel {
     public void test11_math_1() {
         ExpressionParser parser = new SpelExpressionParser();
         int two = parser.parseExpression("(21 + 3) * 4").getValue(Integer.class); // 2
-        //int two = parser.parseExpression("2 + 3 + 4").getValue(Integer.class); // 2
         System.out.println(two);
     }
 

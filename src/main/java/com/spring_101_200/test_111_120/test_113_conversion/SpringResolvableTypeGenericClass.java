@@ -64,6 +64,7 @@ public class SpringResolvableTypeGenericClass {
     public static void  doTestFindlistLists(){
         ResolvableType listListsResolvableType = ResolvableType.forField(ReflectionUtils.findField(
                 SpringResolvableTypeGenericClass.class,"listLists"));
+
         log.info("listLists type:"+listListsResolvableType.getType());
 
         //获取第0个位置的参数泛型
