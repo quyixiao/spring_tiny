@@ -54,7 +54,7 @@ public class TestSpel {
     public void test2() {
         ExpressionParser parser = new SpelExpressionParser();
         String randomPhrase = parser.parseExpression(
-                "random number is #{T(java.lang.Math).round(30d)}",
+                "random number is #{T(java.lang.Math).round(30d)} ",
                 new TemplateParserContext()).getValue(String.class);
         System.out.println(randomPhrase);
 
