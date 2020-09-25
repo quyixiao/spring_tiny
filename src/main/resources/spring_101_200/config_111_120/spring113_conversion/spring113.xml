@@ -6,8 +6,6 @@
 
 
     <bean id="user" class="com.spring_101_200.test_111_120.test_113_conversion.User" >
-        <property name="age" value="10"> </property>
-        <property name="realName" value="zhangsan"></property>
      </bean>
 
     <bean id="student" class="com.spring_101_200.test_111_120.test_113_conversion.Student">
