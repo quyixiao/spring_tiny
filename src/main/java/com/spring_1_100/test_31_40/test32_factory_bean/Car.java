@@ -7,5 +7,4 @@ public class Car {
     private String brand;
     private int maxSpeed;
     private double price ;
-
 }
