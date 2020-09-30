@@ -6,7 +6,12 @@ public class TestC {
     private TestA testA;
 
 
+    public TestC() {
+    }
 
+    public TestC(TestA testA) {
+        this.testA = testA;
+    }
 
     public TestA getTestA() {
         return testA;

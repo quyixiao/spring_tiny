@@ -5,6 +5,12 @@ public class TestA {
     private TestB testB;
 
 
+    public TestA() {
+    }
+
+    public TestA(TestB testB) {
+        this.testB = testB;
+    }
 
     public TestB getTestB() {
         return testB;
