@@ -18,8 +18,13 @@ public class Test37 {
     public void test2() {
         ApplicationContext bf = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_31_40/spring37.xml");
         System.out.println(((TestA) bf.getBean("testA")).getTestB().getTestC().getTestA());
+    }
 
 
+    @Test
+    public void test3() {
+        ApplicationContext bf = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_31_40/spring37_3.xml");
+        System.out.println(((TestA) bf.getBean("testA")).getTestB().getTestC().getTestA());
     }
 
 }
