@@ -20,7 +20,7 @@ idref元素用来将容器内其它bean的id传给<constructor-arg/> 或 <proper
 -->
     <bean id="boss2" class="com.spring_1_100.test_21_30.test29_reference.Boss">
         <property name="carId">
-            <idref bean="car"></idref>
+            <idref bean="carxx"></idref>
         </property>
     </bean>
 

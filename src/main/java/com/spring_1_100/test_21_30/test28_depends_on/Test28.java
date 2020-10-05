@@ -8,8 +8,8 @@ public class Test28 {
     public static void main(String[] args) {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_21_30/spring28_depends_on.xml");
 
-        CacheManager cacheManager = (CacheManager) ac.getBean("manager");
-        SysInit sysInit = (SysInit) ac.getBean("sysInit");
+
+
 
     }
 }
