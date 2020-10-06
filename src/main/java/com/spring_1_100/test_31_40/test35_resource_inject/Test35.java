@@ -10,6 +10,8 @@ public class Test35 {
     // @Autowired丰富，因此除非必要在可以不必在乎这两个属性
     public static void main(String[] args) {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_31_40/spring35_resource_inject.xml");
+        Boss boss = (Boss) ac.getBean("boss");
+        System.out.println(boss.getCar());
     }
 }
 
