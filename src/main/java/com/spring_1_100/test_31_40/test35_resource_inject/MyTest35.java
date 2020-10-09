@@ -11,7 +11,4 @@ public class MyTest35 {
         this.a = a;
     }
 
-
-
-
 }
