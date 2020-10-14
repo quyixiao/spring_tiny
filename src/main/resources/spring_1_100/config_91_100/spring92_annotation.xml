@@ -8,7 +8,7 @@
 
     <context:component-scan base-package="com.spring_1_100.test_91_100.test92_annotation"></context:component-scan>
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-    <bean id="waiter" class="com.spring_1_100.test_91_100.test92_annotation.NaiveWaiter"></bean>
-    <bean class="com.spring_1_100.test_91_100.test92_annotation.TestAspect"></bean>
+
+
 
 </beans>

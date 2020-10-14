@@ -2,11 +2,13 @@ package com.spring_1_100.test_61_70.test64;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.context.annotation.Configuration;
 
 @Aspect
+@Configuration
 public class AspectJTest {
 
-    @Pointcut("execution(* com.spring_1_100.test_61_70.test65.*.*(..))")
+    @Pointcut("execution(* com.spring_1_100.test_61_70.test64.*.*(..))")
     public void test() {
 
     }
