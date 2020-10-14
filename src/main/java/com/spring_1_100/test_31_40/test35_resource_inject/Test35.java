@@ -6,6 +6,12 @@ import com.spring_1_100.test_31_40.test35_resource_inject.anno.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.annotation.AnnotationAttributes;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class Test35 {
     // 这时，如果@Resource未指定"car"属性，则也可以根据属性方法得到需要注入的Bean的名称，可见@Autowired 默认按类型
@@ -26,6 +32,26 @@ public class Test35 {
 
 
 
+
+    @Test
+    public void test2(){
+        String annotationType= "11";
+        MultiValueMap<String, AnnotationAttributes> attributesMap = new LinkedMultiValueMap<String, AnnotationAttributes>(4);
+        List<AnnotationAttributes> attributes = attributesMap.get(annotationType);
+        AnnotationAttributes annotationAttributes  = new AnnotationAttributes();
+        if (attributes == null) {
+            System.out.println("-----------bbbbbbbbbbbbbbbbbbbbb");
+            attributesMap.add(annotationType, annotationAttributes);
+        }
+        else {
+            attributes.add(0, annotationAttributes);
+        }
+        attributes = attributesMap.get(annotationType);
+        if(attributes instanceof LinkedList){
+            System.out.println("==================");
+        }
+
+    }
 }
 
 

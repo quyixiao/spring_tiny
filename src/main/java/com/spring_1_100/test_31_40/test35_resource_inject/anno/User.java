@@ -6,15 +6,11 @@ import org.springframework.stereotype.Service;
 @Service("xxxx")
 @MyTestAnnotation("/user/info")
 public class User {
-
-
     @Autowired
     private Car car;
 
-
-
-
-
+    @Autowired
+    private Dog dog;
 
 
 
