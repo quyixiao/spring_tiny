@@ -36,5 +36,4 @@ public class AspectJTest {
         return o;
     }
 
-
 }
