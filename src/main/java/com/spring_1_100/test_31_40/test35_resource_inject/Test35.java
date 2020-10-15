@@ -28,6 +28,7 @@ public class Test35 {
     public static void main(String[] args) {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_31_40/spring35_resource_inject_1.xml");
         User user = (User) ac.getBean("xxxx");
+        user.drive();
     }
 
 

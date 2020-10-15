@@ -13,5 +13,7 @@ public class User {
     private Dog dog;
 
 
-
+    public void drive(){
+        System.out.println(car);
+    }
 }

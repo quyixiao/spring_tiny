@@ -7,4 +7,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class Car {
     private String color = "red";
+
+
+
 }
