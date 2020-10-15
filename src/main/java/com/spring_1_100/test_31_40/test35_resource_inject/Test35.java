@@ -31,8 +31,6 @@ public class Test35 {
     }
 
 
-
-
     @Test
     public void test2(){
         String annotationType= "11";
