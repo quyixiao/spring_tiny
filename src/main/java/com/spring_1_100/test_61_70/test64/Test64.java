@@ -7,7 +7,7 @@ public class Test64 {
 
 
     public static void main(String[] args) {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring64.xml");git c
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring64.xml");
         TestBean testBean = ac.getBean(TestBean.class);
         testBean.test();
     }
