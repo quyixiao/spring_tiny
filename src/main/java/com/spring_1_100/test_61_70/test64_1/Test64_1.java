@@ -35,8 +35,8 @@ public class Test64_1 {
 
     @Test
     public void test3()  throws Exception{
-        AliasTest3 aliasTest3 = new AliasTest3();
-        SubMyAnnotation myAnnotation = AnnotationUtils.getAnnotation(aliasTest3.getClass(), SubMyAnnotation.class);
+        MyAliasTest myAliasTest = new MyAliasTest();
+        SubMyAnnotation myAnnotation = AnnotationUtils.getAnnotation(myAliasTest.getClass(), SubMyAnnotation.class);
         System.out.println("iiii:" + myAnnotation.iiii() + ";jjjj:" + myAnnotation.jjjj());
     }
 
