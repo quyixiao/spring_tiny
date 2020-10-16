@@ -2,6 +2,7 @@ package com.spring_1_100.test_31_40.test35_resource_inject;
 
 
 import com.alibaba.fastjson.JSON;
+import com.spring_1_100.test_31_40.test35_resource_inject.anno.Dog;
 import com.spring_1_100.test_31_40.test35_resource_inject.anno.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -28,6 +29,8 @@ public class Test35 {
     public static void main(String[] args) {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_31_40/spring35_resource_inject_1.xml");
         User user = (User) ac.getBean("xxxx");
+        Dog d = (Dog) ac.getBean("d");
+        System.out.println(d);
         user.drive();
     }
 
