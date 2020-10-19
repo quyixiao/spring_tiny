@@ -15,7 +15,7 @@ public class AspectJTest {
 
     @Before("test()")
     public void beforeTest() {
-        System.out.println("beforeTest");
+        System.out.println("AspectJTest.beforeTest");
     }
 
     @After("test()")

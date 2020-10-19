@@ -20,7 +20,7 @@ public class Test64_1 {
     public void test1() {
         AliasTest1 aliasTest  = new AliasTest1();
         ParentMyAnnotation myAnnotation = AnnotationUtils.getAnnotation(aliasTest.getClass(), ParentMyAnnotation.class);
-        System.out.println("aaaa:" + myAnnotation.aaaa() + ";bbbb:" + myAnnotation.bbbb());
+        //System.out.println("aaaa:" + myAnnotation.aaaa() + ";bbbb:" + myAnnotation.bbbb());
     }
 
 

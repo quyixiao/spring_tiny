@@ -14,7 +14,7 @@ public @interface SubMyAnnotation {
     @AliasFor(annotation = ParentMyAnnotation.class,attribute = "aaaa")
     String iiii() default "";
 
-    @AliasFor(annotation = GrandsonMyAnnotation.class, attribute = "mmmm")
+    @AliasFor(annotation = MyAnnotation.class, attribute = "yyyy")
     String jjjj() default "";
 
 }
