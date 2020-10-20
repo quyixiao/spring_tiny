@@ -46,6 +46,9 @@ public class Test64_within {
     }
 
 
+
+    //4.任何目标对象对应的类型持有Secure注解的类方法；必须是在目标对象上声明这个注解，在接口上声明的对它不起作用
+    //@Pointcut("@within(com.spring_1_100.test_61_70.test64_2.MyAnnotation)")
     @Test
     public void within4() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring64_2.xml");
