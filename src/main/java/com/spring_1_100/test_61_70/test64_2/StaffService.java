@@ -5,5 +5,7 @@ public interface StaffService {
 
     public void getStaffName();
 
+
+
     void getStaffInfo();
 }

@@ -138,6 +138,16 @@ public class UserServiceImpl implements UserService, Serializable {
     }
 
     @Override
+    public void testArgs1(Model model) {
+        System.out.println("testArgs1");
+    }
+
+    @Override
+    public void testArgs2(Model model, String a) {
+        System.out.println("testArgs2");
+    }
+
+    @Override
     public void testMyCollection(Collection<User> users) {
         System.out.println("testMyCollection");
     }

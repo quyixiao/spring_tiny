@@ -45,4 +45,17 @@ public class Test64_within {
         staffService.getStaffInfo();
     }
 
+
+    @Test
+    public void within4() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring64_2.xml");
+        UserAmount userAmount = ac.getBean(UserAmount.class);
+        userAmount.getAmount();
+        System.out.println("=============================");
+        StaffService staffService = ac.getBean(StaffService.class);
+        staffService.getStaffName();
+        System.out.println("=============================");
+        staffService.getStaffInfo();
+    }
+
 }

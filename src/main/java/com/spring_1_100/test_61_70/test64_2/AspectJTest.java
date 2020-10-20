@@ -74,10 +74,35 @@ public class AspectJTest {
     //3.持有cn.javass..Secure注解的任何类型的任何方法必须是在目标对象上声明这个注解，在接口上声明的对它不起作用
     //@Pointcut("within(@com.spring_1_100..MyAnnotation *)")
 
+    //4.任何目标对象对应的类型持有Secure注解的类方法；必须是在目标对象上声明这个注解，在接口上声明的对它不起作用
+    //@Pointcut("@within(com.spring_1_100.test_61_70.test64_2.MyAnnotation)")
 
-    //this
+
+    // c) this
     //1.当前AOP对象实现了 UserService 接口的任何方法
-    @Pointcut("this(com.spring_1_100.test_61_70.test64_2.UserService)")
+    //@Pointcut("this(com.spring_1_100.test_61_70.test64_2.UserService)")
+
+    //target
+    //1.当前目标对象（非AOP对象）实现了 IPointcutService 接口的任何方法
+    //@Pointcut("target(com.spring_1_100.test_61_70.test64_2.UserService)")
+
+    //2.任何目标对象持有 MyAnnotation 注解的类方法；必须是在目标对象上声明这个注解，在接口上声明的对它不起作用
+    //@Pointcut("@target(com.spring_1_100.test_61_70.test64_2.MyAnnotation)")
+
+    // d) args
+    // 1.任何一个以接受“传入参数类型为 java.io.Serializable” 开头，且其后可跟任意个任意类型的参数的方法执行，args指定的参数类型是在运行时动态匹配的
+    // @Pointcut("args(java.io.Serializable,..)")
+
+    //2.任何一个只接受一个参数的方法，且方法运行时传入的参数持有注解 cn.javass.spring.chapter6.Secure；动态切入点，类似于arg指示符；
+    //@Pointcut("@args(com.spring_1_100.test_61_70.test64_2.MyAnnotation,..)")
+
+    // e) annotation
+    // 1.当前执行方法上持有注解  com.spring_1_100.test_61_70.test64_2.MyAnnotation 将被匹配
+    @Pointcut("@annotation(com.spring_1_100.test_61_70.test64_2.MyAnnotation)")
+
+    // f) bean
+    // 1.匹配所有以Service命名（id或name）结尾的Bean
+    //@Pointcut(value="bean(*Service)")
     public void test() {
 
     }

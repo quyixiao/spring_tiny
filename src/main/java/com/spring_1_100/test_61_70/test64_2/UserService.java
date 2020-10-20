@@ -57,4 +57,7 @@ public interface UserService {
     void testMyCollection(Collection<User> users);
 
     void testMyModel(List<Model> models);
+
+    void testArgs1(Model model);
+    void testArgs2(Model model,String a );
 }
