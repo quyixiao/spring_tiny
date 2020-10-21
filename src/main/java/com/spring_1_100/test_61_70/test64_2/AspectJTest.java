@@ -91,14 +91,14 @@ public class AspectJTest {
 
     // d) args
     // 1.任何一个以接受“传入参数类型为 java.io.Serializable” 开头，且其后可跟任意个任意类型的参数的方法执行，args指定的参数类型是在运行时动态匹配的
-    // @Pointcut("args(java.io.Serializable,..)")
+     @Pointcut("args(java.io.Serializable,..)")
 
     //2.任何一个只接受一个参数的方法，且方法运行时传入的参数持有注解 cn.javass.spring.chapter6.Secure；动态切入点，类似于arg指示符；
-    //@Pointcut("@args(com.spring_1_100.test_61_70.test64_2.MyAnnotation,..)")
+   // @Pointcut("@args(com.spring_1_100.test_61_70.test64_2.MyAnnotation,..)")
 
     // e) annotation
     // 1.当前执行方法上持有注解  com.spring_1_100.test_61_70.test64_2.MyAnnotation 将被匹配
-    @Pointcut("@annotation(com.spring_1_100.test_61_70.test64_2.MyAnnotation)")
+    //@Pointcut("@annotation(com.spring_1_100.test_61_70.test64_2.MyAnnotation)")
 
     // f) bean
     // 1.匹配所有以Service命名（id或name）结尾的Bean

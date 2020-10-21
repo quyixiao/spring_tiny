@@ -22,8 +22,7 @@ public class Test64_args {
 
         System.out.println("===========================");
         UserService userService = ac.getBean(UserService.class);
-        userService.testArgs1(new Model());
-        System.out.println("===========================");
+
         userService.testArgs2(new Model(),"83982");
         System.out.println("===========================");
         userService.getUser();
