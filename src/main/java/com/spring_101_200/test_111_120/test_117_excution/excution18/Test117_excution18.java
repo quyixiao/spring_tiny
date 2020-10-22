@@ -20,7 +20,7 @@ public class Test117_excution18 {
     // @Pointcut("execution(* *(java.util.Map<com.spring_1_100..Model, com.spring_1_100..Model>, ..))")
     @Test
     public void test18() throws Exception {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring_117_excution/spring_117_excution18.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring117_excution/spring_117_excution18.xml");
         System.out.println("============================");
         UserService userService = ac.getBean(UserService.class);
         Map<Model, Model> modelModelMap = new HashMap<>();

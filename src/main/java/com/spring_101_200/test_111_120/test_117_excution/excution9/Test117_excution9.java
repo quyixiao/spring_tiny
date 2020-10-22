@@ -15,7 +15,7 @@ public class Test117_excution9 {
     // @Pointcut("execution(* (com.spring_1_100..UserService+&& java.io.Serializable+).*(..))")
     @Test
     public void test7() throws Exception {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring_117_excution/spring_117_excution9.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring117_excution/spring_117_excution9.xml");
         System.out.println("============================");
         UserService userService = ac.getBean(UserService.class);
         userService.testException(new Date());

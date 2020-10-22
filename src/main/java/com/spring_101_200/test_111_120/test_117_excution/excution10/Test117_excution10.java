@@ -11,7 +11,7 @@ public class Test117_excution10 {
     //@Pointcut("execution(@java.lang.Deprecated * *(..))")
     @Test
     public void test10() throws Exception {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring_117_excution/spring_117_excution10.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring117_excution/spring_117_excution10.xml");
         System.out.println("============================");
         UserService userService = ac.getBean(UserService.class);
         userService.testIllegalArgumentException();

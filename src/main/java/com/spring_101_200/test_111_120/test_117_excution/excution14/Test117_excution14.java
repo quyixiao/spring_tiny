@@ -13,7 +13,7 @@ public class Test117_excution14 {
     //14.任何定义方法的类型持有@com.spring_1_100..MyAnnotation的方法 【这个目前有问题，没有测试出来】
     //@Pointcut("execution(* (@com.spring_1_100..MyAnnotation *).*(..))")
     public void test14() throws Exception {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring_117_excution/spring_117_excution14.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring117_excution/spring_117_excution14.xml");
         System.out.println("============================");
         com.spring_1_100.test_61_70.test64_2.UserService userService = ac.getBean(UserService.class);
         userService.getAge();

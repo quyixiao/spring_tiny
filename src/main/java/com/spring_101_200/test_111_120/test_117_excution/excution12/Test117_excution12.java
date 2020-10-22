@@ -11,7 +11,7 @@ public class Test117_excution12 {
     //@Pointcut("execution(@(java.lang.Deprecated || com.spring_1_100..MyAnnotation) * *(..))")
     @Test
     public void test() throws Exception {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring_117_excution/spring_117_excution12.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring117_excution/spring_117_excution12.xml");
         System.out.println("============================");
         UserService userService = ac.getBean(UserService.class);
         userService.testDeprecated();

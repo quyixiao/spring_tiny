@@ -16,7 +16,7 @@ public class Test117_excution19 {
     // @Pointcut("execution(* *(java.util.Collection<@com.spring_1_100..MyAnnotation *>))")
     @Test
     public void test19() throws Exception {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring_117_excution/spring_117_excution19.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring117_excution/spring_117_excution19.xml");
         System.out.println("============================");
         UserService userService = ac.getBean(UserService.class);
         Collection<User> users = new ArrayList<>();
