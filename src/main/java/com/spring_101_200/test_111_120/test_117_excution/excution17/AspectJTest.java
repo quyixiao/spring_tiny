@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AspectJTest {
 
-    @Before("execution(* *(@com..MyAnnotation (@com..MyAnnotation *),@com..MyAnnotation (@com..MyAnnotation  *)))")
+    //17.任何带有两个参数的方法，且这两个参数都被@com.spring_1_100..MyAnnotation标记了；且这两个参数的类型上都持有@com.spring_1_100..MyAnnotation
+    @Before("execution(* *(@com..MyAnnotation (@com..MyService *),@com..MyAnnotation (@com..MyService  *)))")
     public void beforeTest() {
         System.out.println("beforeTest");
     }

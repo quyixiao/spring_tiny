@@ -10,7 +10,6 @@ public class AspectJTest {
 
     //9. 任何实现了com.spring_1_100 包及所有子包下 UserService 接口和java.io.Serializable接口的类型的任何方法
     @Before("execution(* (com..User*+ && java.io.Serializable+).*(..))")
-    //@Before("execution(* (com..User*+ ).*(..))")
     public void beforeTest() {
         System.out.println("beforeTest");
     }
