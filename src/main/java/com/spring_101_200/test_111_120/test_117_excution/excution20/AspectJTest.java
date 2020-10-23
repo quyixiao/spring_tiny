@@ -7,20 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Aspect
 @Configuration
-public class AspectJTest {
-
-
-    @Pointcut("execution(* com..MySer*.*(..))")                                                    //com 包及所有子包下UserService接口中的任何无参方法
-    public void test() {
-
-    }
+public class AspectJTest extends AspectjParent {
 
 
     @Before("test()")                                                    //com 包及所有子包下UserService接口中的任何无参方法
     public void beforeTest() {
         System.out.println("beforeTest");
     }
-
 
 
 
