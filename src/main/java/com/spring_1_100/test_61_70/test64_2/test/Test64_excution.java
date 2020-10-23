@@ -177,6 +177,8 @@ public class Test64_excution {
 
     //17.任何带有两个参数的方法，且这两个参数都被@com.spring_1_100..MyAnnotation标记了；且这两个参数的类型上都持有@com.spring_1_100..MyAnnotation
     //@Pointcut("execution(* *(@com.spring_1_100..MyAnnotation (@com.spring_1_100..MyAnnotation *),@com.spring_1_100..MyAnnotation (@com.spring_1_100..MyAnnotation  *)))")
+
+    //@Before("execution(* *(@com..MyAnnotation (@com..MyAnnotation *),@com..MyAnnotation (@com..MyAnnotation  *)))")
     @Test
     public void test17() throws Exception {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring64_2.xml");

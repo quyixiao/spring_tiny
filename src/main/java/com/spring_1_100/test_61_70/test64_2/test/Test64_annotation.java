@@ -14,4 +14,8 @@ public class Test64_annotation {
         MyService myService = ac.getBean(MyService.class);
         myService.select();
     }
+
+
+
+
 }
