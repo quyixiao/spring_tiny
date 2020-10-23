@@ -8,9 +8,9 @@ public class Test117_excution2 {
 
     public static void main(String[] args) {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring117_excution/spring_117_excution2.xml");
+        System.out.println("==================================");
         MyService myService = ac.getBean(MyService.class);
+        System.out.println("======================");
         myService.service();
-
-
     }
 }
