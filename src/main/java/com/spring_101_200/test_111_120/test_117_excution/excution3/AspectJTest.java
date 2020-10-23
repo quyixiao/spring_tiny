@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class AspectJTest {
 
 
-    @Before("execution(* com..MySer*.*())")                                                    //com 包及所有子包下UserService接口中的任何无参方法
+    @Before("execution(* com..MySer*.*(..))")                                                    //com 包及所有子包下UserService接口中的任何无参方法
     public void beforeTest() {
         System.out.println("beforeTest");
     }
