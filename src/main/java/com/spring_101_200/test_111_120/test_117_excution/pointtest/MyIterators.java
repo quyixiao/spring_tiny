@@ -17,14 +17,14 @@ public class MyIterators {
     /**
      * A getter represents a mapping function from Object to Iterator
      */
-    public interface Getter<A, B> {
+    public interface MyGetter<A, B> {
         Iterator<B> get(A target);
     }
 
     /**
      * A filter represents a mapping function from Iterator to Iterator
      */
-    public interface Filter<T> {
+    public interface MyFilter<T> {
         Iterator<T> filter(Iterator<T> in);
     }
 
@@ -32,8 +32,8 @@ public class MyIterators {
      * Create a new filter F that, when wrapped around another iterator I, creates a new iterator I' that will return only those
      * values of I that have not yet been returned by I', discarding duplicates.
      */
-    public static <T> MyIterators.Filter<T> dupFilter() {
-        return new MyIterators.Filter<T>() {
+    public static <T> MyFilter<T> dupFilter() {
+        return new MyFilter<T>() {
             final Set<T> seen = new HashSet<T>(); // should have weak ptrs?
 
             public Iterator<T> filter(final Iterator<T> in) {
@@ -110,7 +110,7 @@ public class MyIterators {
     /**
      * creates an iterator I based on a base iterator A and a getter G. I returns, in order, forall (i in A), G(i).
      */
-    public static <A, B> Iterator<B> mapOver(final Iterator<A> a, final MyIterators.Getter<A, B> g) {
+    public static <A, B> Iterator<B> mapOver(final Iterator<A> a, final MyGetter<A, B> g) {
         return new Iterator<B>() {
             Iterator<B> delegate = new Iterator<B>() {
                 public boolean hasNext() {
@@ -152,7 +152,7 @@ public class MyIterators {
      * creates an iterator I based on a base iterator A and a getter G. I returns, in order, forall (i in I) i :: forall (i' in
      * g(i)) recur(i', g)
      */
-    public static <A> Iterator<A> recur(final A a, final MyIterators.Getter<A, A> g) {
+    public static <A> Iterator<A> recur(final A a, final MyGetter<A, A> g) {
         return new Iterator<A>() {
             Iterator<A> delegate = one(a);
 

@@ -15,16 +15,16 @@ public  class MyResolvedType {
 
     private final static MyResolvedType.MyPointcutGetter PointcutGetterInstance = new MyResolvedType.MyPointcutGetter();
 
-    private static class MyPointcutGetter implements MyIterators.Getter<MyResolvedType, MyResolvedMember> {
+    private static class MyPointcutGetter implements MyIterators.MyGetter<MyResolvedType, MyResolvedMember> {
         public Iterator<MyResolvedMember> get(MyResolvedType o) {
             return MyIterators.array(o.getDeclaredPointcuts());
         }
     }
 
     public Iterator<MyResolvedMember> getPointcuts() {
-        final MyIterators.Filter<MyResolvedType> dupFilter = MyIterators.dupFilter();
+        final MyIterators.MyFilter<MyResolvedType> dupFilter = MyIterators.dupFilter();
         // same order as fields
-        MyIterators.Getter<MyResolvedType, MyResolvedType> typeGetter = new MyIterators.Getter<MyResolvedType, MyResolvedType>() {
+        MyIterators.MyGetter<MyResolvedType, MyResolvedType> typeGetter = new MyIterators.MyGetter<MyResolvedType, MyResolvedType>() {
             public Iterator<MyResolvedType> get(MyResolvedType o) {
                 return dupFilter.filter(o.getDirectSupertypes());
             }
