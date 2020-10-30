@@ -8,11 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AspectJTest {
 
-    //@Before("execution(* *(java.util.Map<com..Model, com..Model>, ..))")
-    @Before("execution(* *(java.util.Map [][]<com..Model, com..Model>+[][]..., ..))")
+    @Before("execution(* *(java.util.Map<com..Model, com..Model>, ..))")
+    //@Before("execution(* *(java.util.Map [][]<com..Model, com..Model>+[][]..., ..))")
     public void beforeTest() {
         System.out.println("beforeTest");
     }
-
 
 }
