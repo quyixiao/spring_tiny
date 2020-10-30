@@ -10,6 +10,7 @@ public interface UserService {
 
     void getUserHomeInfo(User zhangsan, User lisi);
 
+    void getModelInfo(Model zhangsan,Model lizi);
 
 
 }

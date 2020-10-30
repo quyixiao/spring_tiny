@@ -19,6 +19,9 @@ public class Test117_excution17 {
         userService.getUserHomeWork(new User(), new User());
         System.out.println("=============================");
         userService.getUserHomeInfo(new User(), new User());
+        System.out.println("=============================");
+        userService.getModelInfo(new Model(), new Model());
+
 
     }
 }
