@@ -1,6 +1,5 @@
 package com.spring_101_200.test_111_120.test_117_excution.excution14;
 
-import com.spring_1_100.test_61_70.test64_2.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,8 +14,8 @@ public class Test117_excution14 {
     public void test14() throws Exception {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_101_200/config_111_120/spring117_excution/spring_117_excution14.xml");
         System.out.println("============================");
-        com.spring_1_100.test_61_70.test64_2.UserService userService = ac.getBean(UserService.class);
-        userService.getAge();
+        UserService userService = ac.getBean(UserService.class);
+       // userService.getAge();
         System.out.println("===========================");
         userService.getParentName();
     }

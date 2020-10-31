@@ -6,17 +6,18 @@ import org.springframework.stereotype.Service;
 
 
 @Service
+@MyAnnotation
 public class UserServiceImpl implements UserService {
 
-    @Override
+/*    @Override
     public int getAge() {
         System.out.println("getAge");
         return 0;
-    }
+    }*/
 
     @Override
-    public @MyAnnotation
-    void getParentName() {
+
+    public void getParentName() {
         System.out.println("getParentName");
     }
 
