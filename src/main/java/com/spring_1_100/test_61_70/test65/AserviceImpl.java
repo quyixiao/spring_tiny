@@ -4,13 +4,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AserviceImpl implements Aservice {
-/*
-    @Override
-    public void a() {
-        System.out.println("print a ");
-        ((Aservice) AopContext.currentProxy()).b();
-    }
-*/
 
     @Override
     public void b(String x,String y ) {

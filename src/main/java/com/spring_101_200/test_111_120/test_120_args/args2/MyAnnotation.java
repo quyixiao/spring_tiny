@@ -5,6 +5,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE,ElementType.METHOD,ElementType.PARAMETER,ElementType.FIELD})
 @Documented
+@Inherited
 public @interface MyAnnotation {
     String value() default "";
 
