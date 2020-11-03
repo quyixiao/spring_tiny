@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AspectJTest {
 
-    //13. 任何返回值类型持有@cn.javass..Secure的方法
+    //14 表示被调用的类上必需有MyAnnotation 注解
     @Before("execution(* (@com.spring_1_100..MyAnnotation *).*(..))")
     public void beforeTest() {
         System.out.println("beforeTest");
