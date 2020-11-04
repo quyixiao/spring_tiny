@@ -1,4 +1,4 @@
-package com.spring_1_100.test_61_70.test65_1;
+package com.spring_1_100.test_61_70.test65_2;
 
 import org.springframework.stereotype.Service;
 
