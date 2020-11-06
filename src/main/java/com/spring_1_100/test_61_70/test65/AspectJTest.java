@@ -46,7 +46,7 @@ public class AspectJTest {
 
     @AfterThrowing(pointcut = "test()", throwing = "e")
     public void afterThrowing(Exception e) {
-        System.out.println("例外通知");
+        System.out.println("异常通知");
         System.out.println(e.getMessage());
     }
 
