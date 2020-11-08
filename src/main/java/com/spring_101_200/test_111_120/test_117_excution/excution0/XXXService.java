@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface XXXService {
 
-
+/*
      default String bbb(Long recordId) {
           System.out.println("bbbbbbbbbbbbbbbbbb");
           return "";
-     }
+     }*/
 }
