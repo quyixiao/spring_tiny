@@ -11,6 +11,6 @@ public class Test97 {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring_1_100/config_91_100/spring97_ltw.xml");
         Waiter waiter = ctx.getBean(Waiter.class);
-        waiter.greetTo("John");
+        String b = waiter.greetTo("John");
     }
 }
