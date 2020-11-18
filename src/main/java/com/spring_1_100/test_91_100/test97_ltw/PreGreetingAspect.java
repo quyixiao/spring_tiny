@@ -1,7 +1,9 @@
 package com.spring_1_100.test_91_100.test97_ltw;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.junit.Test;
 
 @Aspect
 public class PreGreetingAspect {
@@ -9,8 +11,21 @@ public class PreGreetingAspect {
 
     @Pointcut("execution(* com.spring_1_100.test_91_100.test97_ltw.*.*(..))  && args(..)")
     public void test() {
+
         System.out.println("beforeTest");
     }
+
+
+/*
+
+    @Before("test()")
+    public void beforeTest(JoinPoint.StaticPart a) {
+        System.out.println("beforeTest");
+    }
+*/
+
+
+
 
     @Around("test()")
     public Object aroundTest(ProceedingJoinPoint p) {
@@ -24,12 +39,7 @@ public class PreGreetingAspect {
         System.out.println("around after1");
         return o;
     }
-
-    @Before("test()")
-    public void beforeTest() {
-        System.out.println("beforeTest");
-    }
-
+/*
 
 
     @After("test()")
@@ -49,7 +59,7 @@ public class PreGreetingAspect {
     public void afterReturning(String     b ) {
         System.out.println("afterReturning b :" + b );
     }
-
+*/
 
 
 
