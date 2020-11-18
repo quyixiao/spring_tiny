@@ -22,6 +22,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int update(User user) {
+        int num = jdbcTemplate.update("update lz_user set password = ? where username = ?  ",
+                new Object[]{user.getPassword(),user.getUsername()});
+        return num;
+    }
+
+    @Override
     public List<User> getUsers() {
         return jdbcTemplate.query("select * from lz_user ", new UserRowMapper());
     }

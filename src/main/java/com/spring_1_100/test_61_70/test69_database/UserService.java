@@ -7,6 +7,8 @@ public interface UserService {
     void save(User user);
 
 
+    int update(User user);
+
     List<User> getUsers();
 
 

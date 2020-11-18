@@ -15,6 +15,10 @@ public class User {
     private String realName;
     private Long managerId;
 
+    public User() {
+
+    }
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
