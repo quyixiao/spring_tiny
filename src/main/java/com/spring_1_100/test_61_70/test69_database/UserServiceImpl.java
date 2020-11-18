@@ -34,12 +34,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<User> queryObjectUsersByName(String username) {
+    public List<String> queryObjectUsersByName(String username) {
         List<String> list =  jdbcTemplate.queryForList("select password from lz_user where username = '" + username + "'",
              String.class);
-
-        System.out.println(JSON.toJSONString(list));
-
-        return null;
+        return list;
     }
 }
