@@ -15,9 +15,9 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://172.16.157.238:3306/pple_test?characterEncoding=utf-8"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/pple_test?characterEncoding=utf-8"></property>
         <property name="username" value="ldd_biz"></property>
-        <property name="password" value="Hello1234"></property>
+        <property name="password" value="pwd"></property>
         <property name="initialSize" value="1"></property>
         <property name="maxIdle" value="2"></property>
         <property name="minIdle" value="1"></property>
