@@ -4,6 +4,6 @@ public interface UserMapper {
 
     void insertUser(User user);
 
-    User getUser(Long id);
+   User getUser(Long id);
 
 }

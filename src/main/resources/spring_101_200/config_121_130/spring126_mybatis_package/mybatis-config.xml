@@ -4,7 +4,7 @@
 <configuration>
 
 
-    <properties resource="spring_101_200/config_121_130/spring125_mybatis_properties/db.properties"></properties>
+    <properties resource="spring_101_200/config_121_130/spring126_mybatis_package/db.properties"></properties>
 
     <settings>
         <setting name="cacheEnabled" value="false"/>
@@ -14,7 +14,8 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="com.spring_101_200.test_121_130.test_125_mybatis_properties.User" alias="User"></typeAlias>
+      <package name="com.spring_101_200.test_121_130.test_126_mybatis_package.a"/>
+      <package name="com.spring_101_200.test_121_130.test_126_mybatis_package.b"/>
     </typeAliases>
 
     <environments default="development">
@@ -29,8 +30,9 @@
         </environment>
     </environments>
 
+
     <mappers>
-        <mapper resource="spring_101_200/config_121_130/spring125_mybatis_properties/UserMapper.xml"></mapper>
+        <mapper resource="spring_101_200/config_121_130/spring126_mybatis_package/UserMapper.xml"></mapper>
     </mappers>
 </configuration>
 
