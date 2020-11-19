@@ -5,13 +5,15 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
-public class TestMapper {
+public class Test70 {
+
 
     static SqlSessionFactory sqlSessionFactory = null;
 
     static {
         sqlSessionFactory = MyBatisUtil.getSqlSEssionFactory();
     }
+
 
     @Test
     public void testGetUser() throws Exception {
