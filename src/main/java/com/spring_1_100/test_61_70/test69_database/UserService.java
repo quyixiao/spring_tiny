@@ -10,7 +10,7 @@ public interface UserService {
     int update(User user);
 
     List<User> getUsers();
-
+    List<User> getAllUsersByName(String username) ;
 
 
     List<User> getUsersByName(String username);

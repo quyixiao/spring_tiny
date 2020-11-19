@@ -40,6 +40,12 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    public List<User> getAllUsersByName(String username) {
+        return  jdbcTemplate.query("select * from lz_user ",new UserRowMapper());
+
+    }
+
+
     @Override
     public List<String> queryObjectUsersByName(String username) {
         List<String> list =  jdbcTemplate.queryForList("select password from lz_user where username = '" + username + "'",
