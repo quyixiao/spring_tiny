@@ -13,6 +13,8 @@ public interface UserService {
     List<User> getAllUsersByName(String username) ;
 
 
+    User queryForObject(String username);
+
     List<User> getUsersByName(String username);
 
      List<String> queryObjectUsersByName(String username);

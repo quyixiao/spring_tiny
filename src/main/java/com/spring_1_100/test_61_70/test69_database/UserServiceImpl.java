@@ -46,6 +46,13 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    public User queryForObject(String username) {
+        Integer a =   jdbcTemplate.queryForObject("select count(*) from lz_user limit 1  ",Integer.class);
+        System.out.println(a );
+        return null;
+    }
+
+
     @Override
     public List<String> queryObjectUsersByName(String username) {
         List<String> list =  jdbcTemplate.queryForList("select password from lz_user where username = '" + username + "'",

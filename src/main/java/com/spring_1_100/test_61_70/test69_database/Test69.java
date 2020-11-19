@@ -34,6 +34,15 @@ public class Test69 {
         System.out.println(a);
     }
 
+
+    @Test
+    public void springQueryForObject() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring69.xml");
+        UserService userService = (UserService) ac.getBean("userService");
+        User user = userService.queryForObject("19884189046");
+        System.out.println(JSON.toJSONString(user));
+    }
+
     @Test
     public void jdbcQuery() {
         Connection conn = null;
