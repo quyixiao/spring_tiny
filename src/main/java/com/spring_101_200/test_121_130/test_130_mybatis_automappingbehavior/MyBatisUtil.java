@@ -1,4 +1,4 @@
-package com.spring_101_200.test_121_130.test_129_mybatis_objectwrapper;
+package com.spring_101_200.test_121_130.test_130_mybatis_automappingbehavior;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,7 +12,7 @@ public class MyBatisUtil {
     private final static SqlSessionFactory sqlSEssionFactory;
 
     static {
-        String resource = "spring_101_200/config_121_130/spring129_mybatis_objectwrapper/mybatis-config.xml";
+        String resource = "spring_101_200/config_121_130/spring130_mybatis_automappingbehavior/mybatis-config.xml";
         Reader reader = null;
         try {
             reader = Resources.getResourceAsReader(resource);
