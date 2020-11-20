@@ -380,6 +380,19 @@
 
 
     <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <!--默认是true-->
+                <!--<filtering>true</filtering>-->
+            </resource>
+        </resources>
+
+
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>

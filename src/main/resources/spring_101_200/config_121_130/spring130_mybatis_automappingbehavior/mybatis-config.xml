@@ -16,8 +16,19 @@
     </typeAliases>
 
 
-    <environments default="development">
+    <environments default="online">
         <environment id="development">
+            <transactionManager type="jdbc"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${db.driver}"/>
+                <property name="url" value="${db.url}"></property>
+                <property name="username" value="${db.username}"></property>
+                <property name="password" value="${db.pwd}"></property>
+            </dataSource>
+        </environment>
+
+
+        <environment id="online">
             <transactionManager type="jdbc"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="${db.driver}"/>
