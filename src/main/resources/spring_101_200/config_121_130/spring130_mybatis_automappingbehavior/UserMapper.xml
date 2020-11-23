@@ -13,7 +13,7 @@
 
     <resultMap id="userBillResult" type="UserBillInfo">
         <id property="id" column="id" />
-        <collection property="billList" ofType="Bill" >
+        <collection property="billList" ofType="UserBill" >
             <id property="id" column="id" />
             <result property="type" column="type"></result>
             <result property="userId" column="user_id"></result>
