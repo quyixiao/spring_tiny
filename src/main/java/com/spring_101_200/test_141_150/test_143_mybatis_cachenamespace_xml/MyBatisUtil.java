@@ -1,4 +1,4 @@
-package com.spring_101_200.test_141_150.test_140_mybatis_usegeneratedkeys_keyproperty;
+package com.spring_101_200.test_141_150.test_143_mybatis_cachenamespace_xml;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,7 +12,7 @@ public class MyBatisUtil {
     private final static SqlSessionFactory sqlSEssionFactory;
 
     static {
-        String resource = "spring_101_200/config_141_150/spring141_mybatis_usegeneratedkeys_keyproperty/mybatis-config.xml";
+        String resource = "spring_101_200/config_141_150/spring143_mybatis_cachenamespace_xml/mybatis-config.xml";
         Reader reader = null;
         try {
             reader = Resources.getResourceAsReader(resource);

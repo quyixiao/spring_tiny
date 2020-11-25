@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring_101_200.test_141_150.test_143_mybatis_cachenamespace_xml.UserMapper" >
+
+
+
+    <cache type="com.spring_101_200.test_141_150.test_143_mybatis_cachenamespace_xml.MybatisPlusCache">
+        <property name="flushInterval" value="6000000" />
+        <property name="size" value="1024" />
+        <property name="readOnly" value="false" />
+    </cache>
+
+
+
+    <select id="getUser" parameterType="java.lang.Long" resultType="com.spring_101_200.test_141_150.test_143_mybatis_cachenamespace_xml.User">
+            select * from lz_user where id=#{id}
+    </select>
+</mapper>
