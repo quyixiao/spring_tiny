@@ -15,7 +15,6 @@ import java.util.regex.Pattern;
  * @注意：本内容仅限于杭州霖梓网络科技有限公司内部传阅，禁止外泄以及用于其他的商业目的
  */
 
-@Slf4j
 public class StringUtils {
 
 	public static final String EMPTY = "";
@@ -370,7 +369,7 @@ public class StringUtils {
 				result.add(item);
 			}
 		} catch (Exception e) {
-			log.error("source = " + source + ", sep = " + sep,e);
+
 		}
 		return result;
 	}
