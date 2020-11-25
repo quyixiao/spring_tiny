@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.spring_101_200.test_141_150.test_143_mybatis_cachenamespace_xml.UserMapper" >
+<mapper namespace="com.spring_101_200.test_141_150.test_145_mybatis_cachenamespaceref_xml.UserMapper" >
 
 
-
-    <cache type="com.spring_101_200.test_141_150.test_143_mybatis_cachenamespace_xml.MybatisPlusCache">
+    <cache type="com.spring_101_200.test_141_150.test_145_mybatis_cachenamespaceref_xml.MybatisPlusCache">
         <!--eviction(收回策略)
             LRU(最近最少使用的):移除最长时间不被使用的对象，这是默认值。
             FIFO(先进先出):按对象进入缓存的顺序来移除它们。
@@ -25,8 +24,10 @@
     </cache>
 
 
-
-    <select id="getUser" parameterType="java.lang.Long" resultType="com.spring_101_200.test_141_150.test_143_mybatis_cachenamespace_xml.User">
+    <select id="getUser" parameterType="java.lang.Long" resultType="User">
             select * from lz_user where id=#{id}
     </select>
+
+
+
 </mapper>
