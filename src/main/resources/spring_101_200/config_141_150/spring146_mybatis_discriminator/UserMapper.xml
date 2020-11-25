@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring_101_200.test_141_150.test_146_mybatis_discriminator.UserMapper">
+
+
+
+    <resultMap type="com.spring_101_200.test_141_150.test_146_mybatis_discriminator.UserBill" id="ordersUserLazyLoading">
+        <!--对订单信息进行映射配置  -->
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="amount" property="amount"/>
+        <result column="type" property="type"/>
+        <discriminator javaType="int" column="is_delete">
+            <case value="1" resultType="com.spring_101_200.test_141_150.test_146_mybatis_discriminator.UserBill">
+                <association property="user" javaType="User" select="findUserById" column="user_id"/>
+            </case>
+        </discriminator>
+
+    </resultMap>
+
+    <!-- 查询订单关联用户，用户信息延迟加载 -->
+    <select id="findUserBillLazyLoading"  parameterType="java.lang.Long"  resultMap="ordersUserLazyLoading">
+       select * from lz_user_bill where id = #{id}
+    </select>
+
+    <!-- 根据Id查询用户，用于测试延迟加载 -->
+    <select id="findUserById" parameterType="java.lang.Long"  resultType="User">
+        select * from lz_user lu   where lu.id =#{id}
+    </select>
+
+
+</mapper>
