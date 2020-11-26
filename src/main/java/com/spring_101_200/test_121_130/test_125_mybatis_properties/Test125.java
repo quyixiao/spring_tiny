@@ -32,6 +32,17 @@ public class Test125 {
     }
 
 
+
+    @Test
+    public void test2() throws Exception {
+        SqlSession sqlSession = MyBatisUtil1.getSqlSEssionFactory().openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = userMapper.getUser(456l);
+        System.out.println(JSON.toJSONString(user));
+
+    }
+
+
     public static SqlSessionFactory getSqlSessionFactory() {
         //构建数据库连接池
         PooledDataSource dataSource = new PooledDataSource();
