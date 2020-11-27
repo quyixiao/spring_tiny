@@ -20,5 +20,7 @@ public class User {
     private String password;
     private PhoneNumber realName;
     private Long managerId;
+    private Sex sex;
+    private Sex sexStr;
 
 }

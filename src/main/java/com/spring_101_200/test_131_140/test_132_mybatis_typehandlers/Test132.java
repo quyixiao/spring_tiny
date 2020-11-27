@@ -23,4 +23,14 @@ public class Test132 {
         System.out.println(JSON.toJSONString(user));
 
     }
+
+    @Test
+    public void test1() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = userMapper.getUserByMap(456l);
+        System.out.println("sex:"+user.getSex());
+        System.out.println(user.getSexStr());
+    }
+
 }
