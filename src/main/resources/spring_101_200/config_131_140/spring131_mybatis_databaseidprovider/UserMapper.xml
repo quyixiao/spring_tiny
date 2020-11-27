@@ -6,7 +6,7 @@
        INSERT INTO lz_user (username, password, real_name, manager_id) VALUES (#{username},#{password},#{realName},#{managerId})
     </insert>
 
-    <select id="getUser" resultType="User" parameterType="java.lang.Long">
+    <select id="getUser" resultType="User" parameterType="java.lang.Long" databaseId="mysql">
         select * from lz_user where id=#{id}
     </select>
 
