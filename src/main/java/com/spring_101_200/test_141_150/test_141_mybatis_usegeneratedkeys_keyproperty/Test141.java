@@ -31,4 +31,22 @@ public class Test141 {
 
     }
 
+
+
+
+    @Test
+    public void test1() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = new User();
+        user.setManagerId(1l);
+        user.setPassword("123456");
+        user.setRealName("哈哈");
+        user.setUsername("zhangsan");
+        userMapper.insertUserIdAddDouble(user);
+        sqlSession.commit();
+        System.out.println(JSON.toJSONString(user));
+
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.spring_101_200.test_141_150.test_145_mybatis_cachenamespaceref_xml;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.core.JsonGenerator;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
@@ -21,13 +22,12 @@ public class Test145 {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         UserBillMapper userBillMapper = sqlSession.getMapper(UserBillMapper.class);
         User user = userMapper.getUser(456l);
+        System.out.println("user:" + JSON.toJSONString(user));
         sqlSession.commit();
         System.out.println("======================");
         user.setRealName("bbbbbbbb");
-
         User user2 = userBillMapper.getUser(456l);
-        System.out.println(user2.getRealName());
-        System.out.println(JSON.toJSONString(user));
+        System.out.println("user2:"+JSON.toJSONString(user2));
     }
 
 

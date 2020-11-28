@@ -58,9 +58,6 @@ public class MybatisPlusCache implements Cache {
             k = myK;
         }
         Object obj =  cacheMap.get(k);
-        if(obj !=null){
-            System.out.println(JSON.toJSONString(obj));
-        }
         return obj;
     }
     public String getKey(Object key){

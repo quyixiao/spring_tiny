@@ -20,6 +20,7 @@ public class Test133 {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         UserBill userBill = userMapper.findUserBillLazyLoading(60l);
+
         System.out.println("----------------------");
         System.out.println("realName:" + userBill.getUser().getRealName());
         System.out.println("----------------------");
@@ -34,5 +35,16 @@ public class Test133 {
         User user = userMapper.findUserById(456l);
         System.out.println("----------------------");
         System.out.println(user.getBillList());
+    }
+
+
+
+
+    @Test
+    public void test3() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        UserBill userBill = userMapper.findUserBillLazyLoading(60l);
+        System.out.println(JSON.toJSONString(userBill));
     }
 }

@@ -22,6 +22,8 @@ public class Test127 {
 
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.getUser(456l);
+        System.out.println("再次查询用户");
+        user = userMapper.getUser(456l);
         System.out.println(JSON.toJSONString(user));
 
     }

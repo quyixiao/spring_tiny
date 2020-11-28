@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 @Data
 public class UserBill {
     private Long id;
+    private Integer isDelete;
     private String type;
     private Long userId;
     private BigDecimal amount;
