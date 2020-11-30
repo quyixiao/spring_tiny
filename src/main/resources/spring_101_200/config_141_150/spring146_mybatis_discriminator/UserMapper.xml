@@ -3,6 +3,7 @@
 <mapper namespace="com.spring_101_200.test_141_150.test_146_mybatis_discriminator.UserMapper">
 
     <resultMap type="com.spring_101_200.test_141_150.test_146_mybatis_discriminator.UserBill" id="ordersUserLazyLoading">
+
         <!--对订单信息进行映射配置  -->
         <id column="id" property="id"/>
         <result column="is_delete" property="isDelete"/>

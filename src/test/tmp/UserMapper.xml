@@ -16,14 +16,10 @@
         <result column="sex_str" property="sexStr"/>
     </resultMap>
 
-
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id AS id, is_delete AS isDelete, gmt_create AS gmtCreate, gmt_modified AS gmtModified, username AS username, password AS password, real_name AS realName, manager_id AS managerId, sex AS sex, sex_str AS sexStr
     </sql>
-
-
-
 
     <select id="selectUserById" resultType="User" >
         select * from lz_user  where id=#{id} and is_delete = 0 limit 1 
@@ -73,26 +69,11 @@
     </update>
 
 
-    <update id="updateCoverUserById" parameterType="User" >
-        update
-            lz_user    
-        set     
-            is_delete = #{isDelete},
-            gmt_create = #{gmtCreate},
-            username = #{username},
-            password = #{password},
-            real_name = #{realName},
-            manager_id = #{managerId},
-            sex = #{sex},
-            sex_str = #{sexStr}                
-        ,gmt_modified = now()
-        where id = #{id}
-    </update>
 
 
-    <update id="deleteUserById" parameterType="java.lang.Long">
-        update lz_user set is_delete = 1 where id=#{id} limit 1  
-    </update>
+    <delete id="deleteUserById" parameterType="java.lang.Long">
+        delete from lz_user where id=#{id} limit 1
+    </delete>
 
 </mapper>
 

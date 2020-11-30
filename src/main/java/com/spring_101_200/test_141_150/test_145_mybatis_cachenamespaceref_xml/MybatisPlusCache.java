@@ -36,8 +36,7 @@ public class MybatisPlusCache implements Cache {
     public void putObject(Object key, Object value) {
         String k = id + "_" + key.toString();
         //id是namespace的值，key是方法名，value是查询的结果
-        System.out.println("putObject id:           " + id);
-        System.out.println("putObject key:           " + key);
+        //System.out.println("putObject key:           " + key);
         String myK  = getKey(key);
         if(StringUtils.isNotBlank(myK)){
             System.out.println("putObject myK:      " + myK     );
@@ -50,8 +49,7 @@ public class MybatisPlusCache implements Cache {
     @Override
     public Object getObject(Object key) {
         String k = id + "_" + key.toString();
-        System.out.println("getObject id:           " + id);
-        System.out.println("getObject key:           " + key);
+        //System.out.println("getObject key:           " + key);
         String myK  = getKey(key);
         if(StringUtils.isNotBlank(myK)){
             System.out.println("getObject myK:      " + myK     );

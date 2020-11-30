@@ -10,4 +10,6 @@ public interface UserMapper {
 
 
     User getUser(@Param("id") Long id);
+
+    User getUserByParameterMap(User user);
 }

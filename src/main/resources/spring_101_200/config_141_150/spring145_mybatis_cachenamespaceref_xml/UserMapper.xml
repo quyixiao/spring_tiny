@@ -28,6 +28,24 @@
             select * from lz_user where id=#{id}
     </select>
 
+    <parameterMap id="parameterMap" type="User">
+        <parameter property="id"></parameter>
+        <parameter property="password"></parameter>
+        <parameter property="realName"></parameter>
+    </parameterMap>
+
+
+    <select id="getUserByParameterMap" parameterMap="parameterMap" resultType="User">
+        select * from lz_user where id=#{id} or password=#{password} or real_name = #{realName}
+    </select>
+
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id AS id, is_delete AS isDelete, gmt_create AS gmtCreate, gmt_modified AS gmtModified, username AS username, password AS password, real_name AS realName, manager_id AS managerId, sex AS sex, sex_str AS sexStr
+    </sql>
+
+
 
 
 </mapper>

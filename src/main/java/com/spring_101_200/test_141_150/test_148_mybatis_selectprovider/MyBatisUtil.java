@@ -12,7 +12,7 @@ public class MyBatisUtil {
     private final static SqlSessionFactory sqlSEssionFactory;
 
     static {
-        String resource = "spring_101_200/config_141_150/spring147_mybatis_constructorargs/mybatis-config.xml";
+        String resource = "spring_101_200/config_141_150/spring148_mybatis_selectprovider/mybatis-config.xml";
         Reader reader = null;
         try {
             reader = Resources.getResourceAsReader(resource);

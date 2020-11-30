@@ -1,15 +1,16 @@
 package com.spring_101_200.test_141_150.test_148_mybatis_selectprovider;
 
 
-import org.apache.ibatis.annotations.Arg;
-import org.apache.ibatis.annotations.ConstructorArgs;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.SelectProvider;
 
 public interface UserMapper {
 
-
-    @Select("select * from lz_user where id = #{id}")
-    User getUser(Integer id);
+    //@SelectProvider、@UpdateProvider、@InsertProvider和@DeleteProvider
+    @SelectProvider(type = SqlProvider.class, method = "selectUser")
+    @ResultMap("BaseResultMap")
+    User getUser(Long id);
 
 
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring_101_200.test_141_150.test_148_mybatis_selectprovider.UserMapper">
+
+
+    <resultMap id="BaseResultMap" type="com.spring_101_200.test_141_150.test_148_mybatis_selectprovider.User">
+        <id column="id" property="id"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="real_name" property="realName"/>
+        <result column="manager_id" property="managerId"/>
+    </resultMap>
+
+</mapper>
