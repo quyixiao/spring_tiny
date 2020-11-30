@@ -1,11 +1,14 @@
-package com.spring_101_200.test_141_150.test_148_mybatis_selectprovider;
+package com.spring_101_200.test_141_150.test_149_mybatis_resultordered;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
-public class Test148 {
+import java.util.Iterator;
+import java.util.List;
+
+public class Test149 {
 
 
     static SqlSessionFactory sqlSessionFactory = null;
@@ -19,19 +22,12 @@ public class Test148 {
     public void testGetUser() throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = userMapper.getUser(456l);
-        System.out.println(JSON.toJSONString(user));
-
+        List<User> user = userMapper.getUser(456l);
+        Iterator<User> iterator1 = user.iterator();
+        while (iterator1.hasNext()) {
+            User next = iterator1.next();
+            System.out.println(next);
+        }
     }
 
-
-
-    @Test
-    public void test1() throws Exception {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = userMapper.selectSqlUserById(456l);
-        System.out.println(JSON.toJSONString(user));
-
-    }
 }

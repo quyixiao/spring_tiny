@@ -21,6 +21,10 @@
         id AS id, is_delete AS isDelete, gmt_create AS gmtCreate, gmt_modified AS gmtModified, username AS username, password AS password, real_name AS realName, manager_id AS managerId, sex AS sex, sex_str AS sexStr
     </sql>
 
+
+
+
+
     <select id="selectUserById" resultType="User" >
         select * from lz_user  where id=#{id} and is_delete = 0 limit 1 
     </select>

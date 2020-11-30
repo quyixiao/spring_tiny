@@ -3,15 +3,20 @@
 <mapper namespace="com.spring_101_200.test_141_150.test_148_mybatis_selectprovider.UserMapper">
 
 
-    <resultMap id="BaseResultMap" type="com.spring_101_200.test_141_150.test_148_mybatis_selectprovider.User">
+    <resultMap id="BaseResultMap" type="com.spring_101_200.test_141_150.test_148_mybatis_selectprovider.User"
+        extends="com.spring_101_200.test_141_150.test_148_mybatis_selectprovider.UserBillMapper.baseMap">
         <id column="id" property="id"/>
         <result column="is_delete" property="isDelete"/>
         <result column="gmt_create" property="gmtCreate"/>
         <result column="gmt_modified" property="gmtModified"/>
-        <result column="username" property="username"/>
-        <result column="password" property="password"/>
-        <result column="real_name" property="realName"/>
-        <result column="manager_id" property="managerId"/>
     </resultMap>
+
+    <sql id="Base_Column_List">
+        id AS id, is_delete AS isDelete, gmt_create AS gmtCreate, gmt_modified AS gmtModified, username AS username, password AS password, real_name AS realName, manager_id AS managerId, sex AS sex, sex_str AS sexStr
+    </sql>
+
+    <select id="selectSqlUserById" resultMap="BaseResultMap" >
+        select <include refid="com.spring_101_200.test_141_150.test_148_mybatis_selectprovider.UserBillMapper.Base_Column_List"/> from lz_user  where id=#{id} and is_delete = 0 limit 1
+    </select>
 
 </mapper>
