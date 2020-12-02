@@ -12,6 +12,7 @@ public class Test140 {
 
     static {
         sqlSessionFactory = MyBatisUtil.getSqlSEssionFactory();
+
     }
 
 
@@ -20,9 +21,20 @@ public class Test140 {
     public void test() throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = userMapper.getUserInfo(456l);
+        User user = userMapper.getUserInfo(456l,"zhangsan1");
         System.out.println(JSON.toJSONString(user));
 
     }
+
+
+    @Test
+    public void test2() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = userMapper.getUser(456l);
+        System.out.println(JSON.toJSONString(user));
+
+    }
+
 
 }

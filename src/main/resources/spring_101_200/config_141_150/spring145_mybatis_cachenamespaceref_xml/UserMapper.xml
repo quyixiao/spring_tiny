@@ -35,6 +35,19 @@
     </parameterMap>
 
 
+    <!-- 通用查询映射结果 -->
+    <resultMap id="UserBaseResultMap" type="User">
+        <id column="id" property="id"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="real_name" property="realName"/>
+        <result column="manager_id" property="managerId"/>
+    </resultMap>
+
+
     <select id="getUserByParameterMap" parameterMap="parameterMap" resultType="User">
         select * from lz_user where id=#{id} or password=#{password} or real_name = #{realName}
     </select>

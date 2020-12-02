@@ -35,9 +35,14 @@
         </environment>
     </environments>
 
+
+
     <mappers>
-        <mapper resource="spring_101_200/config_141_150/spring145_mybatis_cachenamespaceref_xml/UserMapper.xml"></mapper>
         <mapper resource="spring_101_200/config_141_150/spring145_mybatis_cachenamespaceref_xml/UserBillMapper.xml"></mapper>
+        <mapper resource="spring_101_200/config_141_150/spring145_mybatis_cachenamespaceref_xml/UserMapper.xml"></mapper>
     </mappers>
+
+
+
 </configuration>
 

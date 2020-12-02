@@ -16,6 +16,11 @@ public class User {
     private Long managerId;
     private Long userId;
 
+    public User() {
+
+
+    }
+
     public User(Long id, Integer isDelete) {
         this.id = id;
         this.isDelete = isDelete;
