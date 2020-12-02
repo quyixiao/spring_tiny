@@ -10,7 +10,7 @@
         update lz_user set real_name = '张三' where id = #{id}
     </update>
 
-    <update id="updateRealName">
+    <update id="updateRealName" >
         update lz_user set real_name = #{realName} where id = #{id}
     </update>
 
