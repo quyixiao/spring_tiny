@@ -10,6 +10,6 @@ public interface UserMapper {
 
     int update(@Param("id") long id);
 
-    void updateRealName(@Param("id") long id, @Param("realName") String realName);
+    void updateRealName(@Param("id") long id, @Param("realName") String realName,int a );
 
 }

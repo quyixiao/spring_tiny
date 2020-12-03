@@ -31,8 +31,8 @@ public class Test135 {
     public void test2() throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        userMapper.updateRealName(456l,"zhangsan");
-        userMapper.updateRealName(457l,"lisi");
+        userMapper.updateRealName(456l,"zhangsan",1);
+        userMapper.updateRealName(457l,"lisi",1);
     }
 
 
@@ -41,9 +41,9 @@ public class Test135 {
     public void test3() throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        userMapper.updateRealName(456l,"zhangsan");
+        userMapper.updateRealName(456l,"zhangsan",1);
         userMapper.update(458l);
-        userMapper.updateRealName(457l,"lisi");
+        userMapper.updateRealName(457l,"lisi",1);
     }
 
 
