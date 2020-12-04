@@ -5,6 +5,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Test145 {
 
 
@@ -41,6 +44,19 @@ public class Test145 {
         User param = new User();
         param.setPassword("123456aaaaa");
         User user = userMapper.getUserByParameterMap(param);
+        System.out.println(JSON.toJSONString(user));
+
+    }
+
+
+
+
+    @Test
+    public void testCompx() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+        List<User > user = userMapper.getUserByCompx(456l, Arrays.asList("zhangsan","lisi"),0);
         System.out.println(JSON.toJSONString(user));
 
     }
