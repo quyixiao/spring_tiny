@@ -22,7 +22,6 @@ public class Test69 {
     }
 
 
-
     @Test
     public void springUpdate() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_61_70/spring69.xml");
@@ -84,7 +83,7 @@ public class Test69 {
             String sql = "update lz_user set password = ? where username = ? ";
             pstemt = conn.prepareStatement(sql);
             pstemt.setString(1, "123456");
-            pstemt.setString(2,"19884189046");
+            pstemt.setString(2, "19884189046");
             //执行sql语句
             int num = pstemt.executeUpdate();
             System.out.println(num);
@@ -93,5 +92,39 @@ public class Test69 {
             e.printStackTrace();
         }
     }
+
+
+    @Test
+    public void jdbcInsert() {
+        Connection conn = null;
+        PreparedStatement pstemt = null;
+        try {
+            //注册加载jdbc驱动
+            Class.forName("com.mysql.jdbc.Driver");
+            //打开连接
+            conn = DriverManager.getConnection("jdbc:mysql://172.16.157.238:3306/pple_test?characterEncoding=utf-8", "ldd_biz", "Hello1234");
+            //创建执行对象
+            String sql = " INSERT INTO lz_user (username, password, real_name, manager_id )" +
+                    " VALUES " +
+                    " ( ?, ?, ?, ?)";
+            pstemt = conn.prepareStatement(sql, com.mysql.jdbc.Statement.RETURN_GENERATED_KEYS);
+            pstemt.setString(1, "18389328");
+            pstemt.setString(2, "123456");
+            pstemt.setString(3, "张三");
+            pstemt.setString(4, "1");
+            //执行sql语句
+            int num = pstemt.executeUpdate();
+            System.out.println(num);
+
+            ResultSet rs = pstemt.getGeneratedKeys();
+            while (rs.next()){
+                System.out.println("============" + rs.getLong(1));
+            }
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

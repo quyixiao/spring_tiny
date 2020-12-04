@@ -31,9 +31,7 @@
                      BEFORE 表示select if(max(id) is null ,1 ,max(id) + 2 ) as newId from lz_user 在insert执行之前执行，这样的话就拿不到主键了，
                            这种适合那种主键不是自增的类型
                resultType 主键类型 -->
-        <selectKey keyProperty="id" resultType="long" order="BEFORE">
-            select if(max(id) is null ,1 ,max(id) + 2 ) as newId from lz_user
-        </selectKey>
+
 
         insert into lz_user(
         <if test="id != null">id, </if>
@@ -57,7 +55,30 @@
     </insert>
 
 
-
-
+    <insert id="insertUserNew" parameterType="User" useGeneratedKeys="true" keyProperty="id" >
+        <selectKey keyProperty="id,username" keyColumn="id,userName"
+                   resultType="com.spring_101_200.test_141_150.test_141_mybatis_usegeneratedkeys_keyproperty.UserSelectKey" order="BEFORE">
+            select if(max(id) is null ,1 ,max(id) + 2 ) as id,username  as userName from lz_user
+        </selectKey>
+        insert into lz_user(
+            <if test="id != null">id, </if>
+            <if test="username != null">username, </if>
+            <if test="password != null">password, </if>
+            <if test="realName != null">real_name, </if>
+            <if test="managerId != null">manager_id, </if>
+            is_delete,
+            gmt_create,
+            gmt_modified
+        )values(
+            <if test="id != null">#{ id}, </if>
+            <if test="username != null">#{ username}, </if>
+            <if test="password != null">#{ password}, </if>
+            <if test="realName != null">#{ realName}, </if>
+            <if test="managerId != null">#{ managerId}, </if>
+            0,
+            now(),
+            now()
+        )
+    </insert>
 
 </mapper>

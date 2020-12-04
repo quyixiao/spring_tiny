@@ -5,4 +5,7 @@ public interface UserMapper {
     void insertUser(User user);
 
     void insertUserIdAddDouble(User user);
+
+
+    void insertUserNew(User user);
 }
