@@ -8,7 +8,7 @@ public class Test145_Parse {
 
     @Test
     public void test3(){
-        String sql = "select * from lz_user where id = 1#{1";
+        String sql = "select * from lz_user where id = #{1} ";
        String parseValue = parse("#{","}",sql);
         System.out.println(parseValue);
         System.out.println(0x20);

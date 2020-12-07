@@ -2,6 +2,7 @@ package com.spring_101_200.test_151_160.test_152_ognl;
 
 import ognl.Ognl;
 import ognl.OgnlContext;
+import org.apache.ibatis.scripting.xmltags.OgnlCache;
 import org.junit.Test;
 
 /***
@@ -10,40 +11,49 @@ import org.junit.Test;
 public class Test152 {
 
     @Test
+    public void test(){
+        User user  = new User();
+        user.setUsername("zhangsan");
+        Object value = OgnlCache.getValue("username !=null ", user);
+        System.out.println(value);
+    }
+
+
+    @Test
     public void test1() throws Exception {
         User root = new User();
-        root.setPassword("1234");
+        root.setUsername("1234");
         OgnlContext context = new OgnlContext();
         context.setRoot(root);
-        Object password = Ognl.getValue("password != null ", context, root);
+        Object password = Ognl.getValue("username != null ", context, root);
         System.out.println(password);
     }
 
     @Test
-    public void test2() throws Exception{
+    public void test2() throws Exception {
         //1 获取context
         OgnlContext context = new OgnlContext();
         //2 获取根对象
         Object root = context.getRoot();
         // 3 执行表达式
-        Object object = Ognl.getValue("'i am grece'.length()",context,root);
+        Object object = Ognl.getValue("'i am grece'.length()", context, root);
         System.out.println(object);
     }
 
 
     @Test
-    public void test3() throws Exception{
+    public void test3() throws Exception {
         //1 获取context
         OgnlContext context = new OgnlContext();
         //2 获取根对象
         Object root = context.getRoot();
         // 3 执行表达式
-        Object object = Ognl.getValue("@java.lang.Math@random()",context,root);
+        Object object = Ognl.getValue("@java.lang.Math@random()", context, root);
         System.out.println(object);
     }
 
     @Test
-    public void test4() throws Exception{
+    public void test4() throws Exception {
         User root = new User();
         root.setPassword("1234");
         OgnlContext context = new OgnlContext();
@@ -53,13 +63,12 @@ public class Test152 {
     }
 
     @Test
-    public void test5() throws Exception{
+    public void test5() throws Exception {
         OgnlContext context = new OgnlContext();
-        context.put("name","张三");
+        context.put("name", "张三");
         Object password = Ognl.getValue("#name", context, context.getRoot());
         System.out.println(password);
     }
-
 
 
     @Test
@@ -70,14 +79,13 @@ public class Test152 {
          * 1.OgnlContext放入基本变量数据
          */
         //放入数据
-        context.put("cn","China");
+        context.put("cn", "China");
         //获取数据（map）
-        String value = (String)context.get("cn");
+        String value = (String) context.get("cn");
 
         System.out.println(value);
 
     }
-
 
 
     @Test
@@ -92,7 +100,7 @@ public class Test152 {
         user.setId(100);
         user.setName("Jack");
         //【往非根元素放入数据，取值的时候表达式要用“#”】
-        context.put("user",user);
+        context.put("user", user);
         //获取对象属性
         //使用这种方式也可以获取
         Object s = context.get("user");
@@ -107,7 +115,7 @@ public class Test152 {
         user.setId(100);
         user.setName("Jack");
         //【往非根元素放入数据，取值的时候表达式要用“#”】
-        context.put("user",user);
+        context.put("user", user);
         //使用Ognl表达式来获取
         //举例：例如标签<s:a value="#user.id">取值，实际上就是运行了下面的代码获取的
         //先构建一个Ognl表达式，再解析表达式
@@ -134,7 +142,6 @@ public class Test152 {
     }
 
 
-
     //根元素，
     @Test
     public void testOgnl2() throws Exception {
@@ -153,7 +160,7 @@ public class Test152 {
 
 
     @Test
-    public void testOgnl3() throws Exception{
+    public void testOgnl3() throws Exception {
         //创建一个Ognl上下文对象
         OgnlContext context = new OgnlContext();
 
@@ -164,7 +171,6 @@ public class Test152 {
         Object value = Ognl.getValue(ognl, context, context.getRoot());
         System.out.println(value);
     }
-
 
 
 }

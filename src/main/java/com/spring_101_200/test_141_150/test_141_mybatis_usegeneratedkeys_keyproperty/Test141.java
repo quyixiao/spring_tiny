@@ -1,6 +1,9 @@
 package com.spring_101_200.test_141_150.test_141_mybatis_usegeneratedkeys_keyproperty;
 
 import com.alibaba.fastjson.JSON;
+import org.apache.ibatis.parsing.TokenHandler;
+import org.apache.ibatis.scripting.xmltags.DynamicContext;
+import org.apache.ibatis.scripting.xmltags.SqlNode;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
@@ -64,6 +67,8 @@ public class Test141 {
         sqlSession.commit();
         System.out.println(JSON.toJSONString(user));
     }
+
+
 
 
 }
