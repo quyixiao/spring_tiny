@@ -2,8 +2,28 @@ package com.spring_101_200.test_151_160.test_152_ognl;
 
 import ognl.Ognl;
 import ognl.OgnlContext;
+import org.apache.ibatis.executor.ErrorContext;
+import org.apache.ibatis.executor.Executor;
+import org.apache.ibatis.executor.ExecutorException;
+import org.apache.ibatis.executor.keygen.Jdbc3KeyGenerator;
+import org.apache.ibatis.executor.keygen.KeyGenerator;
+import org.apache.ibatis.mapping.MappedStatement;
+import org.apache.ibatis.mapping.ParameterMapping;
+import org.apache.ibatis.mapping.ParameterMode;
+import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.scripting.xmltags.OgnlCache;
+import org.apache.ibatis.session.Configuration;
+import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.TypeHandler;
+import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.junit.Test;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /***
  * ognl 表达式博客 ： https://www.cnblogs.com/cenyu/p/6233942.html
@@ -171,6 +191,7 @@ public class Test152 {
         Object value = Ognl.getValue(ognl, context, context.getRoot());
         System.out.println(value);
     }
+
 
 
 }

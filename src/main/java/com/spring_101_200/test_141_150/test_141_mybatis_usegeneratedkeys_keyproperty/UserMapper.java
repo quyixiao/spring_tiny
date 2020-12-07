@@ -8,4 +8,8 @@ public interface UserMapper {
 
 
     void insertUserNew(User user);
+
+    void updateUser(User user);
+
+    void updateUserById(User user);
 }

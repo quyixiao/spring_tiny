@@ -81,4 +81,42 @@
         )
     </insert>
 
+
+
+    <update id="updateUser" parameterType="User" >
+        update
+        lz_user
+        <trim prefix="set" suffixOverrides="," >
+            <if test="isDelete != null">is_delete = #{isDelete},</if>
+            <if test="gmtCreate != null">gmt_create = #{gmtCreate},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="realName != null">real_name = #{realName},</if>
+            <if test="managerId != null">manager_id = #{managerId},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="sexStr != null">sex_str = #{sexStr}</if>
+        </trim>
+        ,gmt_modified = now()
+        where id = #{id}
+    </update>
+
+
+
+    <update id="updateUserById" parameterType="User" >
+        update
+        lz_user
+        <set>
+            <if test="isDelete != null">is_delete = #{isDelete},</if>
+            <if test="gmtCreate != null">gmt_create = #{gmtCreate},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="realName != null">real_name = #{realName},</if>
+            <if test="managerId != null">manager_id = #{managerId},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="sexStr != null">sex_str = #{sexStr}</if>
+        </set>
+        ,gmt_modified = now()
+        where id = #{id}
+    </update>
+
 </mapper>

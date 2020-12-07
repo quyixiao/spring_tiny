@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-public class Test141_test {
+public class Test141_test_getterType {
 
     public static final String PARAMETER_OBJECT_KEY = "_parameter";
     public static final String DATABASE_ID_KEY = "_databaseId";

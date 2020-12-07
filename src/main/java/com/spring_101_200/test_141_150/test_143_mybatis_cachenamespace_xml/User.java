@@ -1,79 +1,32 @@
 package com.spring_101_200.test_141_150.test_143_mybatis_cachenamespace_xml;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class User {
+    //
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    private int isDelete;
+    private Integer isDelete;
+    //创建时间
     private Date gmtCreate;
+    //
     private Date gmtModified;
+    //用户名
     private String username;
+    //密码
     private String password;
+    //
     private String realName;
+    //管理员id
     private Long managerId;
+    //性别
+    private Integer sex;
+    //
+    private String sexStr;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(int isDelete) {
-        this.isDelete = isDelete;
-    }
-
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Date getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
-    public Long getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(Long managerId) {
-        this.managerId = managerId;
-    }
 }

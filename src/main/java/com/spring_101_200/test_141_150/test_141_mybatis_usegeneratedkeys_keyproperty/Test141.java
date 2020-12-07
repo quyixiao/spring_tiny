@@ -70,5 +70,19 @@ public class Test141 {
 
 
 
+    @Test
+    public void test3() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = new User();
+        user.setId(500l);
+        user.setManagerId(1l);
+        user.setPassword("123456");
+        user.setRealName("你好");
+        user.setUsername("kwkkwkw");
+        userMapper.updateUser(user);
+        sqlSession.commit();
+        System.out.println(JSON.toJSONString(user));
+    }
 
 }
