@@ -86,6 +86,18 @@ public class Test125 {
 
 
 
+    @Test
+    public void test8() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+        UserInfo userB = userMapper.findUserById(456l);
+        System.out.println(JSON.toJSONString(userB));
+    }
+
+
+
+
     public static SqlSessionFactory getSqlSessionFactory() {
         //构建数据库连接池
         PooledDataSource dataSource = new PooledDataSource();

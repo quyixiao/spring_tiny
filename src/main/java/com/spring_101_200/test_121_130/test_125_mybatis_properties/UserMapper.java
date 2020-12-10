@@ -26,5 +26,8 @@ public interface UserMapper {
     User getUserByUser(User user);
 
 
+    UserBill selectUserBill(Long id );
 
+
+    UserInfo findUserById(Long id );
 }

@@ -3,18 +3,12 @@
 <mapper namespace="com.spring_101_200.test_141_150.test_147_mybatis_constructorargs.UserMapper">
 
 
-    <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.spring_101_200.test_141_150.test_147_mybatis_constructorargs.User">
         <constructor>
-            <idArg column="id" javaType="long"></idArg>
+            <idArg column="id" javaType="long" ></idArg>
             <arg column="is_delete" javaType="int"></arg>
         </constructor>
         <result column="gmt_create" property="gmtCreate"/>
-        <result column="gmt_modified" property="gmtModified"/>
-        <result column="username" property="username"/>
-        <result column="password" property="password"/>
-        <result column="real_name" property="realName"/>
-        <result column="manager_id" property="managerId"/>
     </resultMap>
 
     <select id="getUserById" resultMap="BaseResultMap">
@@ -69,5 +63,11 @@
     <select id="getUserBillResultMapById" resultMap="UserBillInfoBaseResultMap">
         select * from lz_user_bill where id = #{id}
     </select>
+<!--
+
+    <select id="getUser" resultType="com.spring_101_200.test_141_150.test_147_mybatis_constructorargs.User">
+        select * from lz_user where id = #{id}
+    </select>
+-->
 
 </mapper>

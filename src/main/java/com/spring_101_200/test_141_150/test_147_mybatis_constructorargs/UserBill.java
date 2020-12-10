@@ -39,9 +39,6 @@ public class UserBill implements java.io.Serializable {
     private User user ;
 
 
-    public UserBill(){
-
-    }
 
     public UserBill(User user ){
         this.user = user;
