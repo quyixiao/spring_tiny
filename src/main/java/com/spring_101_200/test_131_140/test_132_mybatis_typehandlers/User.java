@@ -16,9 +16,9 @@ public class User {
     private Integer isDelete;
     private Date gmtCreate;
     private Date gmtModified;
-    private String username;
+    private PhoneNumber username;
     private String password;
-    private PhoneNumber realName;
+    private String realName;
     private Long managerId;
     private Sex sex;
     private Sex sexStr;

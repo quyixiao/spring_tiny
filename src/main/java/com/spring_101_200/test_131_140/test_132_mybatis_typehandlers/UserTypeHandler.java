@@ -23,7 +23,7 @@ public class UserTypeHandler extends BaseTypeHandler<User> {
         String password = rs.getString("password");
         System.out.println("password:" + password);
         User user =  new User();
-        user.setUsername(username);
+        user.setUsername(new PhoneNumber(username));
         user.setPassword(password);
         return user;
     }

@@ -55,6 +55,9 @@
         </collection>
     </resultMap>
 
+
+
+
     <!-- 根据Id查询用户，用于测试延迟加载 -->
     <select id="findUserById" parameterType="java.lang.Long"  resultMap="userBillResult" >
         select * from lz_user lu  left join lz_user_bill lub on lu.id =lub.user_id where lu.id =#{id}
