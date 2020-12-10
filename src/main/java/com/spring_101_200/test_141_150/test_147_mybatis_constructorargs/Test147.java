@@ -14,9 +14,8 @@ public class Test147 {
         sqlSessionFactory = MyBatisUtil.getSqlSEssionFactory();
     }
 
-
     @Test
-    public void testGetUser() throws Exception {
+    public void test1() throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.getUser(456l);
@@ -25,25 +24,33 @@ public class Test147 {
 
 
 
-
-    @Test
-    public void test1() throws Exception {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User();
-        user.setId(456l);
-        User userB = userMapper.getUserByUser(user);
-
-        System.out.println(JSON.toJSONString(userB));
-    }
-
-
     @Test
     public void test2() throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User userB = userMapper.getUserByConstrutor(456l);
+        User userB = userMapper.getUserById(456l);
         System.out.println(JSON.toJSONString(userB));
     }
+
+
+
+    @Test
+    public void test3() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        UserBill userB = userMapper.getUserBillById(60l);
+        System.out.println(JSON.toJSONString(userB));
+    }
+
+
+    @Test
+    public void test4() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        UserBillInfo userB = userMapper.getUserBillResultMapById(60l);
+        System.out.println(JSON.toJSONString(userB));
+    }
+
+
 
 }

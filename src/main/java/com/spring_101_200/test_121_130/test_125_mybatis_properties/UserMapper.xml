@@ -40,4 +40,8 @@
         select * from lz_user limit 5
     </select>
 
+    <select id="getUserByUser" parameterType="User" resultType="User">
+        select * from lz_user where id = #{id}
+    </select>
+
 </mapper>

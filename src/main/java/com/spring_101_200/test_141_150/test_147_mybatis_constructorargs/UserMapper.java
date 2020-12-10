@@ -16,11 +16,11 @@ public interface UserMapper {
     User getUser(Long id);
 
 
-    User getUserByUser( User user);
+    User getUserById(long id);
 
 
+    UserBill getUserBillById(@Param("id") Long id );
 
-    User getUserByConstrutor( Long id );
 
-
+    UserBillInfo getUserBillResultMapById(Long id);
 }

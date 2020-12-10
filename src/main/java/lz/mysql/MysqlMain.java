@@ -75,7 +75,7 @@ public class MysqlMain {
         List<TablesBean> list = new ArrayList<TablesBean>();
 
 
-        list.add(new TablesBean("lz_user"));
+        list.add(new TablesBean("lz_user_bill"));
 
         List<TablesBean> list2 = new ArrayList<TablesBean>();
         Map<String, String> map = MysqlUtil2ShowCreateTable.getComments();

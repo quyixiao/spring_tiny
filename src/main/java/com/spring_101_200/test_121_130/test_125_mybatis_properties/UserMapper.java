@@ -19,4 +19,12 @@ public interface UserMapper {
     Map getUserByMap(@Param("id") long id);
 
     void getUserByResultHandler(@Param("id") long id, ResultHandler resultHandler);
+
+
+
+
+    User getUserByUser(User user);
+
+
+
 }
