@@ -2,14 +2,20 @@ package com.spring_101_200.test_121_130.test_125_mybatis_properties;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
+import org.apache.ibatis.executor.result.DefaultMapResultHandler;
+import org.apache.ibatis.executor.result.DefaultResultContext;
 import org.apache.ibatis.mapping.Environment;
-import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.ibatis.reflection.factory.DefaultObjectFactory;
+import org.apache.ibatis.session.*;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.junit.Test;
+import org.junit.validator.PublicClassValidator;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Test125 {
 
@@ -31,7 +37,22 @@ public class Test125 {
 
     }
 
+    @Test
+    public void test3() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<User> user = userMapper.getUserList(456l);
+        System.out.println(JSON.toJSONString(user));
+    }
 
+
+    @Test
+    public void test4() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        Map user = userMapper.getUserByMap(456l);
+        System.out.println(JSON.toJSONString(user));
+    }
 
     @Test
     public void test2() throws Exception {
@@ -39,7 +60,16 @@ public class Test125 {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.getUser(456l);
         System.out.println(JSON.toJSONString(user));
+    }
 
+
+    @Test
+    public void test5() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        MyDefaultResultSetHandler myDefaultResultSetHandler = new MyDefaultResultSetHandler();
+        userMapper.getUserByResultHandler(456l,myDefaultResultSetHandler);
+        System.out.println(JSON.toJSONString(myDefaultResultSetHandler.getResultMap()));
     }
 
 
@@ -94,6 +124,16 @@ public class Test125 {
         //使用 SqlSessionFactoryBuilder 构建SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
         return sqlSessionFactory;
+    }
+
+
+    @Test
+    public void test7(){
+        DefaultObjectFactory defaultObjectFactory = new DefaultObjectFactory();
+        Collection collection = defaultObjectFactory.create(Collection.class);
+        System.out.println(collection);
+        Set set = defaultObjectFactory.create(Set.class);
+        System.out.println(set);
     }
 
 

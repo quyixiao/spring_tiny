@@ -7,4 +7,27 @@
             resultType="com.spring_101_200.test_141_150.test_147_mybatis_constructorargs.User">
         select * from lz_user where id = #{id}
     </select>
+
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.spring_101_200.test_141_150.test_147_mybatis_constructorargs.User">
+        <constructor>
+            <idArg column="id" javaType="long"></idArg>
+            <arg column="is_delete" javaType="int"></arg>
+        </constructor>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="real_name" property="realName"/>
+        <result column="manager_id" property="managerId"/>
+    </resultMap>
+
+
+    <select id="getUserByConstrutor" resultMap="BaseResultMap">
+         select * from lz_user where id = #{id}
+    </select>
+
+
 </mapper>

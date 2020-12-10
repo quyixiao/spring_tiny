@@ -10,4 +10,34 @@
         select * from lz_user where id=#{id}
     </select>
 
+
+
+    <select id="getUserList" resultType="com.spring_101_200.test_121_130.test_125_mybatis_properties.User" >
+         select * from lz_user where id=#{id}
+    </select>
+
+    <resultMap id="BaseResultMap" type="com.spring_101_200.test_121_130.test_125_mybatis_properties.User">
+        <id column="id" property="id"/>
+
+        <result column="is_delete" property="isDelete"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="real_name" property="realName"/>
+        <result column="manager_id" property="managerId"/>
+        <result column="sex" property="sex"/>
+        <result column="sex_str" property="sexStr"/>
+    </resultMap>
+
+
+    <select id="getUserByMap" resultType="map">
+        select * from lz_user where id=#{id}
+    </select>
+
+
+    <select id="getUserByResultHandler" resultType="com.spring_101_200.test_121_130.test_125_mybatis_properties.User">
+        select * from lz_user limit 5
+    </select>
+
 </mapper>

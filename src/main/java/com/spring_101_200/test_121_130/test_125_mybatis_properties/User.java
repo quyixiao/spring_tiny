@@ -14,5 +14,6 @@ public class User {
     private String password;
     private String realName;
     private Long managerId;
-
+    private Integer sex;
+    private String sexStr;
 }

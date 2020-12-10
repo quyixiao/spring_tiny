@@ -19,6 +19,7 @@
             <result property="userId" column="user_id"></result>
             <result property="amount" column="amount"></result>
         </collection>
+
     </resultMap>
 
     <select id="selectUserBill"  parameterType="java.lang.Long" resultMap="userBillResult">
@@ -26,10 +27,15 @@
     </select>
 
 
+
     <select id="selectUserBillResultType"  parameterType="java.lang.Long" resultType="UserBillInfo">
         select * from lz_user lu  left join lz_user_bill lub on lu.id =lub.user_id where lu.id =456 limit 1
     </select>
 
+
+    <select id="selectUserBills" resultMap="userBillResult">
+        select * from lz_user lu  left join lz_user_bill lub on lu.id =lub.user_id where lu.id =456
+    </select>
 
 
 </mapper>

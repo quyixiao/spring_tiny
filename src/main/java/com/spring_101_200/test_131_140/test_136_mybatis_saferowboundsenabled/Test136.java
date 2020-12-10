@@ -44,4 +44,16 @@ public class Test136 {
         UserBillInfo userBillInfo = userMapper.selectUserBill(456l,new RowBounds(0,5));
         System.out.println(JSON.toJSONString(userBillInfo));
     }
+
+
+    @Test
+    public void test4() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<UserBillInfo> userBillInfos = userMapper.selectUserBills(456l,new RowBounds(0,5));
+        System.out.println(JSON.toJSONString(userBillInfos));
+    }
+
+
+
 }

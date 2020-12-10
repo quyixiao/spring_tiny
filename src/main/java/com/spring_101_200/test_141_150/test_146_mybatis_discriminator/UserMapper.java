@@ -7,4 +7,6 @@ public interface UserMapper {
 
     UserBill findUserBillLazyLoading(Long id);
 
+    UserBillInfo selectUserBill(Long id );
+
 }

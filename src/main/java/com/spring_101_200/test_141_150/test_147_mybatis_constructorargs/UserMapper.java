@@ -17,4 +17,10 @@ public interface UserMapper {
 
 
     User getUserByUser( User user);
+
+
+
+    User getUserByConstrutor( Long id );
+
+
 }
