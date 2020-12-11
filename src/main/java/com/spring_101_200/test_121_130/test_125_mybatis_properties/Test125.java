@@ -29,12 +29,10 @@ public class Test125 {
 
     @Test
     public void testGetUser() throws Exception {
-
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.getUser(456l);
         System.out.println(JSON.toJSONString(user));
-
     }
 
     @Test
