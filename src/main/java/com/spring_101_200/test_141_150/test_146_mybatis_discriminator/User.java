@@ -17,4 +17,5 @@ public class User {
     private Long managerId;
     private Long userId;
     private List<Bill> bills;
+    private DateInfo dateInfo;
 }

@@ -93,6 +93,14 @@ public class Test125 {
         System.out.println(JSON.toJSONString(userB));
     }
 
+    @Test
+    public void test9() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        UserInfo userB = userMapper.findUserCompexById(456l);
+        System.out.println(JSON.toJSONString(userB));
+    }
+
 
 
 

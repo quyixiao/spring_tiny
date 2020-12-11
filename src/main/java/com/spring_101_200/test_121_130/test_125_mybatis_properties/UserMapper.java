@@ -30,4 +30,6 @@ public interface UserMapper {
 
 
     UserInfo findUserById(Long id );
+
+    UserInfo findUserCompexById(Long id );
 }

@@ -34,6 +34,10 @@
         select * from lz_user lu   where lu.id =#{id}
     </select>
 
+    <resultMap id="dateInfoBaseResultMap" type="com.spring_101_200.test_141_150.test_146_mybatis_discriminator.DateInfo">
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+    </resultMap>
 
 
 
@@ -47,6 +51,7 @@
             </case>
         </discriminator>
     </resultMap>
+
 
     <resultMap id="userBillResult" type="com.spring_101_200.test_141_150.test_146_mybatis_discriminator.UserBillInfo">
         <id property="id" column="id" />
@@ -64,7 +69,6 @@
             <case value="0" resultMap="userResult"/>
         </discriminator>
     </resultMap>
-
 
     <select id="selectUserBill"  parameterType="java.lang.Long" resultMap="userBillMapChoose">
         select * from lz_user lu  left join lz_user_bill lub on lu.id =lub.user_id where lu.id =#{id}

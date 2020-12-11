@@ -58,12 +58,31 @@
 
 
 
+    <resultMap id="userCompexBillResult" type="com.spring_101_200.test_121_130.test_125_mybatis_properties.UserInfo">
+        <id property="id" column="id" />
+        <collection property="billList" columnPrefix="user" ofType="com.spring_101_200.test_121_130.test_125_mybatis_properties.UserBill"  >
+            <id property="id" column="id" />
+            <result property="type" column="type"></result>
+            <result property="userId" column="user_id"></result>
+            <result property="amount" column="amount"></result>
+        </collection>
+    </resultMap>
+
+
     <!-- 根据Id查询用户，用于测试延迟加载 -->
-    <select id="findUserById" parameterType="java.lang.Long"  resultMap="userBillResult" >
+    <select id="findUserCompexById" parameterType="java.lang.Long"  resultMap="userCompexBillResult" >
         select * from lz_user lu  left join lz_user_bill lub on lu.id =lub.user_id where lu.id =#{id}
     </select>
 
 
+
+
+
+
+    <!-- 根据Id查询用户，用于测试延迟加载 -->
+    <select id="findUserById" parameterType="java.lang.Long"  resultMap="userBillResult" >
+        select * from lz_user lu  left join lz_user_bill lub on lu.id =lub.user_id where lu.id =#{id}
+    </select>
 
 
     <select id="selectUserBill" parameterType="long" resultType="com.spring_101_200.test_121_130.test_125_mybatis_properties.UserBill">
