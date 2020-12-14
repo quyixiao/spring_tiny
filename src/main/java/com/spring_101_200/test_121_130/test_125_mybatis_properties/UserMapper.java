@@ -32,4 +32,10 @@ public interface UserMapper {
     UserInfo findUserById(Long id );
 
     UserInfo findUserCompexById(Long id );
+
+    UserBill findUserBillLazyLoading(Long id );
+
+
+   UserBill selectBillInfo(@Param("billId") Long billId, @Param("userId") Long userId );
+
 }

@@ -6,7 +6,7 @@
     <resultMap id="userBillResult" type="com.spring_101_200.test_131_140.test_138_mybatis_lazyloadtriggermethods.User"  >
         <id property="id" column="id" />
         <id property="realName" column="real_name"></id>
-        <collection property="billList"  column="id" select="selectUserBill"   ></collection>
+        <collection property="billList"  column="id" select="selectUserBill"  ></collection>
     </resultMap>
 
     <select id="selectUserBill" parameterType="long" resultType="com.spring_101_200.test_131_140.test_138_mybatis_lazyloadtriggermethods.UserBill">

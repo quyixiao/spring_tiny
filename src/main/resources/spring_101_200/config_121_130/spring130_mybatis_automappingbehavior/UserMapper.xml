@@ -19,7 +19,7 @@
             <result property="userId" column="user_id"></result>
             <result property="amount" column="amount"></result>
         </collection>
-        <association property=""
+
     </resultMap>
 
 

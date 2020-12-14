@@ -1,7 +1,10 @@
 package com.spring_101_200.test_141_150.test_149_mybatis_resultordered;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class User {
 
     private Integer id;
@@ -9,46 +12,4 @@ public class User {
     private List<String> groups;
     private List<String> roles;
 
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
-    }
-
-    public List<String> getGroups() {
-        return groups;
-
-    }
-
-    public void setGroups(List<String> groups) {
-        this.groups = groups;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", groups=" + groups +
-                ", roles=" + roles +
-                '}';
-    }
 }
