@@ -16,6 +16,6 @@
 
 
     <mappers>
-		<mapper resource="spring_1_100/config_71_80/config_71_mybatis_origin/UserMapper.xml"></mapper>
+		<mapper resource="spring_1_100/config_71_80/spring71_mybatis_origin/UserMapper.xml"></mapper>
     </mappers>
 </configuration>
