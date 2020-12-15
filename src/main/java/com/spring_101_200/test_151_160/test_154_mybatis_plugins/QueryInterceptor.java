@@ -15,7 +15,7 @@
  * Author: songfayuan (1414798079@qq.com)
  */
 
-package com.spring_101_200.test_121_130.test_127_mybatis_plugins;
+package com.spring_101_200.test_151_160.test_154_mybatis_plugins;
 
 import com.baomidou.mybatisplus.plugins.SqlParserHandler;
 import com.baomidou.mybatisplus.toolkit.PluginUtils;
@@ -34,47 +34,49 @@ import java.util.Properties;
  * @date 2018/1/19
  * 数据权限插件，guns
  */
-@Slf4j
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class})})
-public class DataScopeInterceptor extends SqlParserHandler implements Interceptor {
+public class QueryInterceptor extends SqlParserHandler implements Interceptor {
 
 
-    /**
-     * 代替拦截对象的方法内容
-     * 责任链对象
-     */
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         StatementHandler statementHandler = (StatementHandler) PluginUtils.realTarget(invocation.getTarget());
-        MetaObject metaObject = SystemMetaObject.forObject(statementHandler);
-        this.sqlParser(metaObject);
-        // 先判断是不是SELECT操作
-        BoundSql boundSql = (BoundSql) metaObject.getValue("delegate.boundSql");
-        String originalSql = boundSql.getSql();
-        System.out.println(originalSql);
-        //如果当前代理的是一个非代理对象，那么它就回调用真实拦截器对象方法，如果不是，它会调度下个插件代理对象的invoke方法。
-        Object result = invocation.proceed();
-        return result;
+        MetaObject metaStmtHandler = SystemMetaObject.forObject(statementHandler);
+        //分离代理对象，从而形成多次代理，通过两次循环最原始的被代理的类，MyBatis使用的是JDK代理
+        while (metaStmtHandler.hasGetter("h")){
+            Object object = metaStmtHandler.getValue("h");
+            metaStmtHandler = SystemMetaObject.forObject(object);
+        }
+        //分离最后一个代理对象的目标类
+        while (metaStmtHandler.hasGetter("target")){
+            Object object = metaStmtHandler.getValue("target");
+            metaStmtHandler = SystemMetaObject.forObject(object);
+        }
+        //取出即将要执行的SQL
+        String originalSql = (String)metaStmtHandler.getValue("delegate.boundSql.sql");
+        //这只是一个简单的处理，现实情况要复杂得多
+        if(!originalSql.contains("is_delete") && !originalSql.contains(" left ") && !originalSql.contains(" inner ")){
+            originalSql = originalSql + " and is_delete  = 0 ";
+        }
+        System.out.println("=========>>>>>>>>>>>>> " + originalSql);
+        //重写要执行的SQL
+        metaStmtHandler.setValue("delegate.boundSql.sql",originalSql);
+        //调用原来的对象方法，进行责任链的下一层级
+        return invocation.proceed();
     }
 
 
-    /**
-     * 生成拦截对象的代理
-     *
-     * @param target 目标对象
-     * @return 代理对象
-     */
     @Override
     public Object plugin(Object target) {
         if (target instanceof StatementHandler) {
-            //使用MyBatis提供的Plugin类生成代理对象
+            //使用默认的MyBatis提供类生成代理对象
             return Plugin.wrap(target, this);
         }
         return target;
     }
 
     /**
-     * @param properties mybatis获取插件的属性，我们在MyBatis配置文件里配置的
+     * @param properties mybatis配置的属性
      */
     @Override
     public void setProperties(Properties properties) {

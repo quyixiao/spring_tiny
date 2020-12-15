@@ -36,23 +36,28 @@ import java.util.Properties;
  */
 @Slf4j
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class})})
-public class DataScopeInterceptor extends SqlParserHandler implements Interceptor {
+public class NewDataScopeInterceptor extends SqlParserHandler implements Interceptor {
 
 
-    /**
-     * 代替拦截对象的方法内容
-     * 责任链对象
-     */
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         StatementHandler statementHandler = (StatementHandler) PluginUtils.realTarget(invocation.getTarget());
         MetaObject metaObject = SystemMetaObject.forObject(statementHandler);
-        this.sqlParser(metaObject);
-        // 先判断是不是SELECT操作
-        BoundSql boundSql = (BoundSql) metaObject.getValue("delegate.boundSql");
-        String originalSql = boundSql.getSql();
-        System.out.println(originalSql);
-        //如果当前代理的是一个非代理对象，那么它就回调用真实拦截器对象方法，如果不是，它会调度下个插件代理对象的invoke方法。
+        //进行绑定
+        //分离代理对象链（由于目标类可能被多个拦截器拦截，从而形成多次代理，通过循环可以分离出最原始的目标类）
+        while(metaObject.hasGetter("h")){
+            Object object = metaObject.getValue("h");
+            metaObject =  SystemMetaObject.forObject(object);
+        }
+        //BoundSql对象是处理SQL语句用的
+        String  sql = (String)metaObject.getValue("delegate.boundSql.sql");
+        //判断SQL是否是select语句，如果不是select语句，那么就出错
+        //如果是，则修改它，最多返回1000行，这里用的是MySQL数据库，其他数据库要改写成其他的
+        if(sql != null && sql.toUpperCase().trim().indexOf("select") == 0 ){
+            //通过SQL重写来实现，这里我们起了一个奇怪的别名，避免与表名重复
+            sql = "select * from ("  + sql + " ) $_$limit_$table_limit 1000";
+            metaObject.setValue("delegate.boundSql.sql",sql);
+        }
         Object result = invocation.proceed();
         return result;
     }
@@ -67,14 +72,13 @@ public class DataScopeInterceptor extends SqlParserHandler implements Intercepto
     @Override
     public Object plugin(Object target) {
         if (target instanceof StatementHandler) {
-            //使用MyBatis提供的Plugin类生成代理对象
             return Plugin.wrap(target, this);
         }
         return target;
     }
 
     /**
-     * @param properties mybatis获取插件的属性，我们在MyBatis配置文件里配置的
+     * @param properties mybatis配置的属性
      */
     @Override
     public void setProperties(Properties properties) {
