@@ -7,7 +7,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class Test72 {
     public static void main(String[] args) {
-        ApplicationContext ac = new GenericXmlApplicationContext("classpath:spring_1_100/config_71_80/config_72/spring72.xml");
+        ApplicationContext ac = new GenericXmlApplicationContext("spring_1_100/config_71_80/spring72/spring72.xml");
 
         UserMapper userMapper = (UserMapper) ac.getBean("userMapper");
         User user = userMapper.getUser(456l);
