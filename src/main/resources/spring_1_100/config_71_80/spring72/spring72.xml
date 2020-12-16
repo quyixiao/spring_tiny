@@ -25,10 +25,10 @@
 
 
     <!--
-        <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-            <property name="mapperInterface" value="com.spring_1_100.test_71_80.test72_mybatis_scan.UserMapper"></property>
-            <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-        </bean>
+           <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.spring_1_100.test_71_80.test72_mybatis_scan.UserMapper"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
     -->
 
     <!--
