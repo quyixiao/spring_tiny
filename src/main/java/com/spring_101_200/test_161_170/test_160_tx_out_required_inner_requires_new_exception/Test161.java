@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test161 {
 
 
-    //spring_101_200/config_161_170/spring161.xml
+    //spring_101_200/config_171_180/spring161.xml
 
     //7========[requires_new-exception[required]]=====result:[rollback[rollback]]=========================================
     @Test
