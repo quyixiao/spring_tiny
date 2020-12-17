@@ -18,7 +18,7 @@ public class Test159 {
     @Test
     public void updateUserRequiresTest1() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring_101_200/config_151_160/spring159_tx_out_required_inner_required_exception/spring159.xml");
-        TxService txService = (TxService) ac.getBean("txService");
+        TxService txService = ac.getBean(TxService.class);
         txService.updateUserRequiresTest1();
     }
 
