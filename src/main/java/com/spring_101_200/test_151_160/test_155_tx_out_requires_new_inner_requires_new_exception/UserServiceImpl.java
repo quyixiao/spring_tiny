@@ -1,6 +1,5 @@
-package com.spring_101_200.test_151_160.test_155_tx_requires_new_requires_new_exception;
+package com.spring_101_200.test_151_160.test_155_tx_out_requires_new_inner_requires_new_exception;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
