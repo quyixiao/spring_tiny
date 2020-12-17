@@ -8,6 +8,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 // https://blog.csdn.net/yanyan19880509/article/details/53041564/
 public class Test159 {
 
+
+
+    // spring_101_200/config_161_170/spring161.xml
+
+
+
     //5========[required[required-exception]]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresTest1() {
