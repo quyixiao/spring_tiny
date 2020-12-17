@@ -14,6 +14,10 @@ public class Test74 {
         TxService txService = (TxService) ac.getBean("txService");
         txService.updateUser();
     }
+
+
+
+
     //========[requires_new[requires_new-exception]]=====result:[rollback[rollback]]========================
     @Test
     public void updateUserRequiresNewTest1() {
