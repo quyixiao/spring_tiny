@@ -18,14 +18,14 @@ public class Test74 {
 
 
 
-    //========[requires_new[requires_new-exception]]=====result:[rollback[rollback]]========================
+    //1========[requires_new[requires_new-exception]]=====result:[rollback[rollback]]========================
     @Test
     public void updateUserRequiresNewTest1() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
         TxService txService = (TxService) ac.getBean("txService");
         txService.updateUserRequiresNewTest1();
     }
-    //========[requires_new-exception[requires_new]]=====result:[rollback[commit]]========================
+    //2========[requires_new-exception[requires_new]]=====result:[rollback[commit]]========================
     @Test
     public void updateUserRequiresNewTest2() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -33,7 +33,7 @@ public class Test74 {
         txService.updateUserRequiresNewTest2();
     }
 
-    //========[required-exception[requires_new]]=====result:[rollback[commit]]========================
+    //3========[required-exception[requires_new]]=====result:[rollback[commit]]========================
     @Test
     public void updateUserRequiresNewTest22() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -41,14 +41,15 @@ public class Test74 {
         txService.updateUserRequiresNewTest22();
     }
 
-    //========[required[requires_new][requires_new-exception]]=====result:[rollback[commit][rollback]]========================
+    //4========[required[requires_new][requires_new-exception]]=====result:[rollback[commit][rollback]]========================
     @Test
     public void updateUserRequiresNewTest222() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
         TxService txService = (TxService) ac.getBean("txService");
         txService.updateUserRequiresNewTest222();
     }
-    //========[required[required-exception]]=====result:[rollback[rollback]]=========================================
+
+    //5========[required[required-exception]]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresTest1() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -56,14 +57,15 @@ public class Test74 {
         txService.updateUserRequiresTest1();
     }
 
-    //========[required-exception[required]]=====result:[rollback[rollback]]=========================================
+    //6========[required-exception[required]]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresTest2() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
         TxService txService = (TxService) ac.getBean("txService");
         txService.updateUserRequiresTest2();
     }
-    //========[requires_new-exception[required]]=====result:[rollback[rollback]]=========================================
+
+    //7========[requires_new-exception[required]]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresNewTest3() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -71,7 +73,7 @@ public class Test74 {
         txService.updateUserRequiresNewTest3();
     }
 
-    //========[required[requires_new-exception]]=====result:[rollback[rollback]]=========================================
+    //8========[required[requires_new-exception]]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresNewTest4() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -80,14 +82,14 @@ public class Test74 {
     }
 
 
-    //========[required-exception[supports]]=====result:[rollback[rollback]]=========================================
+    //9========[required-exception[supports]]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresNewTest5() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
         TxService txService = (TxService) ac.getBean("txService");
         txService.updateUserRequiresNewTest5();
     }
-    //========[none-exception[supports]]=====result:[commit[commit]]=========================================
+    //10========[none-exception[supports]]=====result:[commit[commit]]=========================================
     @Test
     public void updateUserRequiresNewTest6() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -95,7 +97,7 @@ public class Test74 {
         txService.updateUserRequiresNewTest6();
     }
 
-    //========[none[supports-exception]]=====result:[commit[commit]]=========================================
+    //11========[none[supports-exception]]=====result:[commit[commit]]=========================================
     @Test
     public void updateUserRequiresNewTest7() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -103,14 +105,17 @@ public class Test74 {
         txService.updateUserRequiresNewTest7();
     }
 
-    //========[required[supports-exception]]=====result:[rollback[rollback]]=========================================
+    //12========[required[supports-exception]]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresNewTest8() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
         TxService txService = (TxService) ac.getBean("txService");
         txService.updateUserRequiresNewTest8();
     }
-    //========[requires_new[supports-exception]]=====result:[rollback[rollback]]=========================================
+
+
+
+    //13========[requires_new[supports-exception]]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresNewTest9() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -119,7 +124,7 @@ public class Test74 {
     }
 
 
-    //========[requires_new[mandatory]]=====result:[commit[commit]]=========================================
+    //14.========[requires_new[mandatory]]=====result:[commit[commit]]=========================================
     @Test
     public void updateUserRequiresNewTest11() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -127,7 +132,7 @@ public class Test74 {
         txService.updateUserRequiresNewTest11();
     }
 
-    //========[none[mandatory]]=====result:[commit[exception]]=========================================
+    //15========[none[mandatory]]=====result:[commit[exception]]=========================================
     @Test
     public void updateUserRequiresNewTest12() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -136,7 +141,7 @@ public class Test74 {
     }
 
 
-    //========[required][mandatory]=====result:[commit][exception]=========================================
+    //16========[required][mandatory]=====result:[commit][exception]=========================================
     @Test
     public void updateUserRequiresNewTest13() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -150,7 +155,7 @@ public class Test74 {
 
 
 
-    //不同数据========[required[not_supported-exception]]=====result:[rollback[commit]]=========================================
+    //17 不同数据========[required[not_supported-exception]]=====result:[rollback[commit]]=========================================
     @Test
     public void updateUserRequiresNewTest14() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -159,7 +164,7 @@ public class Test74 {
     }
 
 
-    //同一条数据========[required[not_supported-exception]]=====result:[程序被挂起，但是内部的not_supported修改的内容被提交]=========================================
+    //18 同一条数据========[required[not_supported-exception]]=====result:[程序被挂起，但是内部的not_supported修改的内容被提交]=========================================
     // org.springframework.dao.CannotAcquireLockException: PreparedStatementCallback;
     // SQL [update lz_user set username = ? where id = ? ]; Lock wait timeout exceeded;
     // try restarting transaction; nested exception is java.sql.SQLException:
@@ -172,7 +177,7 @@ public class Test74 {
     }
 
 
-    //========[none[not_supported-exception]]=====result:[commit[commit]]=========================================
+    //19========[none[not_supported-exception]]=====result:[commit[commit]]=========================================
     @Test
     public void updateUserRequiresNewTest15() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -186,7 +191,7 @@ public class Test74 {
 
 
 
-    //========[required[never]]=====result:[exception : Existing transaction found for transaction marked with propagation 'never']=========================================
+    //20========[required[never]]=====result:[exception : Existing transaction found for transaction marked with propagation 'never']=========================================
     @Test
     public void updateUserRequiresNewTest16() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -194,7 +199,7 @@ public class Test74 {
         txService.updateUserRequiresNewTest16();
     }
 
-    //========[never[required]]=====result:[commit[commit]]=========================================
+    //21========[never[required]]=====result:[commit[commit]]=========================================
     @Test
     public void updateUserRequiresNewTest17() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -203,7 +208,7 @@ public class Test74 {
     }
 
 
-    //========[required try{[nested-exception]}catch ]=====result:[commit[commit]]=========================================
+    //22========[required try{[nested-exception]}catch ]=====result:[commit[commit]]=========================================
     @Test
     public void updateUserRequiresNewTest18() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -211,7 +216,7 @@ public class Test74 {
         txService.updateUserRequiresNewTest18();
     }
 
-    //========required [try{ 1 ,exception, 2 }catch] =====result:[commit , not run]=========================================
+    //23========required [try{ 1 ,exception, 2 }catch] =====result:[commit , not run]=========================================
     //========required [try{ 1 , 2 ,exception }catch] =====result:[commit , commit]=========================================
     @Test
     public void updateUserRequiresNewTest19() {
@@ -221,15 +226,8 @@ public class Test74 {
     }
 
 
-    //========[required try{[none-exception]}catch ]=====result:[commit[commit]]=========================================
-    @Test
-    public void updateUserRequiresNewTest20() {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
-        TxService txService = (TxService) ac.getBean("txService");
-        txService.updateUserRequiresNewTest20();
-    }
 
-    //========[try{required[required-exception]}catch ]=====result:[rollback[rollback]]=========================================
+    //24========[try{required[required-exception]}catch ]=====result:[rollback[rollback]]=========================================
     @Test
     public void updateUserRequiresNewTest21() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
@@ -237,7 +235,16 @@ public class Test74 {
         txService.updateUserRequiresNewTest21();
     }
 
-    //========[required[try{required-exception}catch]]=====result:[commit[commit]]=========================================
+
+    //25========[required try{[none-exception]}catch ]=====result:[commit[commit]]=========================================
+    @Test
+    public void updateUserRequiresNewTest20() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
+        TxService txService = (TxService) ac.getBean("txService");
+        txService.updateUserRequiresNewTest20();
+    }
+
+    //26========[required[try{required-exception}catch]]=====result:[commit[commit]]=========================================
     @Test
     public void updateUserRequiresNewTest2222() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
