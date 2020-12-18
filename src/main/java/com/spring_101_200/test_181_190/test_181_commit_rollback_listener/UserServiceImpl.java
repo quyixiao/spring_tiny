@@ -1,5 +1,7 @@
 package com.spring_101_200.test_181_190.test_181_commit_rollback_listener;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -12,6 +14,10 @@ import javax.sql.DataSource;
 public class UserServiceImpl implements UserService {
 
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
+
 
     @Override
     public User selectById(Long id) {
@@ -33,12 +39,13 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void updateUserRequiresNew1() {
+        applicationEventPublisher.publishEvent(new MyTransactionEvent("我是和事务相关的事件，请事务提交后执行我~~~", 1));
+        System.out.println(">>>>>>>>>>>>>>>>开始更新>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         User user2 = selectById(457l);
         user2.setUsername("456");
         updateById(user2);
-        int i = 0;
-        int j = 0;
-        int c = i / j;
+
+
     }
 
 
