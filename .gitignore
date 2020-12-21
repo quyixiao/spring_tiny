@@ -259,7 +259,6 @@ typings/
 *.iml
 build
 /files
-*/tmp/*
 .mvn
 
 ###logback

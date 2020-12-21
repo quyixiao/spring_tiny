@@ -16,7 +16,11 @@ import java.util.Date;
 @Data
 @TableName("lz_user")
 @ApiModel(value = "公益口罩")
+<<<<<<< HEAD
 public class User1 implements java.io.Serializable {
+=======
+public class User2 implements java.io.Serializable {
+>>>>>>> 4db1f9e3bdff28fd17bff1db4694f2b7e0645fff
     //
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
