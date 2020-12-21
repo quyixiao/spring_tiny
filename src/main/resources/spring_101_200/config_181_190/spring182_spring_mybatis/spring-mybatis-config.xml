@@ -32,6 +32,6 @@
 
 
     <mappers>
-		<mapper resource="spring_101_200/config_181_190/spring181_spring_mybatis/UserMapper.xml"></mapper>
+		<mapper resource="spring_101_200/config_181_190/spring182_spring_mybatis/UserMapper.xml"></mapper>
     </mappers>
 </configuration>
