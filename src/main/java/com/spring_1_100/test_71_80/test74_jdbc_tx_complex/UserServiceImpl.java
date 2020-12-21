@@ -209,5 +209,13 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void updateUserRequired() {
+        User user2 = selectById(457l);
+        user2.setUsername("456");
+        updateById(user2);
+    }
+
 
 }

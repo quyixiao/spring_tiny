@@ -36,4 +36,6 @@ public interface UserService {
     void updateUserRequireThrowException3();
 
     void updateUserRequireThrowException4();
+
+    void updateUserRequired();
 }

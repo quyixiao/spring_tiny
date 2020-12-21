@@ -5,21 +5,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
-    <context:component-scan base-package="com.spring_101_200.test_171_180.test_180_tx_required_try_required_exception_catch"></context:component-scan>
 
+    <context:component-scan base-package="com.spring_101_200.test_181_190.test_182_tx_out_required_inner_required"></context:component-scan>
 
-
-
-
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <bean id="transactionManager" class="com.spring_101_200.test_181_190.test_182_tx_out_required_inner_required.MyDataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
-
-
-    <bean id="userService" class="com.spring_101_200.test_171_180.test_180_tx_required_try_required_exception_catch.UserServiceImpl">
-        <property name="jdbcTemplate" ref="dataSource"></property>
-    </bean>
-
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
@@ -30,6 +21,25 @@
         <property name="initialSize" value="1"></property>
         <property name="maxIdle" value="2"></property>
         <property name="minIdle" value="1"></property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation"
+                  value="classpath:spring_101_200/config_181_190/spring181_spring_mybatis/spring-mybatis-config.xml"></property>
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="mesHandler" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>spring_101_200/config_181_190/spring181_spring_mybatis/test182.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.spring_101_200.test_181_190.test_182_tx_out_required_inner_required.mapper"></property>
     </bean>
 
 

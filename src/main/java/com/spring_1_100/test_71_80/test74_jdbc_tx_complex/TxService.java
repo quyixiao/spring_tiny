@@ -60,4 +60,6 @@ public interface  TxService {
     void updateUserRequiresNewTest21();
 
     void updateUserRequiresNewTest2222();
+
+    void requiredTest();
 }

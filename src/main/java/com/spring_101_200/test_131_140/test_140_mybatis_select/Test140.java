@@ -22,6 +22,10 @@ public class Test140 {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.getUserInfo(456l,"zhangsan1");
+
+
+
+        user = userMapper.getUserInfo(456l,"zhangsan1");
         System.out.println(JSON.toJSONString(user));
 
     }

@@ -44,8 +44,9 @@ public class UserServiceImpl implements UserService {
         User user2 = selectById(457l);
         user2.setUsername("456");
         updateById(user2);
-
-
+        int i = 0 ;
+        int j = 1;
+        int k = j / i ;
     }
 
 

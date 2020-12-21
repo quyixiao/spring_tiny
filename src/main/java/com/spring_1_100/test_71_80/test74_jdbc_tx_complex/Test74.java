@@ -17,6 +17,20 @@ public class Test74 {
 
 
 
+    //0========[required[required]]=====result:[rollback[rollback]]========================
+    @Test
+    public void requiredTest() {
+
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring_1_100/config_71_80/spring74.xml");
+        TxService txService = (TxService) ac.getBean("txService");
+        txService.requiredTest();
+
+
+
+
+    }
+
+
 
     //1========[requires_new[requires_new-exception]]=====result:[rollback[rollback]]========================
     @Test
@@ -25,6 +39,12 @@ public class Test74 {
         TxService txService = (TxService) ac.getBean("txService");
         txService.updateUserRequiresNewTest1();
     }
+
+
+
+
+
+
     //2========[requires_new-exception[requires_new]]=====result:[rollback[commit]]========================
     @Test
     public void updateUserRequiresNewTest2() {

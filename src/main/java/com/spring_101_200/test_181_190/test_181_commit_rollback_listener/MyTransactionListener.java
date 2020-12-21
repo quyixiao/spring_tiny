@@ -8,11 +8,21 @@ import org.springframework.transaction.event.TransactionalEventListener;
 public class MyTransactionListener {
 
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
-    public void hanldeOrderCreatedEvent(MyTransactionEvent event) {
+    public void handlerTransactionCommit(MyTransactionEvent event) {
         if(event instanceof MyTransactionEvent){
-            System.out.println("=========================" + event.getName());
+            System.out.println("==========事件提交了===============" + event.getName());
         }
     }
+
+
+    @TransactionalEventListener(phase = TransactionPhase.AFTER_ROLLBACK)
+    public void handlerTransactionRollBack(MyTransactionEvent event) {
+        if(event instanceof MyTransactionEvent){
+            System.out.println("==========事务回滚了===============" + event.getName());
+        }
+    }
+
+
 
 
 }

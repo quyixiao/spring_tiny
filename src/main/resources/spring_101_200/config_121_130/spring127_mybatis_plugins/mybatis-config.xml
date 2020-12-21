@@ -23,6 +23,10 @@
         <plugin interceptor="com.spring_101_200.test_121_130.test_127_mybatis_plugins.DataScopeInterceptor">
             <property name="someProperty" value="100"/>
         </plugin>
+
+        <plugin interceptor="com.spring_101_200.test_121_130.test_127_mybatis_plugins.QueryScopeInterceptor">
+            <property name="someProperty" value="100"/>
+        </plugin>
     </plugins>
 
 

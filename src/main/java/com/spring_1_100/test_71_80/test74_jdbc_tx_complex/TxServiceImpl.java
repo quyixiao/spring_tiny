@@ -329,6 +329,16 @@ public class TxServiceImpl implements TxService {
         }
     }
 
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void requiredTest() {
+        User user1 = userService.selectById(456l);
+        user1.setUsername("123");
+        userService.updateById(user1);
+
+        userService.updateUserRequired();
+    }
+
     public void setUserService(UserService userService) {
         this.userService = userService;
     }

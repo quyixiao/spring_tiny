@@ -38,4 +38,5 @@ public interface UserMapper {
 
    UserBill selectBillInfo(@Param("billId") Long billId, @Param("userId") Long userId );
 
+    void updateById(User user);
 }

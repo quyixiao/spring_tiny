@@ -6,6 +6,11 @@
        INSERT INTO lz_user (username, password, real_name, manager_id) VALUES (#{username},#{password},#{realName},#{managerId})
     </insert>
 
+
+    <update id="updateById">
+        update lz_user set username= #{username} where id =#{id}
+    </update>
+
     <select id="getUser" resultType="User" parameterType="java.lang.Long">
         select * from lz_user where id=#{id}
     </select>

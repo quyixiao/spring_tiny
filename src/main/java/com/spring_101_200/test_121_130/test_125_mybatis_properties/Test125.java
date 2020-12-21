@@ -28,7 +28,19 @@ public class Test125 {
     public void testGetUser() throws Exception {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+
+
+
         User user = userMapper.getUser(456l);
+
+        user.setUsername("zhangsan");
+
+        userMapper.updateById(user);
+
+        user = userMapper.getUser(456l);
+
+
         System.out.println(JSON.toJSONString(user));
     }
 
