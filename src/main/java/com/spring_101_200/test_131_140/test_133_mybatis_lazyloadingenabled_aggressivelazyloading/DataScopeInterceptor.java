@@ -22,6 +22,7 @@ import com.baomidou.mybatisplus.toolkit.PluginUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
+import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
@@ -46,11 +47,32 @@ public class DataScopeInterceptor extends SqlParserHandler implements Intercepto
         this.sqlParser(metaObject);
         // 先判断是不是SELECT操作
         BoundSql boundSql = (BoundSql) metaObject.getValue("delegate.boundSql");
+        MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
+        System.out.println(getMapperId(mappedStatement));
+
         String originalSql = boundSql.getSql();
         System.out.println(originalSql);
         Object result = invocation.proceed();
         return result;
     }
+
+
+
+    public static String getMapperId(MappedStatement mappedStatement) {
+        try {
+            String id =  mappedStatement.getId();
+            if(id.contains(".")){
+                String ids []= id.split("\\.");
+                return ids[ids.length -2  ] +"."+ ids[ids.length -1 ];
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+        return "";
+    }
+
 
 
     /**

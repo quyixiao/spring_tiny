@@ -21,7 +21,7 @@ public class TxServiceImpl implements TxService {
         userService.updateById(user1);
 
 
-        userService.updateUserRequireThrowException2();
+      //  userService.updateUserRequireThrowException2();
     }
 
 }
