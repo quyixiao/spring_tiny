@@ -67,6 +67,10 @@ public class UserController {
         redirectAttributes.addFlashAttribute("userName", userName);
         redirectAttributes.addFlashAttribute("password", password);
 
+
+        redirectAttributes.addAttribute("uname", userName);
+        redirectAttributes.addAttribute("pwd", password);
+
         //使用重定向的时候不能写jsp的名字，要写url映射的路径
         modelAndView.setViewName("redirect:/test/main");
         return modelAndView;
