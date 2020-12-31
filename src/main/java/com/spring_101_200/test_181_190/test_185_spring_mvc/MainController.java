@@ -40,7 +40,7 @@ public class MainController {
 
     @RequestMapping(value = {"/main"}, method = {RequestMethod.POST})
     public String PostMain(
-            @AttrValue(value = "zhangsan,2332329898")@ModelAttribute(value = "userName") String userName,
+            @AttrValue(value = {"zhangsan"},desc = "用户名")@ModelAttribute(value = "userName") String userName,
                            @ModelAttribute(value = "password") String password) {
         System.out.println("userName:" + userName + ",password:" + password);
 

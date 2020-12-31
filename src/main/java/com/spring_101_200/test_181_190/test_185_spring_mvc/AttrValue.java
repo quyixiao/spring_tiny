@@ -7,7 +7,12 @@ import java.lang.annotation.*;
 @Documented
 public @interface AttrValue {
 
+    String[] value() default "";
 
-    String value() default "";
+    String desc() default "";
+
+    String type() default "String";
+
+    int need() default 0;
 
 }
