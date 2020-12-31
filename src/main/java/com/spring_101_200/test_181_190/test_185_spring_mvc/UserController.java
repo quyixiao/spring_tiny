@@ -1,6 +1,8 @@
 package com.spring_101_200.test_181_190.test_185_spring_mvc;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,15 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 //处理登录请求的后端控制器
-
 //注意：@RequestParam注解中的required注解对表单提交中的属性是没有用的，就算不填它也会默认为空字符串，它只对GET请求中
 //在url后加的key-value的属性有限制作用
-
 @Controller
 @RequestMapping(value = {"/test"})
 public class UserController {
-
-
 
 
     //如果是GET方法请求的话，就直接给用户返回登录的页面，此页面表单请求的方法为POST
@@ -30,6 +28,36 @@ public class UserController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
+
+
+    //如果是GET方法请求的话，就直接给用户返回登录的页面，此页面表单请求的方法为POST
+    @RequestMapping(value = {"/register"},method = {RequestMethod.GET})
+    public String register(User user){
+        System.out.println(JSON.toJSONString(user));
+        return "registersuccess";
+    }
+
+
+    @RequestMapping(value = {"/query"},method = {RequestMethod.GET})
+    public String query(String username,User user){
+        System.out.println(username);
+        System.out.println(JSON.toJSONString(user));
+        return "registersuccess";
+    }
+
+    @RequestMapping(value = {"/detail"})
+    public String detail(@RequestBody  User user){
+        System.out.println(JSON.toJSONString(user));
+        return "registersuccess";
+    }
+
+    @RequestMapping(value = {"/detailInfo"})
+    public String detailInfo(User user){
+        System.out.println(JSON.toJSONString(user));
+        return "registersuccess";
+    }
+
+
 
 
 
