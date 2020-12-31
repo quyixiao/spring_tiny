@@ -5,26 +5,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <bean name="threadPoolTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="10"></property>
+        <property name="queueCapacity" value="100"></property>
+        <property name="maxPoolSize" value="25"></property>
+    </bean>
+
     <mvc:annotation-driven >
+        <mvc:async-support default-timeout="30000" task-executor="threadPoolTaskExecutor"/>
     </mvc:annotation-driven>
 
-   <!-- <mvc:annotation-driven>
-        <mvc:path-matching registered-suffixes-only="true" path-helper="xx" suffix-pattern="true" trailing-slash="true"></mvc:path-matching>
-        <mvc:argument-resolvers>
-            <bean class="xxx" ></bean>
-            <bean class="bbb"></bean>
-        </mvc:argument-resolvers>
-        <mvc:async-support default-timeout="30" task-executor="xx"></mvc:async-support>
-        <mvc:message-converters>
-            <bean class="xxx"></bean>
-        </mvc:message-converters>
-        <mvc:return-value-handlers>
-            <bean class="xx"></bean>
-        </mvc:return-value-handlers>
-    </mvc:annotation-driven>-->
-
-
-    <context:component-scan base-package="com.spring_101_200.test_181_190.test_185_spring_mvc"></context:component-scan>
+    <context:component-scan base-package="com.spring_101_200.test_181_190.test_186_spring_mvc_async"></context:component-scan>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"></property>

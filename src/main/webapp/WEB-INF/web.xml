@@ -8,7 +8,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring_101_200/config_181_190/spring185.xml</param-value>
+        <param-value>classpath:spring_101_200/config_181_190/spring186.xml</param-value>
     </context-param>
 
 
@@ -17,6 +17,7 @@
         <servlet-name>spring_tiny</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
     </servlet>
 
 
@@ -25,6 +26,19 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
