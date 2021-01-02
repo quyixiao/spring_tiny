@@ -8,6 +8,7 @@
     <mvc:annotation-driven validator="localValidatorFactoryBean"
     />
 
+
     <bean id="localValidatorFactoryBean" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <!--hibernate 校验器-->
         <property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
