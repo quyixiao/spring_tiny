@@ -6,6 +6,7 @@
 
 
     <mvc:annotation-driven validator="userValidator" message-codes-resolver="messageCodeResolver">
+
     </mvc:annotation-driven>
 
 
