@@ -15,6 +15,8 @@ import java.util.List;
 @RequestMapping("/test")
 public class TestController {
 
+
+    //https://blog.csdn.net/he90227/article/details/51537800
     @RequestMapping(value="/accounts", method= RequestMethod.GET,produces={"application/xml", "application/json"})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody List<Account> list() {
