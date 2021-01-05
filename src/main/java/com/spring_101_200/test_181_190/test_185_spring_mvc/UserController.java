@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 //在url后加的key-value的属性有限制作用
 @Controller
 @RequestMapping(value = {"/test"})
-public class UserController {
+public class UserController implements IBaseController{
 
 
     //如果是GET方法请求的话，就直接给用户返回登录的页面，此页面表单请求的方法为POST
