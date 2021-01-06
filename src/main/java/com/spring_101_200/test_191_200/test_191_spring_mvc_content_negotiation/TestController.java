@@ -17,7 +17,7 @@ public class TestController {
 
 
     //https://blog.csdn.net/he90227/article/details/51537800
-    @RequestMapping(value="/accounts", method= RequestMethod.GET,produces={"application/xml", "application/json"})
+    @RequestMapping(value="/accounts", method= RequestMethod.GET,produces={"application/xml", "application/json"},consumes = {})
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody List<Account> list() {
 

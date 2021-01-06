@@ -8,7 +8,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring_101_200/config_181_190/spring185.xml</param-value>
+        <param-value>classpath:spring_101_200/config_181_190/spring_185/spring185.xml</param-value>
     </context-param>
 
 

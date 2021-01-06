@@ -2,10 +2,7 @@ package com.spring_101_200.test_181_190.test_185_spring_mvc;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -24,6 +21,41 @@ public class UserController implements IBaseController{
     //如果是GET方法请求的话，就直接给用户返回登录的页面，此页面表单请求的方法为POST
     @RequestMapping(value = {"/login"},method = {RequestMethod.GET})
     public ModelAndView LoginGet(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+/*
+
+
+
+ @RequestMapping(value = {"/**"},method = {RequestMethod.GET})
+    public ModelAndView b2(@PathVariable("xx") Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+
+ @RequestMapping(value = {"/*"},method = {RequestMethod.GET})
+    public ModelAndView b2(@PathVariable("xx") Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = {"/b/{xx}"},method = {RequestMethod.GET})
+    public ModelAndView b2(@PathVariable("xx") Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+*/
+
+
+    @RequestMapping(value = {"/b/{id}"},method = {RequestMethod.GET})
+    public ModelAndView b1(@PathVariable("id") Integer id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         return modelAndView;
@@ -103,5 +135,14 @@ public class UserController implements IBaseController{
         modelAndView.setViewName("redirect:/test/main");
         return modelAndView;
     }
+
+
+
+    @RequestMapping(value ="${lo}",method = {RequestMethod.GET})
+    public String loginout(User user){
+        System.out.println(JSON.toJSONString(user));
+        return "loginout";
+    }
+
 
 }

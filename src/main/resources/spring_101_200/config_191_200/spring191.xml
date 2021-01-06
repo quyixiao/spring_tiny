@@ -13,6 +13,7 @@
         <property name="defaultContentType" value="text/html" />
         <property name="useJaf" value="false"/>
 
+
         <property name="mediaTypes">
             <map>
                 <entry key="html" value="text/html" />
