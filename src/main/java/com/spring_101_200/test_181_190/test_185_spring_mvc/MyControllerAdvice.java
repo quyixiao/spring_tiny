@@ -4,6 +4,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -18,6 +19,15 @@ public class MyControllerAdvice {
     protected void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Double.class, new DoubleEditor());
     }
+
+
+
+    @ModelAttribute("xxx")
+    protected String modelattr() {
+
+        return "bbb";
+    }
+
 
 
 

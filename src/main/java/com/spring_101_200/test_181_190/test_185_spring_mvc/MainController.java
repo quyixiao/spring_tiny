@@ -38,7 +38,7 @@ public class MainController {
     //第二种：使用@ModelAttribute注解
     //因为FlashMap是处理这个url的初始化数据模型，所以可以通过这个注解拿到FlashMap的属性
 
-    @RequestMapping(value = {"/main"}, method = {RequestMethod.POST})
+    @RequestMapping(value = {"/main2"})
     public String PostMain(
             @AttrValue(value = {"zhangsan"},desc = "用户名")@ModelAttribute(value = "userName") String userName,
                            @ModelAttribute(value = "password") String password) {

@@ -103,6 +103,7 @@ public class UserController implements IBaseController {
     }
 
 
+
     @RequestMapping(value = {"/query"}, method = {RequestMethod.GET})
     public String query(String username, User user) {
         System.out.println(username);
