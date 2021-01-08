@@ -15,18 +15,45 @@ import java.util.Date;
 public class MyControllerAdvice {
 
 
+/*
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Double.class, new DoubleEditor());
     }
 
+*/
 
 
     @ModelAttribute("xxx")
-    protected String modelattr() {
-
-        return "bbb";
+    protected String modelXXX(String ccc,User user  ) {
+        if("cccc".equals(ccc)){
+            return "return cccc";
+        }else{
+            return "return default cccc";
+        }
     }
+
+
+  /*  @ModelAttribute("yyy")
+    protected String modelYYY(@ModelAttribute("ddd") String ddd ) {
+        if("dddd".equals(ddd)){
+            return "return dddd";
+        }else{
+            return "return default";
+        }
+    }
+
+*/
+/*
+    @ModelAttribute("xxx")
+    protected String modelYYY(@ModelAttribute("ddd") String ddd ) {
+        if("dddd".equals(ddd)){
+            return "return dddd";
+        }else{
+            return "return default dddd";
+        }
+    }
+*/
 
 
 
