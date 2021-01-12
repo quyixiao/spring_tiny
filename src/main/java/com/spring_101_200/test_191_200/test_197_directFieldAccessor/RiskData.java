@@ -5,8 +5,6 @@ import java.util.Map;
 
 public class RiskData {
 
-    @IColumn(tableName = "lsd_user", column = "password", defaultValue = "123456", desc = "用户密码")
-    private String password;
 
     // mapping：为映射成风控的字段，convertService为类型转换器，dateFormate为日期格式，sql 表示我们要查询数据库的 sql,defaultValue表示，如果数据库中没有，则取该值传风控
     @ISelects({
