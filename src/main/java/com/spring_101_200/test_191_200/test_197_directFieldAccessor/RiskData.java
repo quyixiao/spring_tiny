@@ -1,31 +1,30 @@
 package com.spring_101_200.test_191_200.test_197_directFieldAccessor;
 
 
-@IWheres({
-        @IWhere(tableName = "lsd_user", columns = {"id", "username"}, values = {"id", "userName"}),
-        @IWhere(tableName = "lsd_user_log", columns = "id", values = "id")
-})
+import java.util.Map;
+
 public class RiskData {
 
-    @ITable(tableName = "lsd_user", column = "password")
+    @IColumn(tableName = "lsd_user", column = "password", defaultValue = "123456", desc = "用户密码")
     private String password;
 
-    @ITable(tableName = "lsd_user",
-            columns = {"id", "username", "password"},
-            values = {"id", "userName", "password"}
+    // mapping：为映射成风控的字段，convertService为类型转换器，dateFormate为日期格式，sql 表示我们要查询数据库的 sql,defaultValue表示，如果数据库中没有，则取该值传风控
+    @ISelects({
+            @ISelect(sql = "select gmt_create from lz_user where id = #{id}", mapping = "gmtCreate", dateFormate = "yyyy-MM-dd", desc = "用户注册时间"),
+            @ISelect(sql = "select gmt_create from lz_user_log where id = #{id}", mapping = "user", convertService = IDateConvert.class, desc = "用户最后一次登陆时间")
+    }
     )
-    @ISelect(sqls = {
-            "select username from lz_user where username = #{username}",
-            "select gmt_create from lz_user_log where password = #{userId}",
-        },
-            values = {
-                "userName",
-                "createTime"
-        }
-    )
-    private String map;
-
-    @ISelect("select username as userName from lz_user where id=#{id} and username=#{username}")
-    private String logInfo;
+    // #{userName} ，#{id}表示方法返回值
+    @ITables({
+            @ITable(tableName = "lsd_user",value = User.class, wheres = {
+                    @IWhere(column = "username", value = "#{userName}"),
+                    @IWhere(column = "id", value = "#{id}"),
+            }
+            ),
+            @ITable(tableName = "lsd_user_log", value = User.class,columns = {
+                    @IColumn(column = "username", mapping = "userName", defaultValue = "1")
+            })
+    })
+    private Map<String, Object> map;
 
 }

@@ -1,6 +1,9 @@
 package com.spring_101_200.test_181_190.test_185_spring_mvc;
 
 import com.alibaba.fastjson.JSON;
+import com.spring_101_200.test_191_200.test_197_directFieldAccessor.IRiskEvent;
+import com.spring_101_200.test_191_200.test_197_directFieldAccessor.RiskData;
+import org.apache.ibatis.annotations.ResultMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -126,7 +129,7 @@ public class UserController implements IBaseController {
 
     private static final String CURRENT_USER = "Now_user";
 
-    // http://localhost:8080/test/login.htm?userName=zhangsan&password=lizi
+    // http://localhost:8080/test/login.htm?username=zhangsan&password=lizi
     @RequestMapping(value = {"login"}, method = {RequestMethod.POST})
     //让请求的url后面必须跟上一个叫做userName的属性，是用户的用户名
     public ModelAndView LoginPost(@RequestParam(value = "userName") String userName,
@@ -169,9 +172,12 @@ public class UserController implements IBaseController {
     }
 
 
+
     @RequestMapping(value = "${lo}", method = {RequestMethod.GET})
     public String loginout(User user) {
         System.out.println(JSON.toJSONString(user));
+
+
         return "loginout";
     }
 

@@ -1,7 +1,6 @@
 package com.spring_101_200.test_121_130.test_125_mybatis_properties;
 
-import org.apache.ibatis.annotations.MapKey;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.session.ResultHandler;
 
 import java.util.List;
@@ -21,8 +20,7 @@ public interface UserMapper {
     void getUserByResultHandler(@Param("id") long id, ResultHandler resultHandler);
 
 
-
-
+    @ResultType(User.class)
     User getUserByUser(User user);
 
 

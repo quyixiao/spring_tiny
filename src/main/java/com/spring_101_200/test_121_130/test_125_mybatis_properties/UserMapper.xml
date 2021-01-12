@@ -48,7 +48,7 @@
         select * from lz_user where id = #{id}
     </select>
 
-    <resultMap id="userBillResult" type="com.spring_101_200.test_121_130.test_125_mybatis_properties.UserInfo">
+    <resultMap id="userBillResult" type="com.spring_101_200.test_121_130.test_125_mybatis_properties.UserInfo" >
         <id property="id" column="id"/>
         <collection property="billList" columnPrefix="user"
                     ofType="com.spring_101_200.test_121_130.test_125_mybatis_properties.UserBill">
