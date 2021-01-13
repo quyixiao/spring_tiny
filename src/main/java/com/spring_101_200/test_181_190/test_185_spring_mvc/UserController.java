@@ -67,6 +67,12 @@ public class UserController implements IBaseController {
     }
 
 
+/*    @InitBinder
+    public void setAllowedFields(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+        dataBinder.setAllowedFields("id");
+    }*/
+
     @InitBinder("user")
     public void initBinderUser(WebDataBinder binder) {
         binder.setFieldDefaultPrefix("user.");
@@ -132,7 +138,7 @@ public class UserController implements IBaseController {
     // http://localhost:8080/test/login.htm?username=zhangsan&password=lizi
     @RequestMapping(value = {"login"}, method = {RequestMethod.POST})
     //让请求的url后面必须跟上一个叫做userName的属性，是用户的用户名
-    public ModelAndView LoginPost(@RequestParam(value = "userName") String userName,
+    public ModelAndView LoginPost(@RequestParam(value = "userName" ,required = true) String userName,
                                   //请求的url后必须跟上password属性，为用户当前的密码
                                   @RequestParam(value = "password") String password,
                                   //Spring MVC框架集成了Servlet请求响应等一系列参数，可以在有需要的时候使用

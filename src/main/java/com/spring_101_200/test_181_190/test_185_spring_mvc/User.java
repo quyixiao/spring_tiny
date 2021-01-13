@@ -8,6 +8,15 @@ public class User {
 
     private UserInfo userInfo;
 
+    private String [] alias ;
+
+    public String[] getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String[] alias) {
+        this.alias = alias;
+    }
 
     public String getUsername() {
         return username;
