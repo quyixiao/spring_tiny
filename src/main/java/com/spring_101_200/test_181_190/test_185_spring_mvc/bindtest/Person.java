@@ -14,5 +14,11 @@ public class Person {
     private String[] catNames;
     private Map<String, Object> computeMaps;
     private List<Shoes> shoesList;
+    private String bs[][];
+    private String cs[][][];
+
+    private Map<String, Map<Integer,Double>> userInfos;
+
+    private Map<String, Map<Integer,Map<Long,Double>>> logs;
 
 }

@@ -5,7 +5,9 @@ import org.springframework.beans.PropertyAccessor;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 import org.springframework.util.StringUtils;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestAdapter {
@@ -25,6 +27,24 @@ public class TestAdapter {
             System.out.println(handlerAdapter.getClass().getSimpleName());
         }
     }
+
+
+
+
+
+    @Test
+    public void test4() {
+        String [][] a = new String[][]{};
+        Class componentType = a.getClass().getComponentType();
+        if(componentType.isArray()){
+            System.out.println("是二维数组类型");
+        }else{
+            System.out.println("是一维数组类型");
+        }
+
+
+    }
+
 
 
     @Test
@@ -94,15 +114,12 @@ public class TestAdapter {
         return -1;
     }
 
-
     @Test
     public void test3() {
-        PropertyTokenHolder tokenHolder = getPropertyNameTokens("[[abc]]");
+        PropertyTokenHolder tokenHolder = getPropertyNameTokens("names[0][1]");
         System.out.println(tokenHolder.canonicalName);
         System.out.println(tokenHolder.actualName);
-        for (String key : tokenHolder.keys) {
-            System.out.println("=======" + key);
-        }
+        System.out.println(Arrays.toString(tokenHolder.keys));
     }
 
 
@@ -167,5 +184,6 @@ public class TestAdapter {
      */
     String PROPERTY_KEY_SUFFIX = "]";
     char PROPERTY_KEY_SUFFIX_CHAR = ']';
+
 
 }

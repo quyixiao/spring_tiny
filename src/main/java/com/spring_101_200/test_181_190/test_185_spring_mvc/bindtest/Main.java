@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.validation.DataBinder;
 
+import java.lang.reflect.Array;
+
 //https://blog.csdn.net/qq_41907991/article/details/105333258
 public class Main {
     private Person person = new Person();
@@ -45,7 +47,20 @@ public class Main {
     @Test
     public void test3() {        //{"computeMaps":{"zhangsan":"dmz0","wangwu":"dmz1"}}
         pvs.add("computeMaps[zhangsan]", "dmz0");
-        pvs.add("computeMaps[wangwu]", "dmz1");
+        binder.bind(pvs);
+        System.out.println(JSON.toJSONString(person));
+    }
+
+    @Test
+    public void test3_1() {
+        pvs.add("userInfos[zhangsan][1]", "2.0");
+        binder.bind(pvs);
+        System.out.println(JSON.toJSONString(person));
+    }
+
+    @Test
+    public void test3_2() {
+        pvs.add("logs[zhangsan][1][2]", "3");
         binder.bind(pvs);
         System.out.println(JSON.toJSONString(person));
     }
@@ -58,6 +73,30 @@ public class Main {
         System.out.println(JSON.toJSONString(person));
     }
 
+
+    @Test
+    public void test5() {
+        String [][] c = {{"a"}};
+        pvs.add("bs[0][0]", c);
+        binder.bind(pvs);
+        System.out.println(JSON.toJSONString(person));
+    }
+
+    @Test
+    public void test6 (){
+        String[][]b = new String[2][2];
+        String [] c = {"a"};
+
+        Array.set(b, 1, c);
+    }
+
+    @Test
+    public void test7() {
+        String [][][] c = {{{"a"}}};
+        pvs.add("cs[0][0][0]", c);
+        binder.bind(pvs);
+        System.out.println(JSON.toJSONString(person));
+    }
 
 }
 
