@@ -31,10 +31,7 @@ public class UserController implements IBaseController {
     }
 
 /*
-
-
-
- @RequestMapping(value = {"/**"},method = {RequestMethod.GET})
+    @RequestMapping(value = {"/**"},method = {RequestMethod.GET})
     public ModelAndView b2(@PathVariable("xx") Integer id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
