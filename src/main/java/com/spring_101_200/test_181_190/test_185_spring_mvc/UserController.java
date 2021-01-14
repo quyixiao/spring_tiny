@@ -1,9 +1,6 @@
 package com.spring_101_200.test_181_190.test_185_spring_mvc;
 
 import com.alibaba.fastjson.JSON;
-import com.spring_101_200.test_191_200.test_197_directFieldAccessor.IRiskEvent;
-import com.spring_101_200.test_191_200.test_197_directFieldAccessor.RiskData;
-import org.apache.ibatis.annotations.ResultMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -182,8 +179,14 @@ public class UserController implements IBaseController {
     @RequestMapping(value = "${lo}", method = {RequestMethod.GET})
     public String loginout(User user) {
         System.out.println(JSON.toJSONString(user));
+        return "loginout";
+    }
 
 
+    @RequestMapping(value = "/multi/body", method = {RequestMethod.POST})
+    public String multiBody(@MultiRequestBody User user, @MultiRequestBody UserInfo userInfo) {
+        System.out.println("user:" + JSON.toJSONString(user));
+        System.out.println("userInfo:" + JSON.toJSONString(userInfo));
         return "loginout";
     }
 
